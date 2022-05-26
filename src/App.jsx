@@ -7,7 +7,7 @@ function App() {
     <>
       <Navbar/>
       <Navbar2/>
-     {/* <div>Hola Mundo</div> */}
+     <div>Hola Mundo</div>
     </>
   )
 }
