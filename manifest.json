@@ -1,0 +1,16 @@
+{
+    "background_color": "#000000",
+    "description": "Quantum. Un solucion para el comercio libre.",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "./MobileIcon.png",
+        "sizes": "64x64 32x32 24x24 16x16",
+        "type": "image/png"
+      }
+    ],
+    "name": "Quantum",
+    "short_name": "Quantum",
+    "start_url": "/",
+    "theme_color": "#000000"
+  }
