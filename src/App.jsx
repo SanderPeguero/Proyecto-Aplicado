@@ -1,7 +1,7 @@
+import {HashRouter as Router, Routes, Route, Link}   from "react-router-dom"
 import Navbar from './Components/Navbar/Navbar'
 import Store from './Components/Store/Store'
-import {HashRouter as Router, Routes, Route, Link}   from "react-router-dom"
-
+import Chat from './Components/Chat/Chat'
 
 function App() {
 
@@ -16,6 +16,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Store/>}></Route>
           <Route exact path='/store' element={<Store/>}></Route>
+          <Route exact part='/chat' element={<Chat></Chat>}></Route>
         </Routes>
       </main>
     </Router>
