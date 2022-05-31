@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { style } from '@mui/system';
 import styles from './Navbar.module.css'
+import logo from '../../../Logo.png'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -69,7 +70,7 @@ const Search = styled('div')(({ theme }) => ({
               aria-label="open drawer"
               sx={{ mr: 2 }}
             >
-              <img src="/../../Logo.png" alt="" style={{height: '2.6rem', width: '3rem', alignSelf: 'start'}}/>
+              <img src={logo} alt="" style={{height: '2.6rem', width: '3rem', alignSelf: 'start'}}/>
             </IconButton>
             <Typography
               variant="h6"
