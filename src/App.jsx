@@ -1,13 +1,23 @@
-import Navbar from './Components/Navbar'
-import Navbar2 from './Components/Navbar2'
+import Navbar from './Components/Navbar/Navbar'
+import Store from './Components/Store/Store'
+import {BrowserRouter as Router, Routes, Route, Link}   from "react-router-dom"
+
 
 function App() {
 
   return (
     <>
-      <Navbar/>
-      <Navbar2/>
-     <div>Hola Mundo</div>
+    <Router>
+      <header>
+        <Navbar/>
+      </header>
+      <main style={{margin: '0', overflow: 'hidden'}}>
+
+        <Routes>
+          <Route exact path='/store' element={<Store/>}></Route>
+        </Routes>
+      </main>
+    </Router>
     </>
   )
 }

@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { style } from '@mui/system';
+import styles from './Navbar.module.css'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -51,17 +53,48 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-  const Navbar2 = () => {
+  const Navbar = () => {
       return (
         <Box sx={{ flexGrow: 1 }} style={{zIndex: '1'}}>
             <AppBar position="static" 
-                style={{background: '#141418', 
-                        height: '5rem',
-                        boxShadow: 'none'}
-            }>
-            <Toolbar style={{alignSelf: 'end', height: '-webkit-fill-available'}}>
-
-                <Search >
+                style={{background: '#000000', 
+                height: '5rem',
+                boxShadow: 'none'}
+              }>
+            <Toolbar style={{ height: '-webkit-fill-available', marginLeft: '1rem'}}>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <img src="../../Logo.png" alt="" style={{height: '2.6rem', width: '3rem', alignSelf: 'start'}}/>
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            >
+            {/* <link href="/movies" className="nav-link" placeholder='Store'/> */}
+            {/* <a href="/store" style={{marginRight:'1rem'}}>Store</a>
+            <a href="/chat" style={{marginRight:'1rem'}}>Chat</a>
+            <a href="/wallet" style={{marginRight:'1rem'}}>Wallet</a> */}
+                {/* Store
+            </link> */}
+            <a href="/store" className={styles.navbarLink}>
+                Store
+            </a>
+            <a href="/chat" className={styles.navbarLink}>
+                Chat
+            </a>
+            <a href="/wallet" className={styles.navbarLink}>
+                Wallet
+            </a>
+          
+            </Typography>
+                <Search style={{}}>
                 <SearchIconWrapper>
                     <SearchIcon />
                 </SearchIconWrapper>
@@ -78,4 +111,4 @@ const Search = styled('div')(({ theme }) => ({
   }
 
 
-  export default Navbar2
+  export default Navbar
