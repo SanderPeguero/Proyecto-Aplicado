@@ -69,6 +69,7 @@ const Search = styled('div')(({ theme }) => ({
               color="inherit"
               aria-label="open drawer"
               sx={{ mr: 2 }}
+              href="#/"
             >
               <img src={logo} alt="" style={{height: '2.6rem', width: '3rem', alignSelf: 'start'}}/>
             </IconButton>

@@ -14,6 +14,7 @@ function App() {
       <main style={{margin: '0', overflow: 'hidden'}}>
 
         <Routes>
+          <Route exact path='/' element={<Store/>}></Route>
           <Route exact path='/store' element={<Store/>}></Route>
         </Routes>
       </main>
