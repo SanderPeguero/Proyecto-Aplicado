@@ -59,7 +59,7 @@ export default function RecipeReviewCard() {
       <CardMedia
         component="img"
         height="250"
-        image="/src/Images/Camera.jpg"
+        image="src/Images/Camera.jpg"
         alt="Paella dish"
       />
       <CardContent >

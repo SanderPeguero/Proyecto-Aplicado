@@ -69,7 +69,7 @@ const Search = styled('div')(({ theme }) => ({
               aria-label="open drawer"
               sx={{ mr: 2 }}
             >
-              <img src="../../Logo.png" alt="" style={{height: '2.6rem', width: '3rem', alignSelf: 'start'}}/>
+              <img src="/../../Logo.png" alt="" style={{height: '2.6rem', width: '3rem', alignSelf: 'start'}}/>
             </IconButton>
             <Typography
               variant="h6"
