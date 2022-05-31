@@ -1,6 +1,6 @@
 import Navbar from './Components/Navbar/Navbar'
 import Store from './Components/Store/Store'
-import {BrowserRouter as Router, Routes, Route, Link}   from "react-router-dom"
+import {HashRouter as Router, Routes, Route, Link}   from "react-router-dom"
 
 
 function App() {

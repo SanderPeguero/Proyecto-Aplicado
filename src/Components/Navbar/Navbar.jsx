@@ -83,13 +83,13 @@ const Search = styled('div')(({ theme }) => ({
             <a href="/wallet" style={{marginRight:'1rem'}}>Wallet</a> */}
                 {/* Store
             </link> */}
-            <a href="/store" className={styles.navbarLink}>
+            <a href="#/store" className={styles.navbarLink}>
                 Store
             </a>
-            <a href="/chat" className={styles.navbarLink}>
+            <a href="#/chat" className={styles.navbarLink}>
                 Chat
             </a>
-            <a href="/wallet" className={styles.navbarLink}>
+            <a href="#/wallet" className={styles.navbarLink}>
                 Wallet
             </a>
           
