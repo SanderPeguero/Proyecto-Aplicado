@@ -114,13 +114,25 @@ const Search = styled('div')(({ theme }) => ({
                     inputProps={{ 'aria-label': 'search' }}
                 />
                 </Search>
-                <ButtonUnstyled onClick={handleOpenSigIn} className={styles.navbarLink} style={{fontSize: '1.15rem', 
-                fontfamily: 'arial', textTransform: 'none', background: 'none', padding: '0' }}>
+                <ButtonUnstyled onClick={handleOpenSigIn} className={styles.navbarLink} style={{
+                  fontSize: '1.15rem', 
+                  fontfamily: 'arial',
+                  textTransform: 'none',
+                  background: 'none',
+                  border: '0',
+                  padding: '0'
+                }}>
                   Sign In
                 </ButtonUnstyled>
 
-                <ButtonUnstyled onClick={handleOpenLogin} className={styles.navbarLink} style={{fontSize: '1.15rem', 
-                fontfamily: 'arial', textTransform: 'none', background: 'none', padding: '0' }}>
+                <ButtonUnstyled onClick={handleOpenLogin} className={styles.navbarLink} style={{
+                  fontSize: '1.15rem', 
+                  fontfamily: 'arial',
+                  textTransform: 'none',
+                  background: 'none',
+                  border: '0',
+                  padding: '0'
+                }}>
                   Log In
                 </ButtonUnstyled>
 
