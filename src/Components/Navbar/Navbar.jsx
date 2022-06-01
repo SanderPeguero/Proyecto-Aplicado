@@ -13,6 +13,8 @@ import styles from './Navbar.module.css'
 import logo from '../../../Logo.png'
 import Button from '@mui/material/Button';
 import ButtonUnstyled from '@mui/base/ButtonUnstyled';
+import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartCheckoutRounded';
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -56,10 +58,11 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-  const Navbar = ({ setOpenSignIn, setOpenLogin }) => {
+  const Navbar = ({ setOpenSignIn, setOpenLogin , setOpenCarShop}) => {
 
       const handleOpenSigIn = () => setOpenSignIn(true);
       const handleOpenLogin = () => setOpenLogin(true);
+      const handleOpenCarShop = () => setOpenCarShop(true);
 
       return (
         <Box sx={{ flexGrow: 1 }} style={{zIndex: '1'}}>
@@ -105,15 +108,21 @@ const Search = styled('div')(({ theme }) => ({
             </a>
           
             </Typography>
-                <Search style={{}}>
+                <Search style={{width: '500px'}}>
                 <SearchIconWrapper>
                     <SearchIcon />
                 </SearchIconWrapper>
+                
                 <StyledInputBase
                     placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }}
+                    inputProps={{ 'aria-label': 'search'}}
                 />
                 </Search>
+                <ButtonUnstyled onClick={handleOpenCarShop} className={styles.navbarLink} style={{fontSize: '1.15rem', 
+                fontfamily: 'arial', textTransform: 'none', background: 'none', padding: '0' }}>
+                  <ShoppingCartCheckoutRoundedIcon></ShoppingCartCheckoutRoundedIcon>
+                </ButtonUnstyled>
+
                 <ButtonUnstyled onClick={handleOpenSigIn} className={styles.navbarLink} style={{fontSize: '1.15rem', 
                 fontfamily: 'arial', textTransform: 'none', background: 'none', padding: '0' }}>
                   Sign In
@@ -123,7 +132,7 @@ const Search = styled('div')(({ theme }) => ({
                 fontfamily: 'arial', textTransform: 'none', background: 'none', padding: '0' }}>
                   Log In
                 </ButtonUnstyled>
-
+                {/* <img src={Avatar} /> */}
             </Toolbar>
             </AppBar>
         </Box>
