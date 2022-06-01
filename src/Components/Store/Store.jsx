@@ -4,49 +4,50 @@ import styles from './Store.module.css'
 
 
 const Store = () => {
-    
-    return (
-        <ul className={styles.ul}>  
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            <li className={styles.li}>
-              <Card/>
-            </li>
-            
-            
-          </ul>
-    )
+
+  return (
+    <ul className={styles.ul}>
+      <li className={styles.li}>
+        <Card />
+       
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+      <li className={styles.li}>
+        <Card />
+      </li>
+
+
+    </ul>
+  )
 
 }
 
