@@ -8,9 +8,11 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { style } from '@mui/system';
+import { color, style } from '@mui/system';
 import styles from './Navbar.module.css'
 import logo from '../../../Logo.png'
+import Button from '@mui/material/Button';
+import ButtonUnstyled from '@mui/base/ButtonUnstyled';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -54,7 +56,11 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-  const Navbar = () => {
+  const Navbar = ({ setOpenSignIn, setOpenLogin }) => {
+
+      const handleOpenSigIn = () => setOpenSignIn(true);
+      const handleOpenLogin = () => setOpenLogin(true);
+
       return (
         <Box sx={{ flexGrow: 1 }} style={{zIndex: '1'}}>
             <AppBar position="static" 
@@ -85,6 +91,9 @@ const Search = styled('div')(({ theme }) => ({
             <a href="/wallet" style={{marginRight:'1rem'}}>Wallet</a> */}
                 {/* Store
             </link> */}
+            <a href="#/" className={styles.navbarLink}>
+                Home
+            </a>
             <a href="#/store" className={styles.navbarLink}>
                 Store
             </a>
@@ -93,9 +102,6 @@ const Search = styled('div')(({ theme }) => ({
             </a>
             <a href="#/wallet" className={styles.navbarLink}>
                 Wallet
-            </a>
-            <a href="#/Login" className = {styles.navbarLink}>
-              Log in
             </a>
           
             </Typography>
@@ -108,6 +114,15 @@ const Search = styled('div')(({ theme }) => ({
                     inputProps={{ 'aria-label': 'search' }}
                 />
                 </Search>
+                <ButtonUnstyled onClick={handleOpenSigIn} className={styles.navbarLink} style={{fontSize: '1.15rem', 
+                fontfamily: 'arial', textTransform: 'none', background: 'none', padding: '0' }}>
+                  Sign In
+                </ButtonUnstyled>
+
+                <ButtonUnstyled onClick={handleOpenLogin} className={styles.navbarLink} style={{fontSize: '1.15rem', 
+                fontfamily: 'arial', textTransform: 'none', background: 'none', padding: '0' }}>
+                  Log In
+                </ButtonUnstyled>
 
             </Toolbar>
             </AppBar>
