@@ -94,6 +94,9 @@ const Search = styled('div')(({ theme }) => ({
             <a href="#/wallet" className={styles.navbarLink}>
                 Wallet
             </a>
+            <a href="#/Login" className = {styles.navbarLink}>
+              Log in
+            </a>
           
             </Typography>
                 <Search style={{}}>
