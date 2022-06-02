@@ -1,22 +1,18 @@
 import React from "react";
-// import ButtonGroup from "@material-ui/core/ButtonGroup";
-// import Badge from "@material-ui/core/Badge";
-// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-// import Button from "@material-ui/core/Button";
-// import AddIcon from "@material-ui/icons/Add";
-// import RemoveIcon from "@material-ui/icons/Remove";
-  
- function CarShop() {
-  const [itemCount, setItemCount] = React.useState(1);
-  
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Badge from '@mui/material/Badge';
+import Button from "@mui/material/Button";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCartCheckoutRounded';
+
+function CarShop({itemCount, setItemCount}) {
+  //const [itemCount, setItemCount] = React.useState(0);
+
   return (
-    <div style={{ color: "black"}}>
-      <h4>How to create ShoppingCart Button in ReactJS?</h4>
-      
-      {/* <div>
-        <Badge color="secondary" badgeContent={itemCount}>
-          <ShoppingCartIcon />{" "}
-        </Badge>
+    <div style={{ color: "black" }}>
+      {/* <h4>How to create ShoppingCart Button in ReactJS?</h4> */}
+      <div>
         <ButtonGroup>
           <Button
             onClick={() => {
@@ -35,7 +31,7 @@ import React from "react";
             <AddIcon fontSize="small" />
           </Button>
         </ButtonGroup>
-      </div> */}
+      </div>
     </div>
   );
 }

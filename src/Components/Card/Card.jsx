@@ -16,6 +16,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 import Camera from '../../Images/Camera.jpg'
+import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartCheckoutRounded';
+import CarShop from '../CarShop/CarShop.jsx'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -28,8 +30,9 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setItemCount }) {
   const [expanded, setExpanded] = React.useState(false);
+  const handleOpenCarShop = () => setOpenCarShoppping(true);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -37,25 +40,25 @@ export default function RecipeReviewCard() {
 
   return (
     <Card sx={{ maxWidth: 345 }} style={{
-        background: 'black',
-        color: 'rgb(255 255 255 / 87%)',
-        overflow: 'hidden'
+      background: 'black',
+      color: 'rgb(255 255 255 / 87%)',
+      overflow: 'hidden'
     }}>
       <CardHeader
-        style={{color: 'white'}}
+        style={{ color: 'white' }}
         avatar={
-          <Avatar sx={{ bgcolor: '#ffffff' }} aria-label="recipe" style={{color: 'black'}}>
-            
+          <Avatar sx={{ bgcolor: '#ffffff' }} aria-label="recipe" style={{ color: 'black' }}>
+
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings" style={{color: 'white'}}>
+          <IconButton aria-label="settings" style={{ color: 'white' }}>
             <MoreVertIcon />
           </IconButton>
         }
         title="Shrimp and Chorizo Paella"
         color='white'
-        
+
       />
       <CardMedia
         component="img"
@@ -71,8 +74,13 @@ export default function RecipeReviewCard() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing >
-        <Button variant="contained" style={{backgroundColor: '#00a9d1', color: 'black'}}>
-            Comprar
+        <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
+          Comprar
+        </Button>
+        <CarShop itemCount={ItemCount} setItemCount={setItemCount} />
+        <Button onClick={handleOpenCarShop} variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
+          <ShoppingCartCheckoutRoundedIcon />
+
         </Button>
         {/* <IconButton aria-label="add to favorites" style={{color: 'white'}}>
           <FavoriteIcon />
@@ -85,7 +93,7 @@ export default function RecipeReviewCard() {
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
-          style={{color: 'white'}}
+          style={{ color: 'white' }}
         >
           <ExpandMoreIcon />
         </ExpandMore>

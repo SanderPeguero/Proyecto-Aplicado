@@ -3,44 +3,44 @@ import Card from '../Card/Card'
 import styles from './Store.module.css'
 
 
-const Store = () => {
+const Store = ({ ItemCount, setItemCount }) => {
   return (
     <ul className={styles.ul}>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
       <li className={styles.li}>
-        <Card />
+        <Card ItemCount={ItemCount} setItemCount = {setItemCount}/>
       </li>
 
 

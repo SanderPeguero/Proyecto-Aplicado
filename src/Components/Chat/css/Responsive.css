@@ -1,0 +1,49 @@
+.hamburger{
+    position: absolute;
+    z-index: 169;
+    top:12px;
+    left:12px;
+    display: none;
+}
+@media screen and (max-width:762px){
+    .leftbar{
+        display: none;
+        height: 90vh;
+    }
+    .hamburger{
+        display: block;
+    }
+    .navbarmenu{
+        margin-left: 34px;
+    }
+    .roomdetails{
+        padding-left: 42px;
+    }
+    .chat__body__message{
+        width: 90%;
+    }
+    .chat__footer {
+        width:96vw;
+    }
+    .messageboxcont{
+        margin-left: 9px;
+    }
+}
+@media screen and (max-width:762px){
+    .fontemmm{
+        font-size: 0.85em;
+        width: 175px;
+    }
+    .tieemmm{
+        font-size: 12px;
+        width: 150px;
+    }
+}
+.navbarmenu{
+    height:49px;
+    border-bottom:1.98px solid rgb(26,26,26);
+    display:flex;
+    align-items:center;
+    padding-left: 35px;
+    width: 100%;
+}
