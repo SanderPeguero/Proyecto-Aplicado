@@ -119,9 +119,15 @@ const Search = styled('div')(({ theme }) => ({
                 />
                 </Search>
 
-                <ButtonUnstyled onClick={handleOpenCarShop} className={styles.navbarLink} style={{fontSize: '1.15rem', 
-                fontfamily: 'arial', textTransform: 'none', background: 'none', padding: '0' }}>
-                  <ShoppingCartCheckoutRoundedIcon></ShoppingCartCheckoutRoundedIcon>
+                <ButtonUnstyled onClick={handleOpenCarShop} className={styles.navbarLink} style={{
+                  fontSize: '1.15rem', 
+                  fontfamily: 'arial',
+                  textTransform: 'none',
+                  background: 'none',
+                  border: '0',
+                  padding: '0' 
+                }}>
+                  <ShoppingCartCheckoutRoundedIcon/>
                 </ButtonUnstyled>
 
                 <ButtonUnstyled onClick={handleOpenSigIn} className={styles.navbarLink} style={{
