@@ -3,10 +3,10 @@ import { HashRouter as Router, Routes, Route, Link } from "react-router-dom"
 import Navbar from './Components/Navbar/Navbar'
 import Store from './Components/Store/Store'
 import Chat from './Components/Chat/Chat'
-import Login from './Components/Login/Login'
 import Home from './Components/Home/Home.jsx'
 import ModalLogIn from './Components/Modal/ModalLogin.jsx'
 import ModalSigIn from './Components/Modal/ModalSigIn.jsx'
+import ModalCraShop from './Components/Modal/ModalCarShop.jsx'
 
 const style = {
   position: 'absolute',
@@ -25,14 +25,16 @@ const App = () => {
 
   const [openSignIn, setOpenSignIn] = React.useState(false);
   const [openLogIn, setOpenLogIn] = React.useState(false);
+  const [openCarShop, setOpenCarShop] = React.useState(false);
 
   return (
     <>
       <Router>
         <header>
-          <Navbar setOpenLogin={setOpenLogIn} setOpenSignIn={setOpenSignIn} />
+          <Navbar setOpenLogin={setOpenLogIn} setOpenSignIn={setOpenSignIn} setOpenCarShop = {setOpenCarShop}/>
           <ModalSigIn open={openSignIn} setOpen={setOpenSignIn} />
           <ModalLogIn open={openLogIn} setOpen={setOpenLogIn} />
+          <ModalCraShop open={openCarShop} setOpen={setOpenCarShop}/>
 
         </header>
         <main style={{ margin: '0', overflow: 'hidden' }}>
