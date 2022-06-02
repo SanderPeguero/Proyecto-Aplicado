@@ -31,7 +31,7 @@ const App = () => {
   const [openLogIn, setOpenLogIn] = useState(false);
   const [openCarShop, setOpenCarShop] = useState(false);
   const [openChat, setOpenChat] = useState(false);
-  const [ItemCount, setItemCount] = useState(1);
+  const [ItemCount, setItemCount] = useState(0);
 
 
 
