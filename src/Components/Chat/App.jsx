@@ -7,7 +7,7 @@ import { Leftbar } from './Leftbar';
 
 function App() {
   const [user, setUser] = useState(null)
-  const [room, setroom] = useState(null)
+  const [room, setroom] = useState('store')
   useEffect(() => {
     if(localStorage.getItem('user')){
       setUser(JSON.parse(localStorage.getItem('user')))
@@ -36,13 +36,13 @@ function App() {
     localStorage.removeItem('room')
   }
   return (
-    <div className="App">
+    <div className="App" style={{ boxShadow: 'none', height: '30rem', width: '30rem', marginRight: '0', marginBottom: '10px', background: '#252329' }}>
       {
         (!user) ?
           (<Login getuser={setgetuser} />) :
-          (room ? (<div className="app__cont">
-            <Leftbar photo={user.photoURL} logout={handlelogout} name={user.displayName} roomid={room} switchroom={roomswitch} />
-            <Chat photo={user.photoURL} logout={handlelogout} name={user.displayName} roomid={room} switchroom={roomswitch} a />
+          (room ? (<div className="app__cont" style={{ boxShadow: 'none', marginBottom: '10px', background: '#252329' }}>
+            {/* <Leftbar photo={user.photoURL} logout={handlelogout} name={user.displayName} roomid={room} switchroom={roomswitch} /> */}
+            <Chat photo={user.photoURL} logout={handlelogout} name={user.displayName} roomid={room} switchroom={roomswitch} style={{ marginBottom: '10px'}} />
           </div>) : <Room roomfunc={roomfunc} photo={user.photoURL} name={user.displayName} />
           )
       }

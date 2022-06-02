@@ -114,7 +114,7 @@ function Chat(props) {
         );
     }
     return (
-        <div className='chatbox'>
+        <div className='chatbox' style={{ marginRight: '10px'}}>
             <Toaster />
             <div className="chat__header" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
 
@@ -131,8 +131,8 @@ function Chat(props) {
                     message.map((item, index) => {
                         return (
                             <div className="messageboxcont">
-                                <img style={{ width: '38px',height:'40px', borderRadius: '7px', marginTop: '-6px',marginRight:'9px',marginLeft:'1.25vw' }} src={`https://avatars.dicebear.com/api/adventurer-neutral/${item.name}.svg`} alt="" />
-                                <div className="messagebox">
+                                {/* <img style={{ width: '38px',height:'40px', borderRadius: '7px', marginTop: '-6px',marginRight:'9px',marginLeft:'1.25vw' }} src={`https://avatars.dicebear.com/api/adventurer-neutral/${item.name}.svg`} alt="" /> */}
+                                <div className="messagebox" style={{ margin: '5px'}}>
                                     <div style={{ display: 'flex', flexDirection: 'row',alignItems:'center' }}>
                                         <h5  className='fontemmm'>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
                                         <div className="timestamp" style={{marginLeft:'11.25px',marginBottom:'-2px' }}>
@@ -142,7 +142,7 @@ function Chat(props) {
                                     {
                                         item.text.includes('http') ? (
                                             <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '10px', overflowX: 'scroll', marginBottom: '-3px', zIndex: '99' }}>
-                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px',marginBottom:'-3px' }}>
+                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', margin: '0' }}>
                                                     {
 
                                                         (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (
@@ -174,7 +174,7 @@ function Chat(props) {
                                                 </a>
                                             </div>
                                         ) : (
-                                            <p key={index} className="chat__body__message">
+                                            <p key={index} className="chat__body__message" style={{margin: '0'}}>
                                                 {item.text}
                                             </p>
                                         )

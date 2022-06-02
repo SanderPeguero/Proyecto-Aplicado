@@ -33,7 +33,7 @@ const App = () => {
   const [openChat, setOpenChat] = useState(false);
   const [ItemCount, setItemCount] = useState(0);
 
-
+  const handleClose = () => setOpenChat(true);
 
 
   return (
@@ -41,9 +41,7 @@ const App = () => {
       <Router>
         <header>
           <Navbar setOpenLogin={setOpenLogIn} setOpenSignIn={setOpenSignIn} setOpenCarShop={setOpenCarShop} setOpenChat={setOpenChat} ItemCount = {ItemCount}/>
-          <Link to='./chat' style={{
-            // display: 'flex',
-            // justifyContent: 'end'
+          <div onClick={handleClose} style={{
             width: '90px',
             backgroundPosition: 'top',
             padding: '0px 0px 30px 0px',
@@ -52,18 +50,14 @@ const App = () => {
             right: '0',
             float: 'right'
           }}>
-            <Fab style={{
-              // margin: '47rem 2rem',
-              // position: 'absolute',
-              // zIndex: '1'
-            }}>
+            <Fab>
               <ChatIcon />
             </Fab>
-          </Link>
-          <ModalSigIn open={openSignIn} setOpen={setOpenSignIn} />
-          <ModalLogIn open={openLogIn} setOpen={setOpenLogIn} />
-          <ModalCraShop open={openCarShop} setOpen={setOpenCarShop} />
-          <ModalChat open={openChat} setOpen={setOpenChat} />
+          </div>
+          <ModalSigIn className='ModalSignIn' open={openSignIn} setOpen={setOpenSignIn} />
+          <ModalLogIn className='ModalLogIn' open={openLogIn} setOpen={setOpenLogIn} />
+          <ModalCraShop  className='ModalShoppingCart' open={openCarShop} setOpen={setOpenCarShop} />
+          <ModalChat className='ModalChat' open={openChat} setOpen={setOpenChat} style={{margin: '0'}} />
           
           
 
@@ -71,10 +65,10 @@ const App = () => {
         <main style={{ margin: '0', overflow: 'hidden' }}>
 
           <Routes>
-            <Route exact path='/' element={<Home />}></Route>
-            <Route exact path='/store' element={<Store ItemCount={ItemCount} setItemCount={setItemCount}/>}></Route>
-            <Route exact path='/chat' element={<Chat style={{marginTop: '5rem'}}/>}></Route>
-            <Route exact path='/Login' element={<Home />}></Route>
+            <Route exact path='/' element={<Home className='HomeElement' />}></Route>
+            <Route exact path='/store' element={<Store className='StoreElement' ItemCount={ItemCount} setItemCount={setItemCount}/>}></Route>
+            <Route exact path='/chat' element={<Chat className='ChatElement' style={{marginTop: '5rem'}}/>}></Route>
+            <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
           </Routes>
         </main>
       </Router>

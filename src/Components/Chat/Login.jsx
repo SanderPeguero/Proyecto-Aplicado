@@ -48,7 +48,6 @@ export const Login = (props) => {
                         borderRadius: '8px',
                         display: 'inline-block',
                         backgroundColor: '#333333',
-                        color: 'white',
                         marginTop: '20px'
                     }}  
                     onClick={senduserdetails}
