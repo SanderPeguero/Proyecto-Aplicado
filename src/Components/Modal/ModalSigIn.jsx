@@ -30,7 +30,7 @@ const BasicModal = ({ open, setOpen }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} style={{ border: 'none'}}>
           <SignUp/>
         </Box>
       </Modal>

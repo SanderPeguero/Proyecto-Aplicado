@@ -22,14 +22,14 @@ const BasicModal = ({ open, setOpen }) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <div style={{ border: 'none'}}>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} style={{ border: 'none'}}>
           <CarShop />
         </Box>
       </Modal>
