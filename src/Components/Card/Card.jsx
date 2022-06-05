@@ -78,16 +78,6 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
           Comprar
         </Button>
         <CarShop itemCount={ItemCount} setItemCount={setItemCount} />
-        <Button onClick={handleOpenCarShop} variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
-          <ShoppingCartCheckoutRoundedIcon />
-
-        </Button>
-        {/* <IconButton aria-label="add to favorites" style={{color: 'white'}}>
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share" style={{color: 'white'}}>
-          <ShareIcon />
-        </IconButton> */}
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

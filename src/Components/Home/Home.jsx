@@ -18,15 +18,15 @@ const Home = () => {
                     fontSize: '60px',
                     fontWeight: '700',
                     fontFamily: 'sans-serif'
-                }}>Quantum Swap<br />Welcome to the Most<br /> Connected DeFi Hub</div>
+                }}>Welcome to the Most<br /> Connected DeFi Hub</div>
                 <div style={{
                     fontSize: '16px',
                     fontFamily: 'Poppins',
                     fontWeight: '400',
                     marginTop: '0.5rem',
                     marginLeft: '0.5rem'
-                }}>Whether you are new to crypto or you are a DeFi veteran, ApeSwap has the tools,
-                    <br /> community, and connections to support your decentralized finance needs.</div>
+                }}>Whether you are new to crypto or you are a DeFi veteran, QuantumSwap has the tools,
+                    <br /> community, and connections to support your decentralized consumer needs.</div>
             </div>
         </>
 

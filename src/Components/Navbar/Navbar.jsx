@@ -84,6 +84,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, Item
             sx={{ mr: 2 }}
             href="#/"
           >
+            {/* <h4 style={{ alignSelf: 'start' }} >QSwap</h4> */}
             <img src={logo} alt="" style={{ height: '2.6rem', width: '3rem', alignSelf: 'start' }} />
           </IconButton>
           <Typography
