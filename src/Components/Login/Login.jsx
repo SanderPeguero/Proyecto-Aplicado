@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import logo from '../../../Logo.png'
 
 function Copyright(props) {
   return (
@@ -43,6 +44,9 @@ export default function SignIn() {
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        <Avatar sx={{m: 0, bgcolor: '#000000', height: '4rem', width: '4rem'}}>
+            <img src={logo} style={{ height: '2.6rem', width: '3rem', alignSelf: 'center' }}></img>
+          </Avatar>
         <Box
           sx={{
             marginTop: 8,
