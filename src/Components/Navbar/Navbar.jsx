@@ -67,7 +67,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, Item
   const handleOpenChat = () => setOpenChat(true)
 
   return (
-    <Box sx={{ flexGrow: 1 }} style={{ zIndex: '1' }}>
+    <Box sx={{ flexGrow: 1 }} style={{ zIndex: '1', margin: '0' }}>
       <AppBar position="static"
         style={{
           background: '#000000',
@@ -110,12 +110,14 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, Item
             </a>
 
           </Typography>
-          <Search style={{ width: '500px' }}>
+          
+          <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
 
             <StyledInputBase
+              style={{ width: '20vw' }}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
@@ -132,7 +134,6 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, Item
             <Badge color="secondary" badgeContent={ItemCount}>
               <ShoppingCartCheckoutRoundedIcon />
             </Badge>
-            {/* <ShoppingCartCheckoutRoundedIcon /> */}
           </ButtonUnstyled>
 
           <ButtonUnstyled onClick={handleOpenSigIn} className={styles.navbarLink} style={{
@@ -143,7 +144,6 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, Item
             border: '0',
             padding: '0'
           }}>
-
             Sign In
           </ButtonUnstyled>
 
@@ -157,7 +157,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, Item
           }}>
             Log In
           </ButtonUnstyled>
-          {/* <img src={Avatar} /> */}
+
         </Toolbar>
       </AppBar>
     </Box>

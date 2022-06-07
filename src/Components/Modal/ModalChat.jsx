@@ -6,7 +6,7 @@ import Chat from '../Chat/App'
 
 
 const style = {
-  // position: 'absolute',
+  position: 'absolute',
   // top: '40%',
   // left: '50%',
   // transform: 'translate(-50%, -50%)',
@@ -19,7 +19,7 @@ const style = {
   // width: '10rem',
   backgroundPosition: 'top',
   padding: '0px 0px 30px 0px',
-  position: 'fixed',
+  // position: 'fixed',
   bottom: '0',
   right: '30%',
   float: 'right'
@@ -37,7 +37,7 @@ const BasicModal = ({ open, setOpen }) => {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        style={{ left: '35%', top: '25%' }}
+        style={{ textAlign: '-webkit-center', top: '25%' }}
       >
         {/* <Box sx={style} style={{ boxShadow: 'none' }}> */}
           <Chat />

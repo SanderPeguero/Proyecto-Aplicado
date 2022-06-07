@@ -18,14 +18,14 @@
              -20px -20px 60px #bebebe;
   overflow: hidden;
 }
-@media screen and (max-width:420px){
-  .App{
+/* @media screen and (max-width:420px){
+  /* .App{
     margin-bottom: 5rem;
-    /* height: 50rem; */
+    /* height: 50rem; 
   }
-  .app__cont{
+  /* .app__cont{
     width: 100vw;
-  /* height: 100vh; */
+  /* height: 100vh; 
   border-radius: 0px;
   }
-}
+} */

@@ -133,7 +133,7 @@ function Chat(props) {
                             <div className="messageboxcont">
                                 {/* <img style={{ width: '38px',height:'40px', borderRadius: '7px', marginTop: '-6px',marginRight:'9px',marginLeft:'1.25vw' }} src={`https://avatars.dicebear.com/api/adventurer-neutral/${item.name}.svg`} alt="" /> */}
                                 <div className="messagebox" style={{ margin: '5px'}}>
-                                    <div style={{ display: 'flex', flexDirection: 'row',alignItems:'center' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'row',alignItems:'center', height: '30px' }}>
                                         <h5  className='fontemmm'>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
                                         <div className="timestamp" style={{marginLeft:'11.25px',marginBottom:'-2px' }}>
                                             <p className='tieemmm' style={{fontSize: '1.15em',color:'#828282',lineHeight:'25px',letterSpacing:'-0.035em',fontFamily:'Noto Sans' }}>{item.timestamp?.toDate().toString().slice(0, 21)}</p>
@@ -174,7 +174,7 @@ function Chat(props) {
                                                 </a>
                                             </div>
                                         ) : (
-                                            <p key={index} className="chat__body__message" style={{margin: '0'}}>
+                                            <p key={index} className="chat__body__message" style={{margin: '0', textAlign:'start'}}>
                                                 {item.text}
                                             </p>
                                         )

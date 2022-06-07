@@ -5,12 +5,13 @@ import GatoDeLado from '../../Images/blanco.png'
 const Home = () => {
     return (
         <>
-            <img src={GatoDeLado} style={{ height: '100%', width: '100%' }} />
+            <img src={GatoDeLado} style={{ height: '80rem'}} />
             
             <div style={{
                 position: 'absolute',
-                top: '50%',
-                left: '27%',
+                top: '45%',
+                left: '25%',
+                margin: '5rem',
                 transform: 'translate(-50%, -50%)',
                 color: 'black'
             }}>
