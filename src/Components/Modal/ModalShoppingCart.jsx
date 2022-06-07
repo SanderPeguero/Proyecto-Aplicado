@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import CarShop from '../CarShop/CarShop.jsx'
+import ShoppingCart from '../ShoppingCart/ShoppingCart.jsx'
 
 
 const style = {
@@ -17,7 +17,7 @@ const style = {
   p: 4,
 };
 
-const BasicModal = ({ open, setOpen }) => {
+const BasicModal = ({ open, setOpen, ItemCount }) => {
 
   const handleClose = () => setOpen(false);
 
@@ -29,8 +29,8 @@ const BasicModal = ({ open, setOpen }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} style={{ border: 'none'}}>
-          <CarShop />
+        <Box sx={style} style={{ border: 'none', width: '17.6rem'}}>
+          <ShoppingCart ItemCount={ItemCount}/>
         </Box>
       </Modal>
     </div>

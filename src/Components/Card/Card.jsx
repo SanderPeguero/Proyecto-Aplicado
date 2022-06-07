@@ -17,7 +17,11 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 import Camera from '../../Images/Camera.jpg'
 import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartCheckoutRounded';
-import CarShop from '../CarShop/CarShop.jsx'
+import ShoppingCart from '../ShoppingCart/ShoppingCart.jsx'
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Badge from '@mui/material/Badge';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -77,7 +81,27 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
         <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
           Comprar
         </Button>
-        <CarShop itemCount={ItemCount} setItemCount={setItemCount} />
+       
+        <ButtonGroup>
+          <Button
+            style={{marginLeft: '1rem'}}
+            onClick={() => {
+              setItemCount(Math.max(ItemCount - 1, 0));
+            }}
+          >
+            {" "}
+            <RemoveIcon fontSize="small" />
+          </Button>
+          <Button
+            onClick={() => {
+              setItemCount(ItemCount + 1);
+            }}
+          >
+            {" "}
+            <AddIcon fontSize="small" />
+          </Button>
+        </ButtonGroup>
+
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

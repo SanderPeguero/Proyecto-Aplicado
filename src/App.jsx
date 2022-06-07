@@ -6,12 +6,13 @@ import Chat from './Components/Chat/App.jsx'
 import Home from './Components/Home/Home.jsx'
 import ModalLogIn from './Components/Modal/ModalLogin.jsx'
 import ModalSigIn from './Components/Modal/ModalSigIn.jsx'
-import ModalCraShop from './Components/Modal/ModalCarShop.jsx'
+import ModalShoppingCart from './Components/Modal/ModalShoppingCart.jsx'
 import ModalChat from './Components/Modal/ModalChat.jsx'
 import Fab from '@mui/material/Fab'
 import ChatIcon from '@mui/icons-material/Chat';
 import Card from './Components/Card/Card.jsx'
-import Carshop from './Components/CarShop/CarShop.jsx'
+import ShoppingCart from './Components/ShoppingCart/ShoppingCart.jsx'
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -56,7 +57,7 @@ const App = () => {
           </div>
           <ModalSigIn className='ModalSignIn' open={openSignIn} setOpen={setOpenSignIn} />
           <ModalLogIn className='ModalLogIn' open={openLogIn} setOpen={setOpenLogIn} />
-          <ModalCraShop  className='ModalShoppingCart' open={openCarShop} setOpen={setOpenCarShop} />
+          <ModalShoppingCart  className='ModalShoppingCart' open={openCarShop} setOpen={setOpenCarShop} ItemCount={ItemCount} />
           <ModalChat className='ModalChat' open={openChat} setOpen={setOpenChat} style={{margin: '0'}} />
           
           
