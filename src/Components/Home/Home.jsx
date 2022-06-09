@@ -4,8 +4,8 @@ import GatoDeLado from '../../Images/GatoExcentrico.png'
 
 const Home = () => {
     return (
-        <>
-            <img src={GatoDeLado} style={{ height: '85rem'}} />
+        <div style={{background: 'black'}}>
+            <img src={GatoDeLado} style={{ height: '85rem', marginTop: '-12rem', marginLeft: '6rem'}} />
             
             <div style={{
                 position: 'absolute',
@@ -34,7 +34,7 @@ const Home = () => {
                 }}>La tienda descentralizada mas completa de la web <br/> Quantum Swap te permite comprar y vender articulos usando
                  <br /> cripto monedas.</div>
             </div>
-        </>
+        </div>
 
     )
 }
