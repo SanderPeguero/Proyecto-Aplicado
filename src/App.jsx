@@ -2,6 +2,7 @@ import { React, useState } from 'react'
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom"
 import Navbar from './Components/Navbar/Navbar'
 import Store from './Components/Store/Store'
+import InfoProducto from './Components/InfoProducto/InfoProducto'
 import Chat from './Components/Chat/App.jsx'
 import Home from './Components/Home/Home.jsx'
 import ModalLogIn from './Components/Modal/ModalLogin.jsx'
@@ -70,6 +71,7 @@ const App = () => {
             <Route exact path='/store' element={<Store className='StoreElement' ItemCount={ItemCount} setItemCount={setItemCount}/>}></Route>
             <Route exact path='/chat' element={<Chat className='ChatElement' style={{marginTop: '5rem'}}/>}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
+            <Route exact path='/infoProducto' element={<InfoProducto />}></Route>
           </Routes>
         </main>
       </Router>
