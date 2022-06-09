@@ -25,6 +25,24 @@ const style = {
   p: 4,
 }
 
+//JSON con los productos de la tienda
+const products = [
+  {
+    id: '1',
+    name: 'Camara',
+    shortdescription: 'Una camara que toma fotos',
+    image: './Images/Camera.jpg',
+    largedescription: 'Una camara canom 530 con lente zoom super optico de 30 lumenes con un obturador de 30cm y una gama de 700 mil millones de colores'
+  },
+  {
+    id: '2',
+    name: 'Camara',
+    shortdescription: 'Una camara que toma fotos',
+    image: './Images/Camera.jpg',
+    largedescription: 'Una camara canom 530 con lente zoom super optico de 30 lumenes con un obturador de 30cm y una gama de 700 mil millones de colores'
+  }
+]
+
 
 const App = () => {
 
@@ -48,8 +66,7 @@ const App = () => {
             padding: '0px 0px 30px 0px',
             position: 'fixed',
             bottom: '0px',
-            right: '0',
-            float: 'right'
+            right: '0'
           }}>
             <Fab>
               <ChatIcon />
@@ -66,10 +83,10 @@ const App = () => {
         <main style={{ margin: '0', overflow: 'hidden' }}>
 
           <Routes>
-            <Route exact path='/' element={<Home className='HomeElement' />}></Route>
-            <Route exact path='/store' element={<Store className='StoreElement' ItemCount={ItemCount} setItemCount={setItemCount}/>}></Route>
-            <Route exact path='/chat' element={<Chat className='ChatElement' style={{marginTop: '5rem'}}/>}></Route>
-            <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
+            <Route exact path='/' element={ <Home className='HomeElement' /> }></Route>
+            <Route exact path='/store' element={ <Store className='StoreElement' ItemCount={ItemCount} setItemCount={setItemCount} products={products}/> }></Route>
+            <Route exact path='/chat' element={ <Chat className='ChatElement' style={{marginTop: '5rem'}}/> }></Route>
+            <Route exact path='/Login' element={ <Home className='HomeElement' /> }></Route>
           </Routes>
         </main>
       </Router>
