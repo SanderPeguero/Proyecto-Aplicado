@@ -13,6 +13,8 @@ import ChatIcon from '@mui/icons-material/Chat';
 import Card from './Components/Card/Card.jsx'
 import ShoppingCart from './Components/ShoppingCart/ShoppingCart.jsx'
 
+import products from './JSON/Products.json'
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -26,19 +28,21 @@ const style = {
 }
 
 //JSON con los productos de la tienda
-const products = [
+const product = [
   {
     id: '1',
-    name: 'Camara',
-    shortdescription: 'Una camara que toma fotos',
-    image: './Images/Camera.jpg',
+    name: 'Lentes',
+    shortdescription: 'Lentes de Sol Negros',
+    image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
+    imageAlt: 'Lentes de Sol',
     largedescription: 'Una camara canom 530 con lente zoom super optico de 30 lumenes con un obturador de 30cm y una gama de 700 mil millones de colores'
   },
   {
     id: '2',
     name: 'Camara',
     shortdescription: 'Una camara que toma fotos',
-    image: './Images/Camera.jpg',
+    image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80',
+    imageAlt: 'Camara Vintage',
     largedescription: 'Una camara canom 530 con lente zoom super optico de 30 lumenes con un obturador de 30cm y una gama de 700 mil millones de colores'
   }
 ]

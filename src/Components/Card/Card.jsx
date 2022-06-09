@@ -48,27 +48,16 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
       color: 'rgb(255 255 255 / 87%)',
       overflow: 'hidden'
     }}>
-      <CardHeader
-        style={{ color: 'white' }}
-        avatar={
-          <Avatar sx={{ bgcolor: '#ffffff' }} aria-label="recipe" style={{ color: 'black' }}>
-
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings" style={{ color: 'white' }}>
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={product.name}
-        color='white'
-
-      />
+      <div
+        style={{ color: 'white', fontSize: '1.2rem', padding: '16px' }}
+      >
+        {product.name}
+      </div>
       <CardMedia
         component="img"
         height="250"
-        image={Camera}
-        alt="Paella dish"
+        image={product.image}
+        alt={product.imageAlt}
       />
       <CardContent >
         <Typography variant="body2" color="#ffffff">
