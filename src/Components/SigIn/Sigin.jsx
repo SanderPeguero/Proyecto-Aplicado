@@ -14,7 +14,10 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import logo from '../../../Logo.png'
-import { height, positions } from '@mui/system';
+import { borderRight, height, positions } from '@mui/system';
+import CloseIcon from '@mui/icons-material/Close';
+import Fab from '@mui/material/Fab';
+
 
 function Copyright(props) {
   return (
@@ -42,13 +45,25 @@ export default function SignUp() {
     });
   };
 
+
+
+
+
+
+
   return (
+
     <ThemeProvider theme={theme}>
+      {/* <Fab size='small' color="primary" aria-label="cerrar"  style={{ background: 'red' , alignSelf: 'inherit' ,borderRight: '3rem'}}>
+        <CloseIcon style={{ color: 'black' }}></CloseIcon>
+      </Fab> */}
+
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Avatar sx={{m: 0, bgcolor: '#000000', height: '4rem', width: '4rem'}}>
-            <img src={logo} style={{ height: '2.6rem', width: '3rem', alignSelf: 'center' }}></img>
-          </Avatar>
+        <Avatar sx={{ m: 0, bgcolor: '#000000', height: '4rem', width: '4rem' }}>
+          <img src={logo} style={{ height: '2.6rem', width: '3rem', alignSelf: 'center' }}></img>
+        </Avatar>
+
         <Box
           sx={{
             marginTop: 8,

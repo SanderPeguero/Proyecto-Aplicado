@@ -5,6 +5,7 @@ import Modal from '@mui/material/Modal';
 import Chat from '../Chat/App'
 
 
+
 const style = {
   // position: 'absolute',
   // top: '40%',
@@ -40,6 +41,7 @@ const BasicModal = ({ open, setOpen }) => {
         style={{ left: '35%', top: '25%' }}
       >
         {/* <Box sx={style} style={{ boxShadow: 'none' }}> */}
+        
           <Chat />
         {/* </Box> */}
       </Modal>

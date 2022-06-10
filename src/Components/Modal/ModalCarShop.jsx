@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import CarShop from '../CarShop/CarShop.jsx'
+import CloseIcon from '@mui/icons-material/Close';
+import Fab from '@mui/material/Fab';
 
 
 const style = {
@@ -30,6 +32,9 @@ const BasicModal = ({ open, setOpen }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} style={{ border: 'none'}}>
+        <Fab size='small' color="primary" aria-label="cerrar" onClick={handleClose} style={{ background: 'red', alignSelf: 'inherit', borderRight: '3rem', float: 'right'}}>
+            <CloseIcon style={{ color: 'black' }}></CloseIcon>
+          </Fab>
           <CarShop />
         </Box>
       </Modal>
