@@ -4,7 +4,8 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Login from '../Login/Login.jsx'
 import SignUp from '../SigIn/Sigin.jsx';
-
+import CloseIcon from '@mui/icons-material/Close';
+import Fab from '@mui/material/Fab';
 
 const style = {
   position: 'absolute',
@@ -30,7 +31,10 @@ const BasicModal = ({ open, setOpen }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} style={{ border: 'none'}}>
+        <Box sx={style} style={{ border: 'none' }}>
+           <Fab size='small' color="primary" aria-label="cerrar" onClick={handleClose} style={{ background: 'black', alignSelf: 'inherit', borderRight: '3rem', float: 'right'}}>
+             <CloseIcon style={{ color: 'white' }}></CloseIcon>
+           </Fab>
           <Login />
         </Box>
       </Modal>
