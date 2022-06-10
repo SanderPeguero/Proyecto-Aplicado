@@ -53,19 +53,29 @@ const App = () => {
 
   const [openSignIn, setOpenSignIn] = useState(false);
   const [openLogIn, setOpenLogIn] = useState(false);
-  const [openCarShop, setOpenCarShop] = useState(false);
-  const [openChat, setOpenChat] = useState(false);
+  
   const [ItemCount, setItemCount] = useState(0);
+  
+  //Chat
+  const [openChat, setOpenChat] = useState(false);
+  const ChatHandleClose = () => setOpenChat(true);
 
-  const handleClose = () => setOpenChat(true);
-
+  //Carrito
+  const [openCarShop, setOpenCarShop] = useState(false);
+  const [shoppingCart, setShoppingCart ] = useState([])
 
   return (
     <>
       <Router>
         <header>
-          <Navbar setOpenLogin={setOpenLogIn} setOpenSignIn={setOpenSignIn} setOpenCarShop={setOpenCarShop} setOpenChat={setOpenChat} ItemCount = {ItemCount}/>
-          <div onClick={handleClose} style={{
+          <Navbar setOpenLogin={setOpenLogIn}
+                  setOpenSignIn={setOpenSignIn}
+                  setOpenCarShop={setOpenCarShop}
+                  setOpenChat={setOpenChat}
+                  shoppingCart={shoppingCart}
+                  products={products}
+          />
+          <div onClick={ChatHandleClose} style={{
             width: '90px',
             backgroundPosition: 'top',
             padding: '0px 0px 30px 0px',
@@ -79,7 +89,7 @@ const App = () => {
           </div>
           <ModalSigIn className='ModalSignIn' open={openSignIn} setOpen={setOpenSignIn} />
           <ModalLogIn className='ModalLogIn' open={openLogIn} setOpen={setOpenLogIn} />
-          <ModalShoppingCart  className='ModalShoppingCart' open={openCarShop} setOpen={setOpenCarShop} ItemCount={ItemCount} />
+          <ModalShoppingCart className='ModalShoppingCart' open={openCarShop} setOpen={setOpenCarShop} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
           <ModalChat className='ModalChat' open={openChat} setOpen={setOpenChat} style={{margin: '0'}} />
           
           
@@ -90,10 +100,11 @@ const App = () => {
           <Routes>
           
             <Route exact path='/' element={<Home className='HomeElement' />}></Route>
-            <Route exact path='/store' element={<Store className='StoreElement' ItemCount={ItemCount} setItemCount={setItemCount} products={products} />}></Route>
+            <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} setItemCount={setItemCount} products={products} />}></Route>
             <Route exact path='/chat' element={<Chat className='ChatElement' style={{marginTop: '5rem'}}/>}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
-            <Route exact path='/infoProducto' element={<InfoProducto />}></Route>
+            {/* <Route exact path='/infoProducto' element={<InfoProducto />}></Route> */}
+            <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>
 
           </Routes>
         </main>

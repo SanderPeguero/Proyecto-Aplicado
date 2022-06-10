@@ -19,23 +19,23 @@ const style = {
   p: 4,
 };
 
-const BasicModal = ({ open, setOpen, ItemCount }) => {
+const BasicModal = ({ open, setOpen, ItemCount, shoppingCart, setShoppingCart }) => {
 
   const handleClose = () => setOpen(false);
 
   return (
-    <div style={{ border: 'none'}}>
+    <div>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} style={{ border: 'none', width: '17.6rem'}}>
+        <Box sx={style} style={{ border: 'none'}}>
           <Fab size='small' color="primary" aria-label="cerrar" onClick={handleClose} style={{ background: 'black', alignSelf: 'inherit', borderRight: '3rem', float: 'right'}}>
-             <CloseIcon style={{ color: 'white' }}></CloseIcon>
-           </Fab>
-          <ShoppingCart ItemCount={ItemCount}/>
+            <CloseIcon style={{ color: 'white' }}></CloseIcon>
+          </Fab>
+          <ShoppingCart shoppingCart={shoppingCart} setShoppingCart={setShoppingCart}/>
         </Box>
       </Modal>
     </div>

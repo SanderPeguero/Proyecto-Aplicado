@@ -26,6 +26,7 @@ const BasicModal = ({ open, setOpen }) => {
   return (
     <div>
       <Modal
+        disableEnforceFocus
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
