@@ -22,6 +22,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Badge from '@mui/material/Badge';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { Link } from 'react-router-dom';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -65,9 +66,11 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
         </Typography>
       </CardContent>
       <CardActions disableSpacing >
-        <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
-          Comprar
-        </Button>
+        <Link to="/infoProducto">
+          <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
+            Comprar
+          </Button>
+        </Link>
        
         <ButtonGroup>
           <Button
