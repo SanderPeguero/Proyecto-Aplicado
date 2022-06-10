@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from '../../../Logo.png'
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -34,10 +35,16 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    let objData = {
       email: data.get('email'),
       password: data.get('password'),
-    });
+    };
+
+    axios.post('http://localhost:4000/api/login', objData)
+      .then((response) => {
+          console.log(response.data)
+      })
+      .catch((err) => {});
   };
 
   return (
