@@ -17,7 +17,13 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 import Camera from '../../Images/Camera.jpg'
 import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartCheckoutRounded';
-import CarShop from '../CarShop/CarShop.jsx'
+import ShoppingCart from '../ShoppingCart/ShoppingCart.jsx'
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Badge from '@mui/material/Badge';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import { Link } from 'react-router-dom';
+import InfoProducto from '../InfoProducto/InfoProducto.jsx'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -30,7 +36,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setItemCount }) {
+export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, product }) {
   const [expanded, setExpanded] = React.useState(false);
   const handleOpenCarShop = () => setOpenCarShoppping(true);
 
@@ -44,89 +50,51 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
       color: 'rgb(255 255 255 / 87%)',
       overflow: 'hidden'
     }}>
-      <CardHeader
-        style={{ color: 'white' }}
-        avatar={
-          <Avatar sx={{ bgcolor: '#ffffff' }} aria-label="recipe" style={{ color: 'black' }}>
-
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings" style={{ color: 'white' }}>
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        color='white'
-
-      />
+      <div
+        style={{ color: 'white', fontSize: '1.2rem', padding: '16px' }}
+      >
+        {product.name}
+      </div>
       <CardMedia
         component="img"
         height="250"
-        image={Camera}
-        alt="Paella dish"
+        image={product.image}
+        alt={product.imageAlt}
       />
       <CardContent >
         <Typography variant="body2" color="#ffffff">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          {product.shortdescription}
         </Typography>
       </CardContent>
       <CardActions disableSpacing >
-        <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
-          Comprar
-        </Button>
-        <CarShop itemCount={ItemCount} setItemCount={setItemCount} />
-        <Button onClick={handleOpenCarShop} variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
-          <ShoppingCartCheckoutRoundedIcon />
-
-        </Button>
-        {/* <IconButton aria-label="add to favorites" style={{color: 'white'}}>
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share" style={{color: 'white'}}>
-          <ShareIcon />
-        </IconButton> */}
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-          style={{ color: 'white' }}
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
+        <Link to={"/infoProducto?search=" + product.id}>
+          <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
+            Comprar
+          </Button>
+        </Link>
+       
+        <ButtonGroup>
+          <Button
+            style={{marginLeft: '1rem'}}
+            onClick={() => {
+              // setItemCount(Math.max(ItemCount - 1, 0));
+              
+            }}
+          >
+            {" "}
+            <RemoveIcon fontSize="small" />
+          </Button>
+          <Button
+            onClick={() => {
+              // setItemCount(ItemCount + 1);
+              shoppingCart.push(product)
+            }}
+          >
+            {" "}
+            <AddIcon fontSize="small" />
+          </Button>
+        </ButtonGroup>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes.
-          </Typography>
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-            large plate and set aside, leaving chicken and chorizo in the pan. Add
-            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-            stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-          <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and
-            peppers, and cook without stirring, until most of the liquid is absorbed,
-            15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and
-            mussels, tucking them down into the rice, and cook again without
-            stirring, until mussels have opened and rice is just tender, 5 to 7
-            minutes more. (Discard any mussels that don&apos;t open.)
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
     </Card>
   );
 }

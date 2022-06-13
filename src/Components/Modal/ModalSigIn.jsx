@@ -7,6 +7,7 @@ import SignUp from '../SigIn/Sigin.jsx';
 import CloseIcon from '@mui/icons-material/Close';
 import Fab from '@mui/material/Fab';
 
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -19,7 +20,7 @@ const style = {
   p: 4,
 };
 
-const BasicModal = ({ open, setOpen}) => {
+const BasicModal = ({ open, setOpen }) => {
 
   const handleClose = () => setOpen(false);
 
@@ -32,9 +33,9 @@ const BasicModal = ({ open, setOpen}) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} style={{ border: 'none'}}>
-        <Fab size='small' color="primary" aria-label="cerrar" onClick={handleClose} style={{ background: 'black', alignSelf: 'inherit', borderRight: '3rem', float: 'right'}}>
-            <CloseIcon style={{ color: 'white' }}></CloseIcon>
-          </Fab>
+          <Fab size='small' color="primary" aria-label="cerrar" onClick={handleClose} style={{ background: 'black', alignSelf: 'inherit', borderRight: '3rem', float: 'right'}}>
+             <CloseIcon style={{ color: 'white' }}></CloseIcon>
+           </Fab>
           <SignUp/>
         </Box>
       </Modal>

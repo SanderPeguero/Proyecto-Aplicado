@@ -36,7 +36,7 @@ function App() {
     localStorage.removeItem('room')
   }
   return (
-    <div className="App" style={{ boxShadow: 'none', height: '30rem', width: '30rem', marginRight: '0', marginBottom: '10px', background: '#252329' }}>
+    <div className="App" style={{ boxShadow: 'none', height: '30rem', marginRight: '0', marginBottom: '10px', background: '#252329' }}>
       {
         (!user) ?
           (<Login getuser={setgetuser} />) :
