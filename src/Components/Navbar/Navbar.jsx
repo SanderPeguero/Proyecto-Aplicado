@@ -18,6 +18,7 @@ import Badge from '@mui/material/Badge'
 import Search from '../Search/Search.jsx'
 
 
+
 // const Search = styled('div')(({ theme }) => ({
 //   position: 'relative',
 //   borderRadius: theme.shape.borderRadius,
@@ -66,6 +67,8 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
   const handleOpenLogin = () => setOpenLogin(true)
   const handleOpenCarShop = () => setOpenCarShop(true)
   const handleOpenChat = () => setOpenChat(true)
+
+
 
   return (
     <Box sx={{ flexGrow: 1 }} style={{ zIndex: '1', margin: '0' }}>
@@ -123,7 +126,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
             padding: '0'
           }}>
             <Badge color="secondary" badgeContent={shoppingCart.length}>
-              <ShoppingCartCheckoutRoundedIcon />
+              <ShoppingCartCheckoutRoundedIcon /> Cart
             </Badge>
           </ButtonUnstyled>
 

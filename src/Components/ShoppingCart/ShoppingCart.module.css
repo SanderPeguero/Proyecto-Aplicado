@@ -14,3 +14,20 @@
     background-color: white;
     -webkit-box-shadow: none;
 }
+
+.payment {
+    float: left;
+}
+
+.Cant{
+    width: 100px;
+    height: 3rem;
+}
+
+.select{
+    width: 100px;
+    height: 3rem;
+    float: left;
+}
+
+

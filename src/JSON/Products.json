@@ -5,7 +5,9 @@
         "shortdescription": "Lentes de Sol Negros",
         "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80",
         "imageAlt": "Lentes de Sol",
-        "largedescription": " "
+        "largedescription": " ",
+        "precio": "19" 
+        
       },
       {
         "id": "2",
@@ -13,7 +15,7 @@
         "shortdescription": "GameBoy Color Amarillo",
         "image": "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80",
         "imageAlt": "Gameboy Amarillo",
-        "largedescription": "Una camara canom 530 con lente zoom super optico de 30 lumenes con un obturador de 30cm y una gama de 700 mil millones de colores"
+        "largedescription": "Una camara canom 530 con lente zoom super optico de 30 lumenes con un obturador de 30cm y una gama de 700 mil millones de colores" 
       },
       {
         "id": "3",
