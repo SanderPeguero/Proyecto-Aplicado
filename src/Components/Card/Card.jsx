@@ -24,6 +24,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
 import styles from "./card.module.css";
+import InfoProducto from '../InfoProducto/InfoProducto.jsx'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -36,7 +37,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setItemCount, product }) {
+export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, product }) {
   const [expanded, setExpanded] = React.useState(false);
   const handleOpenCarShop = () => setOpenCarShoppping(true);
 
@@ -67,7 +68,7 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={styles.cardActions}>
-        <Link to="/infoProducto" className={styles.btnComprar}>
+        <Link to={"/infoProducto?search=" + product.id} className={styles.btnComprar}>
           <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
             Comprar
           </Button>
@@ -77,7 +78,8 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
           <Button
             style={{marginLeft: '1rem'}}
             onClick={() => {
-              setItemCount(Math.max(ItemCount - 1, 0));
+              // setItemCount(Math.max(ItemCount - 1, 0));
+              
             }}
           >
             {" "}
@@ -85,7 +87,8 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
           </Button>
           <Button
             onClick={() => {
-              setItemCount(ItemCount + 1);
+              // setItemCount(ItemCount + 1);
+              shoppingCart.push(product)
             }}
           >
             {" "}

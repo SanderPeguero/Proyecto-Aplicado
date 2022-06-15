@@ -1,0 +1,16 @@
+.scroll{
+    color: black;
+    overflow-x: hidden;
+    overflow-y: visible;
+    width: 400px;
+    height: 30rem;
+}
+
+.scroll::-webkit-scrollbar{
+    background-color: white;
+}
+
+.scroll::-webkit-scrollbar-track{
+    background-color: white;
+    -webkit-box-shadow: none;
+}

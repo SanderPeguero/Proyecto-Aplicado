@@ -1,13 +1,18 @@
 import React from "react";
+import ShoppingCartElement from './ShoppingCartElement.jsx'
+import styles from './ShoppingCart.module.css'
 
-function ShoppingCart({ItemCount}) {
+function ShoppingCart({ shoppingCart, setShoppingCart}) {
+  // const array = []
 
+  // array.
   return (
-    <div style={{ color: "black" }}>
+    <div className={styles.scroll}>
       <h2>
-        Tiene {ItemCount} articulos en el carrito
+        Tiene {shoppingCart.length} articulos en el carrito
       </h2>
-    </div>
+        {shoppingCart.map((product) => <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product}/> )}
+   </div>
   );
 }
 

@@ -1,11 +1,38 @@
 import ImgProducto from '../../Images/Camera.jpg'
+import { useState, useEffect } from 'react';
+import { useQuery } from '../../Hooks/useQuery';
 
 
+const InfoProducto = ({ products }) => {
+    
+    const [isLoading, setIsLoading] = useState(true);
+    
+    const [Product, setProduct] = useState(null);
+    const query = useQuery();
+    const search = query.get("search");
 
-const InfoProducto = () => {
+    useEffect(() => {  
+        
+        const data = products.find((d) => d.id == search);
+        console.log(search)
+
+        if (data) {
+            setProduct(data)
+        }
+
+    }, [search]);
+
+    // if (isLoading) {
+    //     return <Spinner/>;
+    // }
+
+    if (!Product) {
+        return null;
+    }
+    
     return (
         <>
-            <img src={ImgProducto} style={{ height: '100%', width: '100%' }} />
+            <img src={Product.image} style={{ height: '100%', width: '100%' }} />
             
             <div style={{
                 position: 'absolute',
@@ -18,15 +45,9 @@ const InfoProducto = () => {
                     fontSize: '60px',
                     fontWeight: '700',
                     fontFamily: 'sans-serif'
-                }}></div>
-                <div style={{
-                    fontSize: '16px',
-                    fontFamily: 'Poppins',
-                    fontWeight: '400',
-                    marginTop: '0.5rem',
-                    marginLeft: '0.5rem'
-                }}>Whether you are new to crypto or you are a DeFi veteran, ApeSwap has the tools,
-                    <br /> community, and connections to support your decentralized finance needs.</div>
+                }}>
+                    {Product.name}
+                </div>
             </div>
         </>
 

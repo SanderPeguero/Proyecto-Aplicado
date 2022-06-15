@@ -1,5 +1,5 @@
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useQuery } from "../../Hooks/useQuery.jsx";
 import { ImSearch } from "react-icons/im";
 import { styled, alpha } from '@mui/material/styles'
@@ -50,15 +50,25 @@ const Searchi = styled('div')(({ theme }) => ({
   }));
 
 
-export default function Search() {
+export default function Search({ products }) {
 
     const navigate = useNavigate();
     
     const query = useQuery();
+    const location = useLocation()
     const search = query.get("search");
     
     const handleSubmit = (e) => {
         e.preventDefault();
+    }
+
+    const onChange = (e) => {
+      // jsonData is javascript array when import it
+      const data = products.find((d) => d.id == e.target.value);
+
+      if (data) {
+          setName(data.name);
+      }
     }
 
     return (
@@ -80,7 +90,11 @@ export default function Search() {
                     value={search ? search : ""} 
                     onChange={(e) => {
                         const valor = e.target.value;
-                        navigate("?search=" + valor);
+                        if(location.pathname != "/store"){
+                          navigate("/store?search=" + valor)
+                        }else{
+                          navigate("?search=" + valor);
+                        }
                     }}
                 />
             </Searchi>

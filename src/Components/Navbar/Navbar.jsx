@@ -60,7 +60,7 @@ import Search from '../Search/Search.jsx'
 //   },
 // }));
 
-const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, ItemCount }) => {
+const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shoppingCart, products }) => {
 
   const handleOpenSigIn = () => setOpenSignIn(true)
   const handleOpenLogin = () => setOpenLogin(true)
@@ -112,7 +112,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, Item
 
           </Typography>
           
-          <Search/>
+          <Search products={products}/>
 
           <ButtonUnstyled onClick={handleOpenCarShop} className={styles.navbarLink} style={{
             fontSize: '1.15rem',
@@ -122,7 +122,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, Item
             border: '0',
             padding: '0'
           }}>
-            <Badge color="secondary" badgeContent={ItemCount}>
+            <Badge color="secondary" badgeContent={shoppingCart.length}>
               <ShoppingCartCheckoutRoundedIcon />
             </Badge>
           </ButtonUnstyled>
