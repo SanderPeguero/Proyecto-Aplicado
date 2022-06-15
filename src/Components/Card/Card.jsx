@@ -23,6 +23,7 @@ import Badge from '@mui/material/Badge';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
+import styles from "./card.module.css";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -48,8 +49,8 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
       background: 'black',
       color: 'rgb(255 255 255 / 87%)',
       overflow: 'hidden'
-    }}>
-      <div
+    }} className={styles.card}>
+      <div className={styles.name}
         style={{ color: 'white', fontSize: '1.2rem', padding: '16px' }}
       >
         {product.name}
@@ -65,14 +66,14 @@ export default function RecipeReviewCard({ setOpenCarShoppping, ItemCount, setIt
           {product.shortdescription}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing >
-        <Link to="/infoProducto">
+      <CardActions disableSpacing className={styles.cardActions}>
+        <Link to="/infoProducto" className={styles.btnComprar}>
           <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
             Comprar
           </Button>
         </Link>
        
-        <ButtonGroup>
+        <ButtonGroup className={styles.btnGroup}>
           <Button
             style={{marginLeft: '1rem'}}
             onClick={() => {
