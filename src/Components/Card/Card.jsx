@@ -23,6 +23,7 @@ import Badge from '@mui/material/Badge';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
+import styles from "./card.module.css";
 import InfoProducto from '../InfoProducto/InfoProducto.jsx'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
@@ -51,8 +52,8 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
       background: 'black',
       color: 'rgb(255 255 255 / 87%)',
       overflow: 'hidden'
-    }}>
-      <div
+    }} className={styles.card}>
+      <div className={styles.name}
         style={{ color: 'white', fontSize: '1.2rem', padding: '16px' }}
       >
         {product.name}
@@ -68,15 +69,16 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
           {product.shortdescription}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing >
-        <Link to={"/infoProducto?search=" + product.id}>
+      <CardActions disableSpacing className={styles.cardActions}>
+        <Link to={"/infoProducto?search=" + product.id} className={styles.btnComprar}>
           <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
             Comprar
           </Button>
         </Link>
        
-        <ButtonGroup>
-          {/* <Button
+
+        <ButtonGroup className={styles.btnGroup}>
+          <Button
             style={{marginLeft: '1rem'}}
             onClick={() => {
               // setItemCount(Math.max(ItemCount - 1, 0));
@@ -85,7 +87,7 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
           >
             {" "}
             <RemoveIcon fontSize="small" />
-          </Button> */}
+          </Button> 
           <Button  style={{marginLeft: '1rem' , backgroundColor: '#00a9d1', color: 'black' }} 
             onClick={() => {shoppingCart.push(product)}}
           >

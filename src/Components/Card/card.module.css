@@ -1,0 +1,32 @@
+.cardActions {
+    height: 0;
+    transition: .3s;
+    background-color: red;
+}
+
+.card:hover .cardActions {
+    height: 30px;
+    background-color: black;
+}
+
+.cardActions .btnComprar {
+    transition: .3s;
+    transform: translateX(-500px);
+}
+
+.cardActions .btnGroup {
+    transition: .3s;
+    transform: translateX(500px);
+}
+
+.card:hover .cardActions .btnGroup, .card:hover .cardActions .btnComprar {
+    transform: translateX(0px);
+}
+
+.name {
+    transition: .3s;
+}
+
+.card:hover .name {
+    
+}
