@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom"
 import Navbar from './Components/Navbar/Navbar'
 import Store from './Components/Store/Store'
@@ -64,6 +64,7 @@ const App = () => {
   const [openCarShop, setOpenCarShop] = useState(false);
   const [shoppingCart, setShoppingCart ] = useState([])
 
+ 
   return (
     <>
       <Router>

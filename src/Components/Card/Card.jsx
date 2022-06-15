@@ -24,6 +24,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
 import InfoProducto from '../InfoProducto/InfoProducto.jsx'
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -43,6 +44,7 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
 
   return (
     <Card sx={{ maxWidth: 345 }} style={{
@@ -74,7 +76,7 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
         </Link>
        
         <ButtonGroup>
-          <Button
+          {/* <Button
             style={{marginLeft: '1rem'}}
             onClick={() => {
               // setItemCount(Math.max(ItemCount - 1, 0));
@@ -83,15 +85,13 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
           >
             {" "}
             <RemoveIcon fontSize="small" />
-          </Button>
-          <Button
-            onClick={() => {
-              // setItemCount(ItemCount + 1);
-              shoppingCart.push(product)
-            }}
+          </Button> */}
+          <Button  style={{marginLeft: '1rem' , backgroundColor: '#00a9d1', color: 'black' }} 
+            onClick={() => {shoppingCart.push(product)}}
           >
             {" "}
-            <AddIcon fontSize="small" />
+             Add <AddShoppingCartIcon fontSize="small"/>
+            {/* <AddIcon fontSize="small" /> */}
           </Button>
         </ButtonGroup>
       </CardActions>

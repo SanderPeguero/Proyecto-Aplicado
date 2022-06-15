@@ -23,6 +23,7 @@ const BasicModal = ({ open, setOpen, ItemCount, shoppingCart, setShoppingCart })
 
   const handleClose = () => setOpen(false);
 
+
   return (
     <div>
       <Modal
@@ -36,6 +37,7 @@ const BasicModal = ({ open, setOpen, ItemCount, shoppingCart, setShoppingCart })
             <CloseIcon style={{ color: 'white' }}></CloseIcon>
           </Fab>
           <ShoppingCart shoppingCart={shoppingCart} setShoppingCart={setShoppingCart}/>
+         
         </Box>
       </Modal>
     </div>
