@@ -64,7 +64,7 @@ export default function Search({ products }) {
 
     const onChange = (e) => {
       // jsonData is javascript array when import it
-      const data = products.find((d) => d.id == e.target.value);
+      const data = products.find((d) => d.IDProducto == e.target.value);
 
       if (data) {
           setName(data.name);

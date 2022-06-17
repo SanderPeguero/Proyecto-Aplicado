@@ -126,7 +126,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
             padding: '0'
           }}>
             <Badge color="secondary" badgeContent={shoppingCart.length}>
-              <ShoppingCartCheckoutRoundedIcon /> Cart
+              <ShoppingCartCheckoutRoundedIcon /> 
             </Badge>
           </ButtonUnstyled>
 
