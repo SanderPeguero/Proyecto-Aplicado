@@ -1,5 +1,5 @@
-import UserModel from "../models/UserModel";
-import Conexion from "../Conexion/Conexion";
+import UserModel from "../models/UserModel.js";
+import Conexion from "../Conexion/Conexion.js";
 
 let SqlQuery = "SELECT IDUsuario, Nombre, Apellido, Email, Clave FROM usuarios"
 
@@ -10,10 +10,11 @@ function getInstance(Row) {
     UserModel.Apellido = Row.Apellido
     UserModel.Email = Row.Email
     UserModel.Clave = Row.Clave
+
+    return UserModel;
 }
 
 //Create
-
 export async function Create(req, res){
 
     const UserModel = req.body
@@ -75,7 +76,7 @@ export async function Search(req, res){
     const { id } = req.params
     const values = [id]
 
-    await Conexion.query(SqlQuery + "WHERE IDUsuario = ?", values, (err, result) => {
+    await Conexion.query(SqlQuery + " WHERE IDUsuario = ?", values, (err, result) => {
 
         if(err || result.length == 0){
 
