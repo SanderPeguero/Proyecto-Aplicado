@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2022 a las 05:10:54
+-- Tiempo de generación: 17-06-2022 a las 19:08:11
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.11
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `quantumswapp`
 --
-CREATE DATABASE IF NOT EXISTS `quantumswapp` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `quantumswapp`;
 
 -- --------------------------------------------------------
 
@@ -29,16 +27,13 @@ USE `quantumswapp`;
 -- Estructura de tabla para la tabla `carritos`
 --
 
-DROP TABLE IF EXISTS `carritos`;
-CREATE TABLE IF NOT EXISTS `carritos` (
-  `IDCarrito` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `carritos` (
+  `IDCarrito` int(11) NOT NULL,
   `IDUsuario` int(11) NOT NULL,
   `Monto` double NOT NULL DEFAULT 0,
   `FechaCreacion` datetime NOT NULL,
   `FechaModificacion` datetime DEFAULT NULL,
-  `Estatus` int(11) NOT NULL,
-  PRIMARY KEY (`IDCarrito`),
-  KEY `IDUsuario` (`IDUsuario`)
+  `Estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -47,15 +42,19 @@ CREATE TABLE IF NOT EXISTS `carritos` (
 -- Estructura de tabla para la tabla `imagenes`
 --
 
-DROP TABLE IF EXISTS `imagenes`;
-CREATE TABLE IF NOT EXISTS `imagenes` (
-  `IDImagen` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `imagenes` (
+  `IDImagen` int(11) NOT NULL,
   `IDProducto` int(11) NOT NULL,
   `Nombre` varchar(100) NOT NULL,
-  `FechaCreacion` datetime NOT NULL,
-  PRIMARY KEY (`IDImagen`),
-  KEY `IDProducto` (`IDProducto`)
+  `FechaCreacion` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `imagenes`
+--
+
+INSERT INTO `imagenes` (`IDImagen`, `IDProducto`, `Nombre`, `FechaCreacion`) VALUES
+(1, 1, 'Imagen1', '2022-06-17 12:35:34');
 
 -- --------------------------------------------------------
 
@@ -63,20 +62,28 @@ CREATE TABLE IF NOT EXISTS `imagenes` (
 -- Estructura de tabla para la tabla `productos`
 --
 
-DROP TABLE IF EXISTS `productos`;
-CREATE TABLE IF NOT EXISTS `productos` (
-  `IDProducto` int(11) NOT NULL AUTO_INCREMENT,
-  `Descripcion` longtext NOT NULL,
-  `CantidadRestante` int(11) NOT NULL DEFAULT 0,
-  `Costo` double NOT NULL DEFAULT 0,
-  `Precio` double NOT NULL DEFAULT 0,
+CREATE TABLE `productos` (
+  `IDProducto` int(11) NOT NULL,
+  `Descripcion` varchar(1024) DEFAULT NULL,
+  `CantidadRestante` int(11) DEFAULT 0,
+  `Costo` double DEFAULT 0,
+  `Precio` double DEFAULT 0,
   `Descuento` double DEFAULT 0,
-  `QRCode` varchar(200) NOT NULL,
-  `FechaCreacion` datetime NOT NULL,
+  `QRCode` varchar(200) DEFAULT NULL,
+  `FechaCreacion` datetime DEFAULT NULL,
   `FechaModificacion` datetime DEFAULT NULL,
-  `Estatus` int(11) NOT NULL,
-  PRIMARY KEY (`IDProducto`)
+  `Estatus` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`IDProducto`, `Descripcion`, `CantidadRestante`, `Costo`, `Precio`, `Descuento`, `QRCode`, `FechaCreacion`, `FechaModificacion`, `Estatus`) VALUES
+(1, 'Lentes', 0, 0, 500, 0, 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80', '2022-06-11 09:23:45', NULL, NULL),
+(2, 'GameBoy Color', 0, 0, 500, 0, 'https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80', '2022-06-11 13:23:45', NULL, NULL),
+(3, 'Reloj', 0, 0, 500, 0, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2198&q=80', '2022-06-11 13:23:45', NULL, NULL),
+(4, 'Headset', 0, 0, 500, 0, 'https://images.unsplash.com/photo-1505751171710-1f6d0ace5a85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80', '2022-06-11 13:23:45', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -84,16 +91,13 @@ CREATE TABLE IF NOT EXISTS `productos` (
 -- Estructura de tabla para la tabla `productosencarrito`
 --
 
-DROP TABLE IF EXISTS `productosencarrito`;
-CREATE TABLE IF NOT EXISTS `productosencarrito` (
+CREATE TABLE `productosencarrito` (
   `IDCarrito` int(11) NOT NULL,
   `IDProducto` int(11) NOT NULL,
   `Cantidad` int(11) NOT NULL DEFAULT 0,
   `FechaCreacion` datetime NOT NULL,
   `FechaModificacion` datetime DEFAULT NULL,
-  `Estatus` int(11) NOT NULL,
-  KEY `IDCarrito` (`IDCarrito`),
-  KEY `IDProducto` (`IDProducto`)
+  `Estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -102,22 +106,87 @@ CREATE TABLE IF NOT EXISTS `productosencarrito` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `IDUsuario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuarios` (
+  `IDUsuario` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Apellido` varchar(30) NOT NULL,
   `Email` varchar(60) NOT NULL,
-  `Clave` varchar(128) NOT NULL,
-  PRIMARY KEY (`IDUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+  `Clave` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`IDUsuario`, `Nombre`, `Apellido`, `Email`, `Clave`) VALUES
-(1, 'Albert', 'Mendoza Roque', 'a@a.com', 'clave');
+(1, 'Albert', 'Mendoza Roque', 'a@a.com', 'clave'),
+(2, 'Albert', 'Mendoza', 'albert@gmail.com', 'clave'),
+(3, 'Jose Alberto', 'Gonzalez', 'josealbertogonzales@gmail.com', 'clave');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `carritos`
+--
+ALTER TABLE `carritos`
+  ADD PRIMARY KEY (`IDCarrito`),
+  ADD KEY `IDUsuario` (`IDUsuario`);
+
+--
+-- Indices de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD PRIMARY KEY (`IDImagen`),
+  ADD KEY `IDProducto` (`IDProducto`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`IDProducto`);
+
+--
+-- Indices de la tabla `productosencarrito`
+--
+ALTER TABLE `productosencarrito`
+  ADD KEY `IDCarrito` (`IDCarrito`),
+  ADD KEY `IDProducto` (`IDProducto`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`IDUsuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `carritos`
+--
+ALTER TABLE `carritos`
+  MODIFY `IDCarrito` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  MODIFY `IDImagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `IDUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
