@@ -57,6 +57,7 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
         style={{ color: 'white', fontSize: '1.2rem', padding: '16px' }}
       >
         {product.Descripcion}
+        
       </div>
       <CardMedia
         component="img"
@@ -68,6 +69,9 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
         <Typography variant="body2" color="#ffffff">
           {product.shortdescription}
         </Typography>
+        <Typography>
+         ${product.Precio} 
+        </Typography>
       </CardContent>
       <CardActions disableSpacing className={styles.cardActions}>
         <Link to={"/infoProducto?search=" + product.IDProducto} className={styles.btnComprar}>
@@ -78,7 +82,7 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
        
 
         <ButtonGroup className={styles.btnGroup}>
-          <Button
+          {/* <Button
             style={{marginLeft: '1rem'}}
             onClick={() => {
               // setItemCount(Math.max(ItemCount - 1, 0));
@@ -87,7 +91,7 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
           >
             {" "}
             <RemoveIcon fontSize="small" />
-          </Button> 
+          </Button>  */}
           <Button  style={{marginLeft: '1rem' , backgroundColor: '#00a9d1', color: 'black' }} 
             onClick={() => {shoppingCart.push(product)}}
           >
