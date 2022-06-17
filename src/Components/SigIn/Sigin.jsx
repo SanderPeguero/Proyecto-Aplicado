@@ -47,7 +47,7 @@ export default function SignUp() {
       Apellido: data.get('lastName')
     };
 
-    axios.put('http://quantumswap.herokuapp.com/usuarios/', objData)
+    axios.put('https://quantumswap.herokuapp.com/usuarios/', objData)
       .then((response) => {
           console.log(response.data)
       })
