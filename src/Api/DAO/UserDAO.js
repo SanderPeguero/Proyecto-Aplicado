@@ -17,15 +17,18 @@ function getInstance(Row) {
 //Create
 export async function Create(req, res){
 
-    const UserModel = req.body
+    UserModel.Nombre = req.body.Nombre
+    UserModel.Apellido = req.body.Apellido
+    UserModel.Email = req.body.Email
+    UserModel.Clave = req.body.Clave
     
-    if(UserModel.IDUsuario == 0){
+    if(UserModel.IDUsuario == null || UserModel.IDUsuario == 0){
 
         const values = [
             UserModel.Nombre,
             UserModel.Apellido,
             UserModel.Email,
-            UserModel.Clave,
+            UserModel.Clave
         ]
 
         await Conexion.query("INSERT INTO usuarios (Nombre, Apellido, Email, Clave) VALUES (?,?,?,?)", values,
