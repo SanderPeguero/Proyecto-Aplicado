@@ -47,7 +47,7 @@ export default function SignUp() {
       Apellido: data.get('lastName')
     };
 
-    axios.put('http://localhost:4000/usuarios/', objData)
+    axios.put('http://quantumswap.herokuapp.com/usuarios/', objData)
       .then((response) => {
           console.log(response.data)
       })
