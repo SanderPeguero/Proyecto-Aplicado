@@ -27,6 +27,9 @@ export default function ComplexGrid({ product }) {
     setCant(event.target.value);
   };
 
+
+ 
+
   return (
     <Paper
       sx={{
@@ -61,6 +64,8 @@ export default function ComplexGrid({ product }) {
               <Box className={styles.select}>
                 <FormControl size="small">
                   <InputLabel id="demo-simple-select-label">Cant</InputLabel>
+
+                  
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -71,9 +76,8 @@ export default function ComplexGrid({ product }) {
                     size = "small"
                   >
                     
-                    <MenuItem value = {1}>1</MenuItem>
-                    <MenuItem value = {2}>2</MenuItem>
-                    <MenuItem value = {3}>3</MenuItem>
+                   
+                    <MenuItem value = {1}>{product.CantidadRestante}</MenuItem>
                   </Select>
                 </FormControl>
               </Box>
@@ -86,8 +90,9 @@ export default function ComplexGrid({ product }) {
           </Grid>
           <Grid item>
             <Typography variant="subtitle1" component="div">
-              $19
+              ${product.Precio}
             </Typography>
+            <Typography variant="subtitle1" component="div">{product.CantidadRestante}</Typography>
           </Grid>
         </Grid>
       </Grid>

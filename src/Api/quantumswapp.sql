@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `carritos`
 --
 
+use quantumswap;
 CREATE TABLE `carritos` (
   `IDCarrito` int(11) NOT NULL,
   `IDUsuario` int(11) NOT NULL,
