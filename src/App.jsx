@@ -14,7 +14,10 @@ import ChatIcon from '@mui/icons-material/Chat';
 import Card from './Components/Card/Card.jsx'
 import ShoppingCart from './Components/ShoppingCart/ShoppingCart.jsx'
 
-import products from './JSON/Products.json'
+// import products from './JSON/Products.json'
+
+import axios from 'axios'
+
 
 const style = {
   position: 'absolute',
@@ -63,6 +66,41 @@ const App = () => {
   //Carrito
   const [openCarShop, setOpenCarShop] = useState(false);
   const [shoppingCart, setShoppingCart ] = useState([])
+
+
+  const [products, setProduct] = useState([])
+  // let products = []
+
+  
+
+  const peticionGet = () => {
+    
+    axios.get("http://localhost:4000/productos/")
+    
+    .then(response => {
+    
+      // console.log(response.data.Data);
+      // products = response.data.Data
+      setProduct(response.data.Data)
+    
+    }).catch(error=>{
+    
+      console.log(error);
+    
+    })
+
+  }
+  
+  useEffect(() =>{
+    
+    console.log("Antes del UseEffect" + products)
+    peticionGet();
+    console.log("Despues del UseEffect" + products)
+
+  },[openChat])
+
+
+
 
  
   return (

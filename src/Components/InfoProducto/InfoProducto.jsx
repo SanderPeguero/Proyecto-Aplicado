@@ -13,7 +13,7 @@ const InfoProducto = ({ products }) => {
 
     useEffect(() => {  
         
-        const data = products.find((d) => d.id == search);
+        const data = products.find((d) => d.IDProducto == search);
         console.log(search)
 
         if (data) {
@@ -32,7 +32,7 @@ const InfoProducto = ({ products }) => {
     
     return (
         <>
-            <img src={Product.image} style={{ height: '100%', width: '100%' }} />
+            <img src={Product.QRCode} style={{ height: '100%', width: '100%' }} />
             
             <div style={{
                 position: 'absolute',
@@ -46,7 +46,7 @@ const InfoProducto = ({ products }) => {
                     fontWeight: '700',
                     fontFamily: 'sans-serif'
                 }}>
-                    {Product.name}
+                    {Product.Descripcion}
                 </div>
             </div>
         </>

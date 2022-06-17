@@ -56,12 +56,12 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
       <div className={styles.name}
         style={{ color: 'white', fontSize: '1.2rem', padding: '16px' }}
       >
-        {product.name}
+        {product.Descripcion}
       </div>
       <CardMedia
         component="img"
         height="250"
-        image={product.image}
+        image={product.QRCode}
         alt={product.imageAlt}
       />
       <CardContent >
@@ -70,7 +70,7 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={styles.cardActions}>
-        <Link to={"/infoProducto?search=" + product.id} className={styles.btnComprar}>
+        <Link to={"/infoProducto?search=" + product.IDProducto} className={styles.btnComprar}>
           <Button variant="contained" style={{ backgroundColor: '#00a9d1', color: 'black' }}>
             Comprar
           </Button>
