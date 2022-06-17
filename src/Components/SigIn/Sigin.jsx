@@ -17,6 +17,7 @@ import logo from '../../../Logo.png'
 import { borderRight, height, positions } from '@mui/system';
 import CloseIcon from '@mui/icons-material/Close';
 import Fab from '@mui/material/Fab';
+import axios from 'axios'
 
 
 function Copyright(props) {
@@ -39,10 +40,18 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    let objData = {
+      Email: data.get('email'),
+      Clave: data.get('password'),
+      Nombre: data.get('firstName'),
+      Apellido: data.get('lastName')
+    };
+
+    axios.put('http://localhost:4000/usuarios/', objData)
+      .then((response) => {
+          console.log(response.data)
+      })
+      .catch((err) => {});
   };
 
   return (

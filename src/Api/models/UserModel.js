@@ -1,6 +1,6 @@
 
 const UserModel = {
-    IDUsuario: Number,
+    IDUsuario: 0,
     Nombre: String,
     Apellido: String,
     Email: String,
