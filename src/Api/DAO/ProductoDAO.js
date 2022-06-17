@@ -3,7 +3,6 @@ import ProductoModel from "../models/ProductoModel.js"
 import ImagenModel from "../models/ImagenModel.js"
 //importamos la Conexion
 import Conexion from "../Conexion/Conexion.js"
-import { Propane } from "@mui/icons-material"
 
 let SqlQuery = "SELECT IDProducto, Descripcion, CantidadRestante, Costo, Precio, Descuento, QRCode, FechaCreacion, FechaModificacion, Estatus FROM productos "
 let SqlQueryImagen = "SELECT `IDImagen`, `IDProducto`, `Nombre`, `FechaCreacion` FROM `imagenes` "

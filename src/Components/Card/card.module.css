@@ -1,7 +1,7 @@
 .cardActions {
     height: 0;
-    transition: .3s;
-    background-color: red;
+    transition: .1s;
+    background-color: black;
 }
 
 .card:hover .cardActions {
@@ -27,6 +27,6 @@
     transition: .3s;
 }
 
-.card:hover .name {
+/* .card:hover .name {
     
-}
+} */
