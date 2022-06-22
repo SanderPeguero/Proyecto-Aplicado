@@ -14,6 +14,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import Card from './Components/Card/Card.jsx'
 import ShoppingCart from './Components/ShoppingCart/ShoppingCart.jsx'
 
+
 // import products from './JSON/Products.json'
 
 import axios from 'axios'
@@ -142,6 +143,7 @@ const App = () => {
             <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} setItemCount={setItemCount} products={products} />}></Route>
             <Route exact path='/chat' element={<Chat className='ChatElement' style={{marginTop: '5rem'}}/>}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
+            <Route exact path='/wallet' element={<div style={{ marginTop: '100%' }}>Hola Mundo</div>}></Route>
             {/* <Route exact path='/infoProducto' element={<InfoProducto />}></Route> */}
             <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>
 

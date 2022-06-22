@@ -1,32 +1,37 @@
-.cardActions {
+/* .cardActions {
     height: 0;
     transition: .1s;
     background-color: black;
-}
+} */
 
-.card:hover .cardActions {
+/* .card:hover .cardActions {
     height: 30px;
     background-color: black;
-}
+} */
 
-.cardActions .btnComprar {
+/* .cardActions .btnComprar {
     transition: .3s;
     transform: translateX(-500px);
-}
+} */
 
-.cardActions .btnGroup {
+/* .cardActions .btnGroup {
     transition: .3s;
     transform: translateX(500px);
-}
+} */
 
-.card:hover .cardActions .btnGroup, .card:hover .cardActions .btnComprar {
+/* .card:hover .cardActions .btnGroup, .card:hover .cardActions .btnComprar {
     transform: translateX(0px);
-}
+} */
 
-.name {
+/* .name {
     transition: .3s;
-}
+} */
 
 /* .card:hover .name {
     
 } */
+
+.ButtonCompra{
+    background-color: aqua;
+    color: white;
+}

@@ -1,5 +1,5 @@
 
-ul{
+.ul{
     display: grid;
     grid-template-columns: repeat(auto-fill, 400px);
     gap: 40px;
@@ -10,7 +10,7 @@ ul{
     overflow: hidden;
 }
 
-li{
+.li{
     list-style: none;
     overflow: hidden;
 }
