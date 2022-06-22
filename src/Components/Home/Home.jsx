@@ -1,11 +1,11 @@
-import GatoDeLado from '../../Images/GatoExcentrico.png'
+import GatoDeLado from '../../Images/blanco.png'
 
 
 
 const Home = () => {
     return (
         <div style={{background: 'black'}}>
-            <img src={GatoDeLado} style={{ height: '85rem', marginTop: '-12rem', marginLeft: '6rem'}} />
+            <img src={GatoDeLado} style={{ height: '75rem', marginTop: '0rem', marginLeft: '0rem'}} />
             
             <div style={{
                 position: 'absolute',
@@ -13,7 +13,7 @@ const Home = () => {
                 left: '25%',
                 margin: '5rem',
                 transform: 'translate(-50%, -50%)',
-                color: 'white'
+                color: 'black'
             }}>
                 <div style={{
                     fontSize: '50px',
