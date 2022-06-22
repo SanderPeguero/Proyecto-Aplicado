@@ -99,10 +99,6 @@ const App = () => {
     console.log("Despues del UseEffect" + products)
 
   },[openChat])
-
-
-
-
  
   return (
     <>
@@ -143,8 +139,7 @@ const App = () => {
             <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} setItemCount={setItemCount} products={products} />}></Route>
             <Route exact path='/chat' element={<Chat className='ChatElement' style={{marginTop: '5rem'}}/>}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
-            <Route exact path='/wallet' element={<div style={{ marginTop: '100%' }}>Hola Mundo</div>}></Route>
-            {/* <Route exact path='/infoProducto' element={<InfoProducto />}></Route> */}
+            <Route exact path='/wallet' element={<div></div>}></Route>
             <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>
 
           </Routes>

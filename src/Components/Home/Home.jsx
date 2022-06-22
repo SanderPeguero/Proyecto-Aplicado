@@ -1,11 +1,12 @@
 import GatoDeLado from '../../Images/blanco.png'
-
+import styles from './Home.module.css'
 
 
 const Home = () => {
     return (
         <div style={{background: 'black'}}>
-            <img src={GatoDeLado} style={{ height: '75rem', marginTop: '0rem', marginLeft: '0rem'}} />
+            {/* <img src={GatoDeLado} style={{ height: '75rem', marginTop: '0rem', marginLeft: '0rem'}} /> */}
+            <div className={styles.background}></div>
             
             <div style={{
                 position: 'absolute',
