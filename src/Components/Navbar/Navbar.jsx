@@ -14,6 +14,8 @@ import Search from '../Search/Search.jsx'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
+// import './Navbar.module.css'
 
 
 
@@ -48,7 +50,8 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
     <AppBar position="static" style={{
       background: '#000000',
       height: '5rem',
-      boxShadow: 'none'
+      boxShadow: 'none',
+      zIndex: '1'
     }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -70,7 +73,9 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
             <img src={logo} alt="" style={{ height: '2.6rem', width: '3rem', alignSelf: 'start' }} />
           </Typography>
 
-          <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
+{/* 
+          {/*Dropdown Menu*/}
+          <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none', bgcolor: 'black' } }}>
             <Typography
               variant="h5"
               noWrap
@@ -89,96 +94,24 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
             >
               <img src={logo} alt="" style={{ height: '2.6rem', width: '3rem', alignSelf: 'start' }} />
             </Typography>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
 
-              <MenuItem onClick={handleCloseNavMenu}>
-                <a href="#/" className={styles.navbarLink}>
-                  Home
-                </a>
-              </MenuItem>
-              <MenuItem>
-                <a href="#/store" className={styles.navbarLink}>
-                  Store
-                </a>
-              </MenuItem>
-              <MenuItem>
+          </Box> 
 
-                <a href="#/wallet" className={styles.navbarLink}>
-                  Wallet
-                </a>
-              </MenuItem>
-              <MenuItem>
-                {/* Log In*/}
-                <ButtonUnstyled onClick={handleOpenLogin} className={styles.navbarLink} style={{
-                  fontSize: '1.15rem',
-                  fontfamily: 'arial',
-                  textTransform: 'none',
-                  background: 'none',
-                  border: '0',
-                  padding: '0'
-                }}>
-                  Log In
-                </ButtonUnstyled>
-              </MenuItem>
-
-              <MenuItem>
-                <ButtonUnstyled onClick={handleOpenSigIn} className={styles.navbarLink} style={{
-                  fontSize: '1.15rem',
-                  fontfamily: 'arial',
-                  textTransform: 'none',
-                  background: 'none',
-                  border: '0',
-                  padding: '0'
-                }}>
-                  Sign In
-                </ButtonUnstyled>
-
-              </MenuItem>
-
-            </Menu>
-
-          </Box>
 
 
 
 
 
           {/*PC */}
-          <Box sx={{ flexGrow: 1 }} style={{ zIndex: '1', margin: '0' }}>
+          <Box sx={{ flexGrow: 1 }} style={{ margin: '0' }}>
 
-            <Toolbar onClick={handleCloseNavMenu} style={{ height: '-webkit-fill-available', marginLeft: '1rem' }}>
+            <Toolbar onClick={handleCloseNavMenu} style={{ display: 'flex', justifyContent: 'flex-end', height: '-webkit-fill-available', marginLeft: '1rem' }} disableGutters>
+
               <Typography
                 variant="h6"
                 noWrap
                 component="div"
-                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}
               >
 
                 <a href="#/" className={styles.navbarLink}>
@@ -191,6 +124,8 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
                   Wallet
                 </a>
               </Typography>
+
+
               <Search products={products} />
 
               {/*Cart Shopping */}
@@ -206,18 +141,22 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
                   <ShoppingCartCheckoutRoundedIcon />
                 </Badge>
               </ButtonUnstyled>
+
+              
+
               <Typography
                 variant="h6"
                 noWrap
                 component="div"
-                sx={{  display: { xs: 'none', sm: 'block' } }}
+                sx={{ display: { xs: 'none', md: 'block' } }}
               >
-                 <ButtonUnstyled onClick={handleOpenLogin} className={styles.navbarLink} style={{
+                <ButtonUnstyled onClick={handleOpenLogin} className={styles.navbarLink} style={{
                   fontSize: '1.15rem',
                   fontfamily: 'arial',
                   textTransform: 'none',
                   background: 'none',
                   border: '0',
+                  margin: '0, 1rem, 0, 0',
                   padding: '0'
                 }}>
                   Log In
@@ -229,16 +168,17 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
                   textTransform: 'none',
                   background: 'none',
                   border: '0',
+                  margin: '0',
                   padding: '0'
                 }}>
                   Sign In
-                </ButtonUnstyled> 
-                </Typography>
+                </ButtonUnstyled>
+              </Typography>
 
               {/* */}
 
               {/* Log In*/}
-{/*               
+              {/*               
                 <ButtonUnstyled onClick={handleOpenLogin} className={styles.navbarLink} style={{
                   fontSize: '1.15rem',
                   fontfamily: 'arial',
@@ -260,12 +200,90 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, setOpenChat, shop
                 }}>
                   Sign In
                 </ButtonUnstyled> */}
-              
+
             </Toolbar>
 
 
 
 
+          </Box>
+
+          
+          {/*Dropdown Menu*/}
+          <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none', bgcolor: 'black' } }}>
+           
+
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+              className={styles.Menu}
+              PaperProps={{ sx: { backgroundImage: 'linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%)' } }}
+            >
+              <a href="#/" className={styles.MobileNavLink}>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <div style={{ fontSize: '1.45rem'}}>
+                  Home
+                </div>
+              </MenuItem>
+              </a>
+              <a className={styles.MobileNavLink} href="#/store">
+                <MenuItem onClick={handleCloseNavMenu}  >
+                    <div style={{ fontSize: '1.45rem'}}>
+                      Store
+                    </div>
+                </MenuItem>
+              </a>
+
+              <a className={styles.MobileNavLink} href="#/wallet">
+                <MenuItem onClick={handleCloseNavMenu}  >
+                    <div style={{ fontSize: '1.45rem'}}>
+                      Wallet
+                    </div>
+                </MenuItem>
+              </a>
+
+              <a className={styles.MobileNavLink} onClick={handleOpenLogin}>
+                <MenuItem onClick={handleCloseNavMenu}  >
+                    <div style={{ fontSize: '1.45rem'}}>
+                      Log In
+                    </div>
+                </MenuItem>
+              </a>
+
+              <a className={styles.MobileNavLink} onClick={handleOpenSigIn}>
+                <MenuItem onClick={handleCloseNavMenu}  >
+                    <div style={{ fontSize: '1.45rem'}}>
+                      Sign In
+                    </div>
+                </MenuItem>
+              </a>
+
+            </Menu>
           </Box>
 
           {/*Setting del avatar */}

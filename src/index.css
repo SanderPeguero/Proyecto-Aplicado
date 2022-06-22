@@ -1,9 +1,20 @@
 body {
-    background-color: #ffffff;
-    color: #fff;
-    margin: 0;
+    background-image: linear-gradient(to top, #09203f 0%, #194d74 100%);
+    color: rgb(227, 226, 226);
+    margin: auto;
     padding: 0;
+    width: 100%;
     font-family: sans-serif;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    padding-left: 3.5rem;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    justify-content: center;
+    overflow: hidden;
 }
 
 a {
