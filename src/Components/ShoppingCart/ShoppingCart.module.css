@@ -16,7 +16,8 @@
 }
 
 .payment {
-    float: left;
+    /* float: left; */
+    margin-right: auto;
 }
 
 .Cant{
@@ -25,9 +26,21 @@
 }
 
 .select{
-    width: 100px;
+    width: 70px;
     height: 3rem;
     float: left;
+    border-radius: 8px;
+    border-color: #0d4545;
+    min-width: 0.0909091%;
 }
-
+.Menu{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    /* gap: 40px; */
+    padding-left: 3.5rem;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    justify-content: center;
+    overflow: hidden;
+}
 
