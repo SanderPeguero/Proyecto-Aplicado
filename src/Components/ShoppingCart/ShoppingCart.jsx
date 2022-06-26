@@ -16,9 +16,9 @@ function ShoppingCart({ shoppingCart, setShoppingCart }) {
       </h2>
       {shoppingCart.map((product) => <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} />)}
       <div className={styles.payment}>
-        <p>
-          Full payment:
-        </p>
+        <div>
+          Full payment: $
+        </div>
 
       </div>
     </div>
