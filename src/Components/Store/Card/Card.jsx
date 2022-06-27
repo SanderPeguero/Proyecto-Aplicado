@@ -1,32 +1,16 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
-import Camera from '../../Images/Camera.jpg'
-import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartCheckoutRounded';
-import ShoppingCart from '../ShoppingCart/ShoppingCart.jsx'
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Badge from '@mui/material/Badge';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
 import styles from "./card.module.css";
-import InfoProducto from '../InfoProducto/InfoProducto.jsx'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { purple , blue, indigo} from '@mui/material/colors';
+import { indigo } from '@mui/material/colors';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;

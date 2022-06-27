@@ -1,6 +1,5 @@
-import ImgProducto from '../../Images/Camera.jpg'
 import { useState, useEffect } from 'react';
-import { useQuery } from '../../Hooks/useQuery';
+import { useQuery } from '../../../Hooks/useQuery';
 
 
 const InfoProducto = ({ products }) => {
