@@ -4,11 +4,6 @@ import styles from './ShoppingCart.module.css'
 import Alert from '@mui/material/Alert';
 
 function ShoppingCart({ shoppingCart, setShoppingCart }) {
-  // const array = []
-
-  // array.
-
-
   return (
     <div className={styles.scroll}>
       <h2>

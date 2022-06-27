@@ -1,6 +1,6 @@
 
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useQuery } from "../../Hooks/useQuery.jsx";
+import { useQuery } from "../../../Hooks/useQuery.jsx";
 import { ImSearch } from "react-icons/im";
 import { styled, alpha } from '@mui/material/styles'
 import InputBase from '@mui/material/InputBase'

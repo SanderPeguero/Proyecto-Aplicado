@@ -1,5 +1,5 @@
 import Navbar from '../Navbar/Navbar'
-import Card from '../Card/Card'
+import Card from './Card/Card'
 import styles from './Store.module.css'
 import { useState, useEffect } from 'react';
 import { useQuery } from '../../Hooks/useQuery';

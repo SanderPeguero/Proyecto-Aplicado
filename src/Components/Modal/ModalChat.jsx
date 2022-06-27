@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import Chat from '../Chat/App'
+import * as React from 'react'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Modal from '@mui/material/Modal'
+import Chat from './Chat/App'
 
 
 const styles = {
