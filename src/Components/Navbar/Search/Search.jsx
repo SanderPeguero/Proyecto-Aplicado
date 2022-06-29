@@ -1,6 +1,6 @@
 
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useQuery } from "../../Hooks/useQuery.jsx";
+import { useQuery } from "../../../Hooks/useQuery.jsx";
 import { ImSearch } from "react-icons/im";
 import { styled, alpha } from '@mui/material/styles'
 import InputBase from '@mui/material/InputBase'
@@ -62,15 +62,6 @@ export default function Search({ products }) {
         e.preventDefault();
     }
 
-    const onChange = (e) => {
-      // jsonData is javascript array when import it
-      const data = products.find((d) => d.IDProducto == e.target.value);
-
-      if (data) {
-          setName(data.name);
-      }
-    }
-
     return (
         <>
         <form onSubmit={handleSubmit} style={{
@@ -83,7 +74,6 @@ export default function Search({ products }) {
                 </SearchIconWrapper>
 
                 <StyledInputBase
-                    style={{ width: '20vw' }}
                     placeholder="Search…"
                     inputProps={{ 'aria-label': 'search' }}
                     type="text" 

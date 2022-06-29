@@ -3,7 +3,7 @@ import { getAuth, signInWithPopup, } from "firebase/auth";
 import { provider } from './firebase';
 import Button from '@mui/material/Button';
 import GoogleIcon from '@mui/icons-material/Google';
-import ChatIcon from '../../../Logo.png';
+import ChatIcon from '../../../../Logo.png';
 import { GoogleOutlined } from '@ant-design/icons'
 
 export const Login = (props) => {

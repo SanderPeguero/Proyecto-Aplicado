@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import Login from '../Login/Login.jsx'
-import SignUp from '../SigIn/Sigin.jsx';
+import SignUp from './SigIn/Sigin.jsx';
 import CloseIcon from '@mui/icons-material/Close';
 import Fab from '@mui/material/Fab';
 
