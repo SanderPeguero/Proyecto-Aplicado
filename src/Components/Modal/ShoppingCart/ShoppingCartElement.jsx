@@ -110,7 +110,7 @@ export default function ComplexGrid({ product }) {
               <br />
               {product.Descuento > 0 &&
                 <div style={{ color: 'red' }}>
-                  ${ ((((product.Descuento / 100) * product.Precio) - product.Precio) * -1) * itemCount}
+                  ${ (product.Precio - ((product.Descuento / 100) * product.Precio)) * itemCount}
                 </div>
               }
             </Typography>

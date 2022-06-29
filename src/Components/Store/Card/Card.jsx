@@ -62,11 +62,13 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
         <Typography variant="body2" color="#ffffff">
           {product.shortdescription}
         </Typography>
-        <Typography>
+        {/* <Typography>
          ${product.Precio} 
-        </Typography>
+        </Typography> */}
         <Typography>
-          Cantidad: {product.CantidadRestante}
+         {product.Descuento == 0 && <span>${product.Precio}</span>}
+         {product.Descuento > 0 && <span style={{ textDecoration: 'line-through' }}>${product.Precio}</span>}
+         {product.Descuento > 0 && <span style={{color: 'red', marginLeft: '1rem'}}>${(product.Precio - ((product.Descuento / 100) * product.Precio))}</span>}
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={styles.cardActions}>
