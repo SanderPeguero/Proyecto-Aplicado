@@ -65,6 +65,9 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
         <Typography>
          ${product.Precio} 
         </Typography>
+        <Typography>
+          Cantidad: {product.CantidadRestante}
+        </Typography>
       </CardContent>
       <CardActions disableSpacing className={styles.cardActions}>
         <Link to={"/infoProducto?search=" + product.IDProducto}>
@@ -72,16 +75,17 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
             Comprar
           </ColorButton>
         </Link>
-       
-
-       
- 
-          <ColorButton variant="outlined"  style={{marginLeft: '1rem' }} 
-            onClick={() => {shoppingCart.push(product)}}
-          >
-            {"   "}
-             Add    <AddShoppingCartIcon fontSize="small" style={{marginLeft: '0.50rem'}}/>
-          </ColorButton>
+        {shoppingCart ? (
+         <ColorButton variant="outlined"  style={{marginLeft: '1rem' }} 
+         onClick={() => {shoppingCart.push(product)}}
+       >
+         {"   "}
+          Add    <AddShoppingCartIcon fontSize="small" style={{marginLeft: '0.50rem'}}/>
+       </ColorButton>
+        ): (
+          <button>En el carrito</button>
+        )}
+         
         
       </CardActions>
     </Card>
