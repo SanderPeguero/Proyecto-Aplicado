@@ -34,6 +34,8 @@ export default function ComplexGrid({ product }) {
   const [itemCount, setItemCount] = React.useState(1);
 
 
+
+
   return (
     <Paper
       sx={{
@@ -72,6 +74,7 @@ export default function ComplexGrid({ product }) {
 
 
                     }}
+                    disabled = {itemCount <= 0 && true}
                   >
 
 
@@ -83,8 +86,9 @@ export default function ComplexGrid({ product }) {
                   <Button
                     onClick={() => {
                       setItemCount(itemCount + 1);
-
-                    }}>
+                    }}
+                    disabled={itemCount == product.CantidadRestante && true}
+                    >
                     {" "}
                     <AddIcon fontSize="small" />
                   </Button>
