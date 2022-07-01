@@ -57,18 +57,18 @@ const Wallet = () => {
            />
        )
 
+   }else{
+       
+       //Si ya tiene sus llaves, y ya copio el secret, iniciamos el wallet
+       return (
+         <Data
+             secret={secret}
+             publicKey={publicKey}
+             resetAccount={resetAccount}
+         />
+       )
    }
 
-  //Si ya tiene sus llaves, y ya copio el secret, iniciamos el wallet
-  return (
-    <Data
-        secret={secret}
-        publicKey={publicKey}
-        resetAccount={resetAccount}
-    />
-  )
-
-  // return <Login/>
 }
 
 export default Wallet
