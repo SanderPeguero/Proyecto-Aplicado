@@ -32,11 +32,12 @@ export default function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     let objData = {
-      email: data.get('email'),
-      password: data.get('password'),
+      Email: data.get('email'),
+      Clave: data.get('password'),
     };
 
-    axios.post('https://quantumswap.herokuapp.com/api/login', objData)
+    console.log(objData)
+    axios.post('https://quantumswap.herokuapp.com/usuarios/login', objData)
       .then((response) => {
           console.log(response.data)
       })

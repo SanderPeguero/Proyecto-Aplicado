@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -20,18 +20,32 @@ const Img = styled('img')({
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-
-
-export default function ComplexGrid({ product }) {
-
-
+export default function ComplexGrid({ product, setProductPayment, ProductPayment }) {
 
   const handleChange = (event) => {
     setCant(event.target.value);
   };
 
+  const [itemCount, setItemCount] = useState(0);
+  const [Total, setTotal] = useState(0);
 
-  const [itemCount, setItemCount] = React.useState(1);
+  // function calc(){
+
+  //   setTotal(itemCount * product.Precio)
+  //   setProductPayment(Total)
+
+  // }
+  
+  // const oldtotal = ProductPayment;
+  // const newtotal = (itemCount * product.Precio) + oldtotal
+
+  // useEffect(() => {
+
+  //   setProductPayment(Total)
+    
+    
+  // }, [itemCount]);
+
 
 
   return (
@@ -82,7 +96,10 @@ export default function ComplexGrid({ product }) {
                   </Button>
                   <Button
                     onClick={() => {
-                      setItemCount(itemCount + 1);
+                      setItemCount(itemCount + 1)
+                      // setTotal(itemCount * product.Precio)
+                      setProductPayment(itemCount * product.Precio)
+                      // calc()
 
                     }}>
                     {" "}
@@ -104,7 +121,7 @@ export default function ComplexGrid({ product }) {
           <Grid item>
             <Typography variant="body2" component="div"  >
               <br />
-              {product.Descuento == 0 && <div>${product.Precio * itemCount}</div>}
+              {product.Descuento == 0 && <div>${ProductPayment}</div>}
               <br />
               {product.Descuento > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Precio * itemCount}</div>}
               <br />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Login from './Login/Login'
-import CreateWallet from './StartWallet/Create'
+// import CreateWallet from './StartWallet/Create'
 import CopyWallet from './StartWallet/Copy'
 import Data from './Data/Data'
 
