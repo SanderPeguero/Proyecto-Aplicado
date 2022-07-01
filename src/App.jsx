@@ -65,9 +65,9 @@ const App = () => {
   
   useEffect(() =>{
     
-    console.log("Antes del UseEffect" + products)
+    // console.log( products)
     peticionGet();
-    console.log("Despues del UseEffect" + products)
+    // console.log(products)
 
   },[openChat])
  

@@ -62,8 +62,13 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
         <Typography variant="body2" color="#ffffff">
           {product.shortdescription}
         </Typography>
-        <Typography>
+        {/* <Typography>
          ${product.Precio} 
+        </Typography> */}
+        <Typography>
+         {product.Descuento == 0 && <span>${product.Precio}</span>}
+         {product.Descuento > 0 && <span style={{ textDecoration: 'line-through' }}>${product.Precio}</span>}
+         {product.Descuento > 0 && <span style={{color: 'red', marginLeft: '1rem'}}>${(product.Precio - ((product.Descuento / 100) * product.Precio))}</span>}
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={styles.cardActions}>
@@ -72,16 +77,17 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
             Comprar
           </ColorButton>
         </Link>
-       
-
-       
- 
-          <ColorButton variant="outlined"  style={{marginLeft: '1rem' }} 
-            onClick={() => {shoppingCart.push(product)}}
-          >
-            {"   "}
-             Add    <AddShoppingCartIcon fontSize="small" style={{marginLeft: '0.50rem'}}/>
-          </ColorButton>
+        {shoppingCart ? (
+         <ColorButton variant="outlined"  style={{marginLeft: '1rem' }} 
+         onClick={() => {shoppingCart.push(product)}}
+       >
+         {"   "}
+          Add    <AddShoppingCartIcon fontSize="small" style={{marginLeft: '0.50rem'}}/>
+       </ColorButton>
+        ): (
+          <button>En el carrito</button>
+        )}
+         
         
       </CardActions>
     </Card>
