@@ -6,19 +6,19 @@ import { outlinedInputClasses } from '@mui/material'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()]
-  ,
-  optimizeDeps: {
-    esbuildOptions: {
-        // Node.js global to browser globalThis
-        define: {
-            global: 'globalThis'
-        },
-        // Enable esbuild polyfill plugins
-        // plugins: [
-        //     NodeGlobalsPolyfillPlugin({
-        //         buffer: true
-        //     })
-        // ]
-    }
-  }
+  // ,
+  // optimizeDeps: {
+  //   esbuildOptions: {
+  //       // Node.js global to browser globalThis
+  //       define: {
+  //           global: 'globalThis'
+  //       },
+  //       // Enable esbuild polyfill plugins
+  //       // plugins: [
+  //       //     NodeGlobalsPolyfillPlugin({
+  //       //         buffer: true
+  //       //     })
+  //       // ]
+  //   }
+  // }
 })
