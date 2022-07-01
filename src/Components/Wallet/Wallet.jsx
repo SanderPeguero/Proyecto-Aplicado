@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Login from './Login/Login'
+import Login from './Login/Login.jsx'
 // import CreateWallet from './StartWallet/Create'
-import CopyWallet from './StartWallet/Copy'
-import Data from './Data/Data'
+import CopyWallet from './StartWallet/Copy.jsx'
+import Data from './Data/Data.jsx'
 
 const Wallet = () => {
 
