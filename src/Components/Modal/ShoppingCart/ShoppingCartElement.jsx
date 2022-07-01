@@ -48,6 +48,8 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
 
 
 
+
+
   return (
     <Paper
       sx={{
@@ -86,6 +88,7 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
 
 
                     }}
+                    disabled = {itemCount <= 0 && true}
                   >
 
 
@@ -96,12 +99,11 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
                   </Button>
                   <Button
                     onClick={() => {
-                      setItemCount(itemCount + 1)
-                      // setTotal(itemCount * product.Precio)
-                      setProductPayment(itemCount * product.Precio)
-                      // calc()
 
-                    }}>
+                      setItemCount(itemCount + 1);
+                    }}
+                    disabled={itemCount == product.CantidadRestante && true}
+                    >
                     {" "}
                     <AddIcon fontSize="small" />
                   </Button>
