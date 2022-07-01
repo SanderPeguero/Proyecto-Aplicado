@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import ShoppingCartElement from './ShoppingCartElement.jsx'
 import styles from './ShoppingCart.module.css'
 import Alert from '@mui/material/Alert';
@@ -6,7 +6,12 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import { indigo } from '@mui/material/colors';
 
+
+
 function ShoppingCart({ shoppingCart, setShoppingCart }) {
+
+  const [ProductPayment, setProductPayment] = useState(0);
+  const [FullPayment, setFullPayment] = useState(0);
 
   const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(indigo[800]),
@@ -21,14 +26,13 @@ function ShoppingCart({ shoppingCart, setShoppingCart }) {
       <h2>
         Tiene {shoppingCart.length} articulos en el carrito
       </h2>
-      {shoppingCart.map((product) => <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} /> )}
+      {shoppingCart.map((product) =>{ return <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} setProductPayment={setProductPayment} ProductPayment={ProductPayment} /> } ) }
       <div className={styles.payment}>
-
-          <br />
+          <br/>
           <ColorButton variant="outlined"  style={{marginRight: '1rem' }}>
             Comprar ({shoppingCart.length})
           </ColorButton>
-             Full payment: $ 
+             Full payment: $ {ProductPayment}
       </div>
     </div>
   );

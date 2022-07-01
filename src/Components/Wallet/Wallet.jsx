@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Login from './Login/Login'
-import CreateWallet from './StartWallet/Create'
+// import CreateWallet from './StartWallet/Create'
 import CopyWallet from './StartWallet/Copy'
 import Data from './Data/Data'
 
@@ -57,18 +57,18 @@ const Wallet = () => {
            />
        )
 
+   }else{
+       
+       //Si ya tiene sus llaves, y ya copio el secret, iniciamos el wallet
+       return (
+         <Data
+             secret={secret}
+             publicKey={publicKey}
+             resetAccount={resetAccount}
+         />
+       )
    }
 
-  //Si ya tiene sus llaves, y ya copio el secret, iniciamos el wallet
-  return (
-    <Data
-        secret={secret}
-        publicKey={publicKey}
-        resetAccount={resetAccount}
-    />
-  )
-
-  // return <Login/>
 }
 
 export default Wallet
