@@ -109,7 +109,7 @@ const App = () => {
             <Route exact path='/' element={<Home className='HomeElement' />}></Route>
             <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} setItemCount={setItemCount} products={products} />}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
-            <Route exact path='/wallet' element={<Wallet/>}></Route>
+            {/* <Route exact path='/wallet' element={<Wallet/>}></Route> */}
             <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>
 
           </Routes>
