@@ -11,6 +11,7 @@ import ModalChat from './Components/Modal/ModalChat.jsx'
 import Fab from '@mui/material/Fab'
 import ChatIcon from '@mui/icons-material/Chat'
 import axios from 'axios'
+import Wallet from './Components/Wallet/wallet'
 
 const style = {
   position: 'absolute',
@@ -64,9 +65,9 @@ const App = () => {
   
   useEffect(() =>{
     
-    console.log("Antes del UseEffect" + products)
+    // console.log( products)
     peticionGet();
-    console.log("Despues del UseEffect" + products)
+    // console.log(products)
 
   },[openChat])
  
@@ -108,7 +109,7 @@ const App = () => {
             <Route exact path='/' element={<Home className='HomeElement' />}></Route>
             <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} setItemCount={setItemCount} products={products} />}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
-            <Route exact path='/wallet' element={<div></div>}></Route>
+            <Route exact path='/wallet' element={<Wallet/>}></Route>
             <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>
 
           </Routes>

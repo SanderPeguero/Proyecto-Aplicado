@@ -4,18 +4,12 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
-
 import ButtonGroup from '@mui/material/ButtonGroup';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-
 import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import styles from './ShoppingCart.module.css'
 import { Button } from '@mui/material';
+
 
 const Img = styled('img')({
   margin: 'auto',
@@ -24,11 +18,13 @@ const Img = styled('img')({
   maxHeight: '100%',
 });
 
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
 
 
 export default function ComplexGrid({ product }) {
 
-  const [cant, setCant] = React.useState(0);
+
 
   const handleChange = (event) => {
     setCant(event.target.value);
@@ -36,7 +32,6 @@ export default function ComplexGrid({ product }) {
 
 
   const [itemCount, setItemCount] = React.useState(1);
-  const [CantDisp, setCantDisp] = React.useState(1);
 
 
 
@@ -64,78 +59,70 @@ export default function ComplexGrid({ product }) {
               <Typography gutterBottom variant="subtitle1" component="div">
                 {product.Descripcion}
               </Typography>
-              {/* <Typography variant="body2" gutterBottom>
-                {product.shortdescription}
-              </Typography> */}
               <Typography variant="body2" color="text.secondary">
                 ID: {product.IDProducto}
               </Typography>
             </Grid>
+
             <Grid item>
               <Box >
-                <ButtonGroup>
+                <ButtonGroup size='small'>
                   <Button
                     onClick={() => {
+
                       setItemCount(Math.max(itemCount - 1, 0));
+
+
                     }}
+                    disabled = {itemCount <= 0 && true}
                   >
 
-                    
+
                     <RemoveIcon fontSize="small" />
+                  </Button>
+                  <Button key={product.IDProducto}>
+                    {itemCount}
                   </Button>
                   <Button
                     onClick={() => {
                       setItemCount(itemCount + 1);
                     }}
-                  >
+                    disabled={itemCount == product.CantidadRestante && true}
+                    >
                     {" "}
                     <AddIcon fontSize="small" />
                   </Button>
                 </ButtonGroup>
-                {/* <FormControl size="small">
-                  <InputLabel id="demo-simple-select-label">Cant</InputLabel>
-
-
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={cant}
-                    label="Cant"
-                    onChange={handleChange}
-                    className={styles.select}
-                    size="small"
-                  >
-                    {num.map((num) => <MenuItem value={product.IDProducto} className = {styles.Menu}>
-
-                      {num}
-
-                    </MenuItem>)}
-                  </Select>
-                </FormControl> */}
               </Box>
             </Grid>
+            
             <Grid item>
-              {/* <Button variant='error' onClick={() => {product.delete(product.IDProducto)}}>Remove</Button> */}
-              <Typography sx={{ cursor: 'pointer' }} variant="body2" onClick={() => {product.delete(product)}}>
-                Remove 
-              </Typography>
+              <Button sx={{ cursor: 'pointer' }} variant="body2" >
+                Remove
+              </Button>
             </Grid>
           </Grid>
           <Grid item>
 
           </Grid>
           <Grid item>
-            <Typography variant="body2" component="div" style={{}}>
-              <br/>
-              Precio: ${product.Precio * itemCount}
+            <Typography variant="body2" component="div"  >
+              <br />
+              {product.Descuento == 0 && <div>${product.Precio * itemCount}</div>}
+              <br />
+              {product.Descuento > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Precio * itemCount}</div>}
+              <br />
+              {product.Descuento > 0 &&
+                <div style={{ color: 'red' }}>
+                  ${ (product.Precio - ((product.Descuento / 100) * product.Precio)) * itemCount}
+                </div>
+              }
             </Typography>
-            <Typography variant="subtitle1" component="div">Cantidad: {itemCount}</Typography>
-            <Typography variant="subtitle1" component="div">Restante: {product.CantidadRestante - itemCount}</Typography>
           </Grid>
         </Grid>
-        
       </Grid>
     </Paper>
-   
+
   );
 }
+
