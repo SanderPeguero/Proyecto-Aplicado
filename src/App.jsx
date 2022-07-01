@@ -12,6 +12,9 @@ import Fab from '@mui/material/Fab'
 import ChatIcon from '@mui/icons-material/Chat'
 import axios from 'axios'
 import Wallet from './Components/Wallet/wallet'
+import UrlApi from './globals'
+
+
 
 const style = {
   position: 'absolute',
@@ -47,15 +50,13 @@ const App = () => {
 
   const peticionGet = () => {
     
-    axios.get("https://quantumswap.herokuapp.com/productos/")
+    axios.get(UrlApi + "/productos/")
     
     .then(response => {
+
+      setProduct(response.data)
     
-      // console.log(response.data.Data);
-      // products = response.data.Data
-      setProduct(response.data.Data)
-    
-    }).catch(error=>{
+    }).catch(er9ror=>{
     
       console.log(error);
     

@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from '../../../../Logo.png'
 import axios from 'axios';
+import UrlApi from '../../../globals';
 
 function Copyright(props) {
   return (
@@ -32,13 +33,26 @@ export default function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     let objData = {
-      email: data.get('email'),
-      password: data.get('password'),
+      Email: data.get('email'),
+      Clave: data.get('password'),
     };
 
-    axios.post('https://quantumswap.herokuapp.com/api/login', objData)
+    axios.post(UrlApi + '/usuarios/login', objData)
       .then((response) => {
-          console.log(response.data)
+          let user = response.data
+          localStorage.clear()
+          if (user.IDUsuario > 0) {
+            localStorage.setItem('IDUsuario', user.IDUsuario)
+            localStorage.setItem('Nombre', user.Nombre)
+            localStorage.setItem('Apellido', user.Apellido)
+            localStorage.setItem('Email', user.Email)
+          } else {
+            localStorage.removeItem('IDUsuario')
+            localStorage.removeItem('Nombre')
+            localStorage.removeItem('Apellido')
+            localStorage.removeItem('Email')
+          }
+          
       })
       .catch((err) => {});
   };
