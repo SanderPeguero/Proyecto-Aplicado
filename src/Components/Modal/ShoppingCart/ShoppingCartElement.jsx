@@ -26,7 +26,7 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
     setCant(event.target.value);
   };
 
-  const [itemCount, setItemCount] = useState(0);
+  const [itemCount, setItemCount] = useState(1);
   const [Total, setTotal] = useState(0);
 
   // function calc(){
