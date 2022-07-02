@@ -14,11 +14,11 @@ export default defineConfig({
   //           global: 'globalThis'
   //       },
   //       // Enable esbuild polyfill plugins
-  //       // plugins: [
-  //       //     NodeGlobalsPolyfillPlugin({
-  //       //         buffer: true
-  //       //     })
-  //       // ]
+  //       plugins: [
+  //           NodeGlobalsPolyfillPlugin({
+  //               buffer: true
+  //           })
+  //       ]
   //   }
   // }
 })

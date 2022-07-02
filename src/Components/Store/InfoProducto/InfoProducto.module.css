@@ -1,0 +1,62 @@
+.background {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.td {
+    width: 400px;
+}
+
+.h1 {
+    margin: 0;
+    font-Weight: normal;
+    font-Family: sans-serif;
+}
+
+.hr {
+    background-color: transparent;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top: 1px solid #e7e7e7;
+    display: block;
+    height: 1px;
+    line-height: 19px;
+}
+
+.article {
+    color: white;
+    display: flex;
+    flex-Direction: row;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+    .article {
+        align-items: center;
+        flex-Direction: column;
+    }
+
+    .h1 {
+        text-align: center;
+    }
+
+    .td {
+        width: 400px;
+    }
+  }
