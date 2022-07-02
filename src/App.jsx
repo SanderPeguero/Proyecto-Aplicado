@@ -11,10 +11,8 @@ import ModalChat from './Components/Modal/ModalChat.jsx'
 import Fab from '@mui/material/Fab'
 import ChatIcon from '@mui/icons-material/Chat'
 import axios from 'axios'
-import Wallet from './Components/Wallet/wallet'
+import Wallet from './Components/Wallet/Wallet.jsx'
 import UrlApi from './globals'
-
-
 
 const style = {
   position: 'absolute',
