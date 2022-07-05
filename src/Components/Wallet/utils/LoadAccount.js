@@ -1,4 +1,4 @@
-import StellarSdk from 'stellar-sdk'
+// import StellarSdk from 'stellar-sdk'
 
 const server = new StellarSdk.Server('https://horizon-testnet.stellar.org/')
 
@@ -11,4 +11,4 @@ const loadAccount = publicKey => {
 
 }
 
-export { loadAccount }
+export default loadAccount
