@@ -55,7 +55,7 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
       sx={{
         p: 2,
         margin: 'auto',
-        maxWidth: 500,
+        maxWidth: 400,
         flexGrow: 1,
         backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',

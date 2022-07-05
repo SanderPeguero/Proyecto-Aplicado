@@ -11,4 +11,4 @@ const loadAccount = publicKey => {
 
 }
 
-export { loadAccount }
+export default loadAccount
