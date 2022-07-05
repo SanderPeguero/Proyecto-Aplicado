@@ -20,48 +20,52 @@ const Img = styled('img')({
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export default function ComplexGrid({ product, setProductPayment, ProductPayment }) {
+export default function ComplexGrid({ product, ProductPayment, setProductPayment}) {
 
   const handleChange = (event) => {
     setCant(event.target.value);
   };
 
   const [itemCount, setItemCount] = useState(1);
-  const [Total, setTotal] = useState(0);
+  const [Total, setTotal] = useState([product.Precio]);
+  const TotalP = 0;
 
-  // function calc(){
+ const [productDelete, setproductDelete] = useState([product])
+ const [CalcProduct, setCalProduct] = useState([product]);
 
-  //   setTotal(itemCount * product.Precio)
-  //   setProductPayment(Total)
 
-  // }
-  
-  // const oldtotal = ProductPayment;
-  // const newtotal = (itemCount * product.Precio) + oldtotal
+// useEffect = (() =>{
+// setProductPayment(500)
+// })
 
-  // useEffect(() => {
 
-  //   setProductPayment(Total)
-    
-    
-  // }, [itemCount]);
+ function deleteCarProduct (indice) {
+  const newProduct = productDelete.filter(function (element){
+    return element.index !== indice
+  });
+    console.log(newProduct);
+    setproductDelete(newProduct);
+ }
 
 
 
 
 
   return (
+  
     <Paper
       sx={{
         p: 2,
         margin: 'auto',
-        maxWidth: 500,
+        maxWidth: 450,
         flexGrow: 1,
         backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }}
+      key={Math.random() * (1 - 1000)}
     >
-      <Grid container spacing={2}>
+      {productDelete.map((productRemove)=>
+       <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
             <Img alt={product.imageAlt} src={product.QRCode} />
@@ -112,9 +116,9 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
             </Grid>
             
             <Grid item>
-              <Button sx={{ cursor: 'pointer' }} variant="body2" >
-                Remove
-              </Button>
+               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={product.IDProducto} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
+               Remove
+             </Button>
             </Grid>
           </Grid>
           <Grid item>
@@ -123,9 +127,9 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
           <Grid item>
             <Typography variant="body2" component="div"  >
               <br />
-              {product.Descuento == 0 && <div>${ProductPayment}</div>}
+              {product.Descuento == 0 && <div>${product.Precio * itemCount}</div>}
               <br />
-              {product.Descuento > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Precio * itemCount}</div>}
+              {product.Descuento > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Precio}</div>}
               <br />
               {product.Descuento > 0 &&
                 <div style={{ color: 'red' }}>
@@ -136,8 +140,26 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
           </Grid>
         </Grid>
       </Grid>
+      )}
+     
     </Paper>
 
   );
 }
 
+ // function calc(){
+
+  //   setTotal(itemCount * product.Precio)
+  //   setProductPayment(Total)
+
+  // }
+  
+  // const oldtotal = ProductPayment;
+  // const newtotal = (itemCount * product.Precio) + oldtotal
+
+  // useEffect(() => {
+
+  //   setProductPayment(Total)
+    
+    
+  // }, [itemCount]);

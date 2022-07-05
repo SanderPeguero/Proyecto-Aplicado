@@ -8,10 +8,10 @@ import { indigo } from '@mui/material/colors';
 
 
 
-function ShoppingCart({ shoppingCart, setShoppingCart }) {
+function ShoppingCart({ shoppingCart, setShoppingCart , FullPayment,setFullPayment}) {
 
   const [ProductPayment, setProductPayment] = useState(0);
-  const [FullPayment, setFullPayment] = useState(0);
+  // const [FullPayment, setFullPayment] = useState(0);
 
   const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(indigo[800]),
@@ -26,13 +26,13 @@ function ShoppingCart({ shoppingCart, setShoppingCart }) {
       <h2>
         Tiene {shoppingCart.length} articulos en el carrito
       </h2>
-      {shoppingCart.map((product) =>{ return <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} setProductPayment={setProductPayment} ProductPayment={ProductPayment} /> } ) }
-      <div className={styles.payment}>
+      {shoppingCart.map((product) =>{ return <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} FullPayment={FullPayment} setFullPayment={setFullPayment} /> } ) }
+      <div className={styles.payment}  key={Math.random() * (1 - 1000)}>
           <br/>
           <ColorButton variant="outlined"  style={{marginRight: '1rem' }}>
             Comprar ({shoppingCart.length})
           </ColorButton>
-             Full payment: $ {ProductPayment}
+          Full payment: $ { shoppingCart.length}
       </div>
     </div>
   );

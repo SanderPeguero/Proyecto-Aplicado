@@ -42,7 +42,7 @@ const App = () => {
 
   const [products, setProduct] = useState([])
   // let products = []
-
+  const [FullPayment, setFullPayment] = useState(1)
   
 
   const peticionGet = () => {
@@ -73,7 +73,7 @@ const App = () => {
  
   return (
     <>
-      <Router>
+      <Router >
         <header>
           <Navbar setOpenLogin={setOpenLogIn}
                   setOpenSignIn={setOpenSignIn}
@@ -96,7 +96,7 @@ const App = () => {
           </div>
           <ModalSigIn className='ModalSignIn' open={openSignIn} setOpen={setOpenSignIn} />
           <ModalLogIn className='ModalLogIn' open={openLogIn} setOpen={setOpenLogIn} />
-          <ModalShoppingCart className='ModalShoppingCart' open={openCarShop} setOpen={setOpenCarShop} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
+          <ModalShoppingCart  key={Math.random() * (1 - 1000)} className='ModalShoppingCart'   open={openCarShop} setOpen={setOpenCarShop} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} FullPayment={FullPayment} setFullPayment={setFullPayment}/>
           <ModalChat className='ModalChat' open={openChat} setOpen={setOpenChat} style={{margin: '0'}} />
           
           
