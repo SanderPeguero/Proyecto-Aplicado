@@ -48,7 +48,7 @@ const App = () => {
 
   const peticionGet = () => {
     
-    axios.get(UrlApi + "/productos/")
+    axios.get(UrlApi + "/products/")
     
     .then(response => {
 
