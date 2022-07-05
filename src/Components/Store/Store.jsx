@@ -33,7 +33,7 @@ const Store = ({ shoppingCart, products }) => {
       {Product == null ?
         products.map((product) => {
           return (
-            <li key={product.IDProducto} className={styles.li}>
+            <li key={product.ProductId} className={styles.li}>
               <Card shoppingCart={shoppingCart} product={product} />
             </li>
           )
@@ -41,7 +41,7 @@ const Store = ({ shoppingCart, products }) => {
         :
         Product.map((product) => {
           return (
-            <li key={product.IDProducto} className={styles.li}>
+            <li key={product.ProductId} className={styles.li}>
               <Card shoppingCart={shoppingCart} product={product} />
             </li>
           )

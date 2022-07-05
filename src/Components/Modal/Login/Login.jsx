@@ -34,22 +34,22 @@ export default function SignIn() {
     const data = new FormData(event.currentTarget);
     let objData = {
       Email: data.get('email'),
-      Clave: data.get('password'),
+      Password: data.get('password'),
     };
 
     axios.post(UrlApi + '/usuarios/login', objData)
       .then((response) => {
           let user = response.data
           localStorage.clear()
-          if (user.IDUsuario > 0) {
-            localStorage.setItem('IDUsuario', user.IDUsuario)
-            localStorage.setItem('Nombre', user.Nombre)
-            localStorage.setItem('Apellido', user.Apellido)
+          if (user.UserId > 0) {
+            localStorage.setItem('UserId', user.UserId)
+            localStorage.setItem('Name', user.Name)
+            localStorage.setItem('LastName', user.LastName)
             localStorage.setItem('Email', user.Email)
           } else {
-            localStorage.removeItem('IDUsuario')
-            localStorage.removeItem('Nombre')
-            localStorage.removeItem('Apellido')
+            localStorage.removeItem('UserId')
+            localStorage.removeItem('Name')
+            localStorage.removeItem('LastName')
             localStorage.removeItem('Email')
           }
           

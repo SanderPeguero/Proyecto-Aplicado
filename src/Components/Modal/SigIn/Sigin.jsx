@@ -11,6 +11,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from '../../../../Logo.png'
 import axios from 'axios'
+import UrlApi from '../../../globals'
 
 
 function Copyright(props) {
@@ -35,12 +36,12 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
     let objData = {
       Email: data.get('email'),
-      Clave: data.get('password'),
-      Nombre: data.get('firstName'),
-      Apellido: data.get('lastName')
+      Password: data.get('password'),
+      Name: data.get('firstName'),
+      LastName: data.get('lastName')
     };
 
-    axios.put('https://quantumswap.herokuapp.com/usuarios/', objData)
+    axios.put(UrlApi + '/usuarios/', objData)
       .then((response) => {
           console.log(response.data)
       })
