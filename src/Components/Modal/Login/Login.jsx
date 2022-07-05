@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from '../../../../Logo.png'
 import axios from 'axios';
 import UrlApi from '../../../globals';
+import swal from 'sweetalert'
 
 function Copyright(props) {
   return (
@@ -37,26 +38,46 @@ export default function SignIn() {
       Password: data.get('password'),
     };
 
-    axios.post(UrlApi + '/usuarios/login', objData)
+    axios.post(UrlApi + '/users/login', objData)
       .then((response) => {
-          let user = response.data
-          localStorage.clear()
-          if (user.UserId > 0) {
-            localStorage.setItem('UserId', user.UserId)
-            localStorage.setItem('Name', user.Name)
-            localStorage.setItem('LastName', user.LastName)
-            localStorage.setItem('Email', user.Email)
-          } else {
-            localStorage.removeItem('UserId')
-            localStorage.removeItem('Name')
-            localStorage.removeItem('LastName')
-            localStorage.removeItem('Email')
-          }
           
-      })
-      .catch((err) => {});
-  };
+        swal({
+          title: "Logged In!",
+          text: "Enjoy Quantum Swap ;)",
+          icon: "success",
+          button: "Aww yiss!"
+        });
 
+        let user = response.data
+        localStorage.setItem('UserId', user.UserId)
+        localStorage.setItem('Name', user.Name)
+        localStorage.setItem('LastName', user.LastName)
+        localStorage.setItem('Email', user.Email)
+
+      })
+      .catch ((err) => {
+
+        let notification = {
+          icon: "error",
+          button: "Try again :("
+        }
+        
+        if (err.response.status == 404) {
+          notification.title = "User Not Foud!"
+          if (err.response.data.Exist) {
+            notification.text = "The password you’ve entered is incorrect."
+          } else {
+            notification.text = "The email you entered isn’t connected to an account."
+          }
+        } else {
+          notification.title = "Internal Server Error!"
+          notification.text = err
+        }
+
+        swal(notification)
+
+      })
+  }
  
 
   return (

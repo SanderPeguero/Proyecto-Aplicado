@@ -41,12 +41,38 @@ export default function SignUp() {
       LastName: data.get('lastName')
     };
 
-    axios.put(UrlApi + '/usuarios/', objData)
+    axios.put(UrlApi + '/users/', objData)
       .then((response) => {
-          console.log(response.data)
+        if (response.data) {
+          swal({
+            title: "Signed In!",
+            text: "Enjoy Quantum Swap ;)",
+            icon: "success",
+            button: "Aww yiss!"
+          });
+        } else {
+          swal({
+            title: "Internal Server Error!",
+            icon: "error",
+            button: "Try again :("
+          });
+        }
       })
-      .catch((err) => {});
-  };
+      .catch((err) => {
+        if (err.response.status == 400) {
+          swal({
+            title: "Invalid Sing Up!",
+            text: "This email already exists.",
+            icon: "error",
+            button: "Try again :("
+          });
+        } else {
+          console.log(err)
+        }
+      })
+  }
+
+    
 
   return (
     <ThemeProvider theme={theme}>
