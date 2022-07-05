@@ -11,7 +11,8 @@ import ModalChat from './Components/Modal/ModalChat.jsx'
 import Fab from '@mui/material/Fab'
 import ChatIcon from '@mui/icons-material/Chat'
 import axios from 'axios'
-// import Wallet from './Components/Wallet/Wallet.jsx'
+import Wallet from './Components/Wallet/Wallet.jsx'
+import UrlApi from './globals'
 
 const style = {
   position: 'absolute',
@@ -47,15 +48,13 @@ const App = () => {
 
   const peticionGet = () => {
     
-    axios.get("https://quantumswap.herokuapp.com/productos/")
+    axios.get(UrlApi + "/productos/")
     
     .then(response => {
+
+      setProduct(response.data)
     
-      // console.log(response.data.Data);
-      // products = response.data.Data
-      setProduct(response.data.Data)
-    
-    }).catch(error=>{
+    }).catch(er9ror=>{
     
       console.log(error);
     
@@ -109,7 +108,7 @@ const App = () => {
             <Route exact path='/' element={<Home className='HomeElement' />}></Route>
             <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} setItemCount={setItemCount} products={products} />}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
-            {/* <Route exact path='/wallet' element={<Wallet/>}></Route> */}
+            <Route exact path='/wallet' element={<Wallet/>}></Route>
             <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>
 
           </Routes>

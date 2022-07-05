@@ -49,13 +49,13 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
       <div className={styles.name}
         style={{ color: 'white', fontSize: '1.2rem', padding: '16px' }}
       >
-        {product.Descripcion}
+        {product.Description}
         
       </div>
       <CardMedia
         component="img"
         height="250"
-        image={product.QRCode}
+        image={product.Image}
         alt={product.imageAlt}
       />
       <CardContent >
@@ -63,16 +63,16 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
           {product.shortdescription}
         </Typography>
         {/* <Typography>
-         ${product.Precio} 
+         ${product.Price} 
         </Typography> */}
         <Typography>
-         {product.Descuento == 0 && <span>${product.Precio}</span>}
-         {product.Descuento > 0 && <span style={{ textDecoration: 'line-through' }}>${product.Precio}</span>}
-         {product.Descuento > 0 && <span style={{color: 'red', marginLeft: '1rem'}}>${(product.Precio - ((product.Descuento / 100) * product.Precio))}</span>}
+         {product.Discount == 0 && <span>${product.Price}</span>}
+         {product.Discount > 0 && <span style={{ textDecoration: 'line-through' }}>${product.Price}</span>}
+         {product.Discount > 0 && <span style={{color: 'red', marginLeft: '1rem'}}>${(product.Price - ((product.Discount / 100) * product.Price))}</span>}
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={styles.cardActions}>
-        <Link to={"/infoProducto?search=" + product.IDProducto}>
+        <Link to={"/infoProducto?search=" + product.ProductId}>
           <ColorButton variant="outlined"  className={styles.ButtonCompra}>
             Comprar
           </ColorButton>
