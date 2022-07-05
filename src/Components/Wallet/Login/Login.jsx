@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import StellarSdk from 'stellar-sdk'
+// import StellarSdk from 'stellar-sdk'
 import Styles from './Login.module.css'
 import Chip from '../../../Images/Chip.png'
 import Button from '@mui/material/Button';
