@@ -3,23 +3,29 @@ import Login from './Login/Login.jsx'
 // import CreateWallet from './StartWallet/Create'
 import CopyWallet from './StartWallet/Copy.jsx'
 import Data from './Data/Data.jsx'
+// import { useLocalStorage } from '../../Hooks/useLocalStorage'
 
 const Wallet = () => {
 
    //Valores de las llaves
-   const [secret, setSecret] = useState(localStorage.secret)
-   const [publicKey, setPublicKey] = useState(localStorage.publicKey)
+   const [secret, setSecret] = useState(null)
+//    const [secret, setSecret] = useLocalStorage('secret', '')
+   const [publicKey, setPublicKey] = useState(null)
+//    const [publicKey, setPublicKey] = useLocalStorage('publicKey', '')
 
    //Bandera para checar si ya copiaron la llave privada
-   const [isKeyCopied, setKeyCopied] = useState(localStorage.keyCopied)
+   const [isKeyCopied, setKeyCopied] = useState(null)
+//    const [isKeyCopied, setKeyCopied] = useLocalStorage('keyCopied', '')
 
    //Funcion para salir de la cuenta del
    const resetAccount = () => {
 
        //Al salir de la cuenta, removemos todos los datos de sesion
-       localStorage.removeItem("keyCopied")
-       localStorage.removeItem("publicKey")
-       localStorage.removeItem("secret")
+    //    window.localStorage.removeItem("keyCopied")
+    //    window.localStorage.removeItem("publicKey")
+    //    window.localStorage.removeItem("secret")
+
+       
 
        //Con esto mandamos al usuario a la vista de inicio
        setKeyCopied(undefined)
