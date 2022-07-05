@@ -1,4 +1,4 @@
-import StellarSdk from 'stellar-sdk'
+// import StellarSdk from 'stellar-sdk'
 
 const server = new StellarSdk.Server('https://horizon-testnet.stellar.org/')
 
