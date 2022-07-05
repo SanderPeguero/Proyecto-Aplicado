@@ -64,17 +64,17 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
       <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
-            <Img alt={product.imageAlt} src={product.QRCode} />
+            <Img alt={product.imageAlt} src={product.Image} />
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
               <Typography gutterBottom variant="subtitle1" component="div">
-                {product.Descripcion}
+                {product.Description}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                ID: {product.IDProducto}
+                ID: {product.ProductId}
               </Typography>
             </Grid>
 

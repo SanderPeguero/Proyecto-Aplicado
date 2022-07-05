@@ -15,7 +15,7 @@ const Store = ({ shoppingCart, products }) => {
 
       if (search != null) {
 
-        setProduct(products.filter((d) => d.Descripcion.toLowerCase().includes(search.toLowerCase())))
+        setProduct(products.filter((d) => d.Description.toLowerCase().includes(search.toLowerCase())))
 
       } else {
 
