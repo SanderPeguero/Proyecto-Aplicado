@@ -18,7 +18,7 @@ const InfoProducto = ({ products, shoppingCart }) => {
 
     useEffect(() => {
 
-        const data = products.find((d) => d.IDProducto == search);
+        const data = products.find((d) => d.ProductId == search);
         console.log(search)
 
         if (data) {
@@ -52,7 +52,7 @@ const InfoProducto = ({ products, shoppingCart }) => {
                     maxWidth: 500,
                     margin: 20
                 }}>
-                    <img src={Product.QRCode} style={{
+                    <img src={Product.Image} style={{
                         width: '100%'
                     }} />
                 </div>
@@ -64,22 +64,22 @@ const InfoProducto = ({ products, shoppingCart }) => {
                 }}>
 
                     <h1 className={styles.h1} >
-                        {Product.Descripcion}
+                        {Product.Description}
                     </h1>
                     <hr className={styles.hr} />
                     <table>
                         <tbody>
                             <tr>
                                 <td className={styles.td} >Precio:</td>
-                                <td>{Product.Precio}</td>
+                                <td>{Product.Price}</td>
                             </tr>
                             <tr>
                                 <td className={styles.td} >Descuento:</td>
-                                <td>{Product.Descuento}%</td>
+                                <td>{Product.Discount}%</td>
                             </tr>
                             <tr>
                                 <td className={styles.td} >Cantidad Restante:</td>
-                                <td>{Product.CantidadRestante}</td>
+                                <td>{Product.Stock}</td>
                             </tr>
                         </tbody>
                     </table>
