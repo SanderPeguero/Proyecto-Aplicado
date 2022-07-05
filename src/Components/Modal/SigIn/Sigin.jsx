@@ -45,7 +45,7 @@ export default function SignUp() {
       .then((response) => {
         if (response.data) {
           swal({
-            title: "Signed In!",
+            title: "Logged In!",
             text: "Enjoy Quantum Swap ;)",
             icon: "success",
             button: "Aww yiss!"

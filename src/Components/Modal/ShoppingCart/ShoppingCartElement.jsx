@@ -64,7 +64,7 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
       <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
-            <Img alt={product.imageAlt} src={product.QRCode} />
+            <Img alt={product.imageAlt} src={product.Image} />
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>
