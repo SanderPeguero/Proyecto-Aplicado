@@ -64,17 +64,17 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
       <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
-            <Img alt={product.imageAlt} src={product.Image} />
+            <Img src={product.Image} />
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
               <Typography gutterBottom variant="subtitle1" component="div">
-                {product.Descripcion}
+                {product.Description}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                ID: {product.IDProducto}
+                ID: {product.ProductId}
               </Typography>
             </Grid>
 
@@ -94,7 +94,7 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
 
                     <RemoveIcon fontSize="small" />
                   </Button>
-                  <Button key={product.IDProducto}>
+                  <Button key={product.ProductoId}>
                     {itemCount}
                   </Button>
                   <Button
@@ -102,7 +102,7 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
 
                       setItemCount(itemCount + 1);
                     }}
-                    disabled={itemCount == product.CantidadRestante && true}
+                    disabled={itemCount == product.Stock && true}
                     >
                     {" "}
                     <AddIcon fontSize="small" />
@@ -123,13 +123,13 @@ export default function ComplexGrid({ product, setProductPayment, ProductPayment
           <Grid item>
             <Typography variant="body2" component="div"  >
               <br />
-              {product.Descuento == 0 && <div>${ProductPayment}</div>}
+              {product.Discount == 0 && <div>${ProductPayment}</div>}
               <br />
-              {product.Descuento > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Precio * itemCount}</div>}
+              {product.Discount > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Price * itemCount}</div>}
               <br />
-              {product.Descuento > 0 &&
+              {product.Discount > 0 &&
                 <div style={{ color: 'red' }}>
-                  ${ (product.Precio - ((product.Descuento / 100) * product.Precio)) * itemCount}
+                  ${ (product.Price - ((product.Discount / 100) * product.Price)) * itemCount}
                 </div>
               }
             </Typography>
