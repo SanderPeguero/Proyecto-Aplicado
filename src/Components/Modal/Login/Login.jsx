@@ -37,7 +37,7 @@ export default function SignIn() {
       Password: data.get('password'),
     };
 
-    axios.post(UrlApi + '/usuarios/login', objData)
+    axios.post(UrlApi + '/users/login', objData)
       .then((response) => {
           let user = response.data
           localStorage.clear()

@@ -41,7 +41,7 @@ export default function SignUp() {
       LastName: data.get('lastName')
     };
 
-    axios.put(UrlApi + '/usuarios/', objData)
+    axios.put(UrlApi + '/users/', objData)
       .then((response) => {
           console.log(response.data)
       })
