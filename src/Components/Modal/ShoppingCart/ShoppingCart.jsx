@@ -32,7 +32,7 @@ function ShoppingCart({ shoppingCart, setShoppingCart , FullPayment,setFullPayme
           <ColorButton variant="outlined"  style={{marginRight: '1rem' }}>
             Comprar ({shoppingCart.length})
           </ColorButton>
-          Full payment: $ { shoppingCart.length}
+          Full payment: $ {FullPayment}
       </div>
     </div>
   );
