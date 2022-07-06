@@ -11,7 +11,7 @@ import ModalChat from './Components/Modal/ModalChat.jsx'
 import Fab from '@mui/material/Fab'
 import ChatIcon from '@mui/icons-material/Chat'
 import axios from 'axios'
-import Wallet from './Components/Wallet/Wallet.jsx'
+// import Wallet from './Components/Wallet/Wallet.jsx'
 import UrlApi from './globals'
 
 const style = {
@@ -54,7 +54,7 @@ const App = () => {
 
       setProduct(response.data)
     
-    }).catch(er9ror=>{
+    }).catch(error=>{
     
       console.log(error);
     
@@ -108,7 +108,7 @@ const App = () => {
             <Route exact path='/' element={<Home className='HomeElement' />}></Route>
             <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} setItemCount={setItemCount} products={products} />}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
-            <Route exact path='/wallet' element={<Wallet/>}></Route>
+            {/* <Route exact path='/wallet' element={<Wallet/>}></Route> */}
             <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>
 
           </Routes>

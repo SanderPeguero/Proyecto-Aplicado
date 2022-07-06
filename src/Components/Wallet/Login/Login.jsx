@@ -30,7 +30,8 @@ const Login = ({ setSecret, setPublicKey, setKeyCopied }) => {
       //Todas las secret keys tienen una longitud de 56 caracteres
       if(secretToImport.length === 56){
           
-          const sourceKeys = StellarSdk.Keypair.fromSecret(secretToImport).publicKey()
+          // const sourceKeys = window.StellarSdk.Keypair.fromSecret(secretToImport).publicKey()
+          const sourceKeys = window.StellarSdk
           
           //Al importar una cuenta, hay que guardar todos los flags en localStorage para mantener la sesion
           // window.localStorage.setItem('secret', secretToImport)
