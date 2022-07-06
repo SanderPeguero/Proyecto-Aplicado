@@ -5,17 +5,17 @@ import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfil
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()]
-  ,
-  optimizeDeps: {
-    esbuildOptions: {
-  //       // Enable esbuild polyfill plugins
-        plugins: [
-            NodeGlobalsPolyfillPlugin({
-                buffer: true
-            })
-        ]
-    }
-  },
+  // ,
+  // optimizeDeps: {
+  //   esbuildOptions: {
+  // //       // Enable esbuild polyfill plugins
+  //       plugins: [
+  //           NodeGlobalsPolyfillPlugin({
+  //               buffer: true
+  //           })
+  //       ]
+  //   }
+  // },
   // build: {
   //   esbuildOptions: {
   //     //       // Enable esbuild polyfill plugins
