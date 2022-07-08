@@ -38,7 +38,7 @@ export default function SignIn() {
       Password: data.get('password'),
     };
 
-    axios.post(UrlApi + '/users/login', objData)
+    axios.post("https://quantumswap.herokuapp.com/products", objData)
       .then((response) => {
         if (response.data.Exist && response.data.User != null) {
           swal({
@@ -48,7 +48,8 @@ export default function SignIn() {
             button: "Aww yiss!"
           })
 
-          let user = response.data
+          let user = response.data.User
+          console.log(user)
           localStorage.setItem('UserId', user.UserId)
           localStorage.setItem('Name', user.Name)
           localStorage.setItem('LastName', user.LastName)
