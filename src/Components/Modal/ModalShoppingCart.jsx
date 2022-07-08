@@ -12,14 +12,14 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 500,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
 
-const BasicModal = ({ open, setOpen, ItemCount, shoppingCart, setShoppingCart }) => {
+const BasicModal = ({ open, setOpen, ItemCount, shoppingCart, setShoppingCart, FullPayment, setFullPayments }) => {
 
   const handleClose = () => setOpen(false);
 
@@ -36,7 +36,7 @@ const BasicModal = ({ open, setOpen, ItemCount, shoppingCart, setShoppingCart })
           <Fab size='small' color="primary" aria-label="cerrar" onClick={handleClose} style={{ background: 'black', alignSelf: 'inherit', borderRight: '3rem', float: 'right'}}>
             <CloseIcon style={{ color: 'white' }}></CloseIcon>
           </Fab>
-          <ShoppingCart shoppingCart={shoppingCart} setShoppingCart={setShoppingCart}/>
+          <ShoppingCart  key={Math.random() * (1 - 1000)} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} FullPayment={FullPayment} setFullPayments={setFullPayments}/>
          
         </Box>
       </Modal>
