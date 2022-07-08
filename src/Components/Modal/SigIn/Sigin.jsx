@@ -43,10 +43,43 @@ export default function SignUp() {
 
     axios.put(UrlApi + '/users/', objData)
       .then((response) => {
-          console.log(response.data)
+        console.log(response.data)
+        if (response.data.ValidEmail && response.data.Executed) {
+          swal({
+            title: "Signed In!",
+            text: "Enjoy Quantum Swap ;)",
+            icon: "success",
+            button: "Aww yiss!"
+          });
+        } else if (!response.data.ValidEmail) {
+          swal({
+            title: "Invalid Sing Up!",
+            text: "This email already exists.",
+            icon: "error",
+            button: "Try again :("
+          });
+        } else if (!response.data.Executed) {
+          swal({
+            title: "Not Saved!",
+            text: "Internal Server Error!",
+            icon: "error",
+            button: "Try again :("
+          });
+          console.log(err)
+        }
       })
-      .catch((err) => {});
-  };
+      .catch((err) => {
+        swal({
+          title: "Not Signed!",
+          text: "Server Disconnected!",
+          icon: "error",
+          button: "Try again :("
+        });
+        console.log(err)
+      })
+  }
+
+    
 
   return (
     <ThemeProvider theme={theme}>

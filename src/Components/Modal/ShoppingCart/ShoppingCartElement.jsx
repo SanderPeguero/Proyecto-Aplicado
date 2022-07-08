@@ -99,7 +99,7 @@ export default function ComplexGrid({ product, ProductPayment, setProductPayment
 
                     <RemoveIcon fontSize="small" />
                   </Button>
-                  <Button key={product.IDProducto}>
+                  <Button key={product.ProductoId}>
                     {itemCount}
                   </Button>
                   <Button
@@ -107,7 +107,7 @@ export default function ComplexGrid({ product, ProductPayment, setProductPayment
 
                       setItemCount(itemCount + 1);
                     }}
-                    disabled={itemCount == product.CantidadRestante && true}
+                    disabled={itemCount == product.Stock && true}
                     >
                     {" "}
                     <AddIcon fontSize="small" />
@@ -130,7 +130,7 @@ export default function ComplexGrid({ product, ProductPayment, setProductPayment
               <br />
               {product.Discount == 0 && <div>${product.Price * itemCount}</div>}
               <br />
-              {product.Discount > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Price}</div>}
+              {product.Discount > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Price * itemCount}</div>}
               <br />
               {product.Discount > 0 &&
                 <div style={{ color: 'red' }}>

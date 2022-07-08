@@ -48,16 +48,20 @@ const App = () => {
 
   const peticionGet = () => {
     
-    axios.get(UrlApi + "/products/")
+    axios.get("https://quantumswap.herokuapp.com/products")
     
     .then(response => {
 
       setProduct(response.data)
     
-    }).catch(error=>{
-    
-      console.log(error);
-    
+    }).catch(err=>{
+      swal({
+        title: "Not Server Connection!",
+        text: "Products can’t be search!",
+        icon: "error",
+        button: "Ok"
+      })
+      console.log(err)
     })
 
   }

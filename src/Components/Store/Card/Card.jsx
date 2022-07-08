@@ -56,11 +56,10 @@ export default function RecipeReviewCard({ setOpenCarShoppping, shoppingCart, pr
         component="img"
         height="250"
         image={product.Image}
-        alt={product.imageAlt}
       />
       <CardContent >
         <Typography variant="body2" color="#ffffff">
-          {product.shortdescription}
+          {/* {product.shortdescription} */}
         </Typography>
         {/* <Typography>
          ${product.Price} 
