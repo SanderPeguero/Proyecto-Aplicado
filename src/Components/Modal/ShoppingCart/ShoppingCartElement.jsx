@@ -127,7 +127,7 @@ export default function ComplexGrid({ product, ProductPayment, setProductPayment
           <Grid item>
             <Typography variant="body2" component="div"  >
               <br />
-              {product.Discount == 0 && <div>${ProductPayment}</div>}
+              {product.Discount == 0 && <div>${product.Price}</div>}
               <br />
               {product.Discount > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Price * itemCount}</div>}
               <br />
