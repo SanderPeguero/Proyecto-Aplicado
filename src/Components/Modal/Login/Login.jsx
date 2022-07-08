@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from '../../../../Logo.png'
 import axios from 'axios';
 import UrlApi from '../../../globals';
+import swal from 'sweetalert'
 
 function Copyright(props) {
   return (
@@ -37,26 +38,54 @@ export default function SignIn() {
       Password: data.get('password'),
     };
 
-    axios.post(UrlApi + '/usuarios/login', objData)
+    axios.post(UrlApi + '/users/login', objData)
       .then((response) => {
-          let user = response.data
-          localStorage.clear()
-          if (user.UserId > 0) {
-            localStorage.setItem('UserId', user.UserId)
-            localStorage.setItem('Name', user.Name)
-            localStorage.setItem('LastName', user.LastName)
-            localStorage.setItem('Email', user.Email)
-          } else {
-            localStorage.removeItem('UserId')
-            localStorage.removeItem('Name')
-            localStorage.removeItem('LastName')
-            localStorage.removeItem('Email')
-          }
-          
-      })
-      .catch((err) => {});
-  };
+        if (response.data.Exist && response.data.User != null) {
+          swal({
+            title: "Logged In!",
+            text: "Enjoy Quantum Swap ;)",
+            icon: "success",
+            button: "Aww yiss!"
+          })
 
+          let user = response.data
+          localStorage.setItem('UserId', user.UserId)
+          localStorage.setItem('Name', user.Name)
+          localStorage.setItem('LastName', user.LastName)
+          localStorage.setItem('Email', user.Email)
+        } else if (response.data.Exist) {
+          swal({
+            title: "User Not Foud!",
+            text: "The password you’ve entered is incorrect.",
+            icon: "warning",
+            button: "Try again :("
+          })
+        } else if (!response.data.Exist) {
+          swal({
+            title: "User Not Foud!",
+            text: "The email you entered isn’t connected to an account.",
+            icon: "error",
+            button: "Try again :("
+          })
+        } else if (response.data.Exist == null) {
+          swal({
+            title: "Internal Server Error!",
+            icon: "error",
+            button: "Try again :("
+          })
+          console.log(err)
+        }
+      })
+      .catch ((err) => {
+        swal({
+          title: "Not Logged!",
+          text: "Server Disconnected!",
+          icon: "error",
+          button: "Try again :("
+        })
+        console.log(err)
+      })
+  }
  
 
   return (
