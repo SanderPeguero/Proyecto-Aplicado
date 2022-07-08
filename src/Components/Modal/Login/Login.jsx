@@ -40,42 +40,50 @@ export default function SignIn() {
 
     axios.post(UrlApi + '/users/login', objData)
       .then((response) => {
-          
-        swal({
-          title: "Logged In!",
-          text: "Enjoy Quantum Swap ;)",
-          icon: "success",
-          button: "Aww yiss!"
-        });
+        if (response.data.Exist && response.data.User != null) {
+          swal({
+            title: "Logged In!",
+            text: "Enjoy Quantum Swap ;)",
+            icon: "success",
+            button: "Aww yiss!"
+          })
 
-        let user = response.data
-        localStorage.setItem('UserId', user.UserId)
-        localStorage.setItem('Name', user.Name)
-        localStorage.setItem('LastName', user.LastName)
-        localStorage.setItem('Email', user.Email)
-
+          let user = response.data
+          localStorage.setItem('UserId', user.UserId)
+          localStorage.setItem('Name', user.Name)
+          localStorage.setItem('LastName', user.LastName)
+          localStorage.setItem('Email', user.Email)
+        } else if (response.data.Exist) {
+          swal({
+            title: "User Not Foud!",
+            text: "The password you’ve entered is incorrect.",
+            icon: "warning",
+            button: "Try again :("
+          })
+        } else if (!response.data.Exist) {
+          swal({
+            title: "User Not Foud!",
+            text: "The email you entered isn’t connected to an account.",
+            icon: "error",
+            button: "Try again :("
+          })
+        } else if (response.data.Exist == null) {
+          swal({
+            title: "Internal Server Error!",
+            icon: "error",
+            button: "Try again :("
+          })
+          console.log(err)
+        }
       })
       .catch ((err) => {
-
-        let notification = {
+        swal({
+          title: "Not Logged!",
+          text: "Server Disconnected!",
           icon: "error",
           button: "Try again :("
-        }
-        
-        if (err.response.status == 404) {
-          notification.title = "User Not Foud!"
-          if (err.response.data.Exist) {
-            notification.text = "The password you’ve entered is incorrect."
-          } else {
-            notification.text = "The email you entered isn’t connected to an account."
-          }
-        } else {
-          notification.title = "Internal Server Error!"
-          notification.text = err
-        }
-
-        swal(notification)
-
+        })
+        console.log(err)
       })
   }
  

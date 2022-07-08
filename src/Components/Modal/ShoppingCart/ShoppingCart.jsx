@@ -5,7 +5,8 @@ import Alert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import { indigo } from '@mui/material/colors';
-
+import axios from 'axios'
+import UrlApi from '../../../globals'
 
 
 function ShoppingCart({ shoppingCart, setShoppingCart }) {
@@ -20,6 +21,75 @@ function ShoppingCart({ shoppingCart, setShoppingCart }) {
       backgroundColor: indigo[700],
     },
   }))
+  
+  const handleSubmit = (event) => {
+
+    let UserId = localStorage.getItem('UserId')
+    let ShoppingCartProducts = shoppingCart.map((product) => { return { ProductId: product.ProductId, Quantity: 1 } })
+
+    event.preventDefault();
+
+    let objData = {
+        UserId: UserId,
+        ShoppingCartProducts: ShoppingCartProducts
+    };
+
+    console.log(objData)
+
+    axios.put(UrlApi + '/shoppingcarts', objData)
+    .then((response) => {
+      console.log(response.data)
+      if (response.data.Executed && response.data.ProductsFounded && response.data.ShoppingCartInserted && response.data.ShoppingCartProductsInserted) {
+        swal({
+          title: "Successfull!",
+          text: "Enjoy Quantum Swap ;)",
+          icon: "success",
+          button: "Aww yiss!"
+        });
+      } else if (response.data.ProductsFounded != null && !response.data.ProductsFounded) {
+        swal({
+          title: "Not Saved!",
+          text: "Products Not Found!",
+          icon: "error",
+          button: "Try again :("
+        });
+      } else if (response.data.ShoppingCartInserted != null && !response.data.ShoppingCartInserted) {
+        swal({
+          title: "Not Saved!",
+          text: "Shopping Cart Not Saved!",
+          icon: "error",
+          button: "Try again :("
+        });
+      } else if (response.data.ShoppingCartProductsInserted != null && !response.data.ShoppingCartProductsInserted) {
+        swal({
+          title: "Not Saved!",
+          text: "Any Shopping Cart Product Isn’t Saved!",
+          icon: "error",
+          button: "Try again :("
+        });
+      } else if (!response.data.Executed) {
+        swal({
+          title: "Not Saved!",
+          text: "Internal Server Error!",
+          icon: "error",
+          button: "Try again :("
+        });
+        console.log(err)
+      }
+    })
+    .catch((err) => {
+      swal({
+        title: "Not Saved!",
+        text: "Server Disconnected!",
+        icon: "error",
+        button: "Try again :("
+      });
+      console.log(err)
+    })
+  };
+
+  
+
 
   return (
     <div className={styles.scroll}>
@@ -29,7 +99,7 @@ function ShoppingCart({ shoppingCart, setShoppingCart }) {
       {shoppingCart.map((product) =>{ return <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} setProductPayment={setProductPayment} ProductPayment={ProductPayment} /> } ) }
       <div className={styles.payment}>
           <br/>
-          <ColorButton variant="outlined"  style={{marginRight: '1rem' }}>
+          <ColorButton variant="outlined"  style={{marginRight: '1rem' }} onClick={handleSubmit}>
             Comprar ({shoppingCart.length})
           </ColorButton>
              Full payment: $ {ProductPayment}
