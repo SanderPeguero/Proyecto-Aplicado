@@ -34,7 +34,7 @@ const BasicModal = ({ open, setOpen }) => {
            <Fab size='small' color="primary" aria-label="cerrar" onClick={handleClose} style={{ background: 'black', alignSelf: 'inherit', borderRight: '3rem', float: 'right'}}>
              <CloseIcon style={{ color: 'white' }}></CloseIcon>
            </Fab>
-          <Login />
+          <Login setOpen={setOpen} />
         </Box>
       </Modal>
     </div>
