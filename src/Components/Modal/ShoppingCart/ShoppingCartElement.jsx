@@ -9,6 +9,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
+import styles from './ShoppingCart.module.css'
 
 
 const Img = styled('img')({
@@ -68,7 +69,7 @@ export default function ComplexGrid({ product, ProductPayment, setProductPayment
        <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
-            <Img src={product.Image} />
+            <Img className={styles.image} alt={product.imageAlt} src={product.Image} />
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>

@@ -30,7 +30,6 @@ const App = () => {
 
   const [openSignIn, setOpenSignIn] = useState(false)
   const [openLogIn, setOpenLogIn] = useState(false)
-  const [ItemCount, setItemCount] = useState(0)
   
   //Chat
   const [openChat, setOpenChat] = useState(false)
@@ -42,7 +41,6 @@ const App = () => {
 
 
   const [products, setProduct] = useState([])
-  // let products = []
   const [FullPayment, setFullPayment] = useState(1)
   
 
@@ -70,6 +68,10 @@ const App = () => {
     
     // console.log( products)
     peticionGet();
+    localStorage.setItem('UserId', '')
+    localStorage.setItem('Name', '')
+    localStorage.setItem('LastName', '')
+    localStorage.setItem('Email', '')
     // console.log(products)
 
   },[openChat])
@@ -110,7 +112,7 @@ const App = () => {
           <Routes>
           
             <Route exact path='/' element={<Home className='HomeElement' />}></Route>
-            <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} setItemCount={setItemCount} products={products} />}></Route>
+            <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} products={products} />}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
             {/* <Route exact path='/wallet' element={<Wallet/>}></Route> */}
             <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>

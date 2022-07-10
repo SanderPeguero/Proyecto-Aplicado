@@ -44,3 +44,16 @@
     overflow: hidden;
 }
 
+.container {
+    height: 300px;
+    width: 240px;
+    background-color: red;
+    float: left;
+    overflow: hidden;
+    margin: 20px;
+    }
+.image {
+    max-width: 100%;
+height: auto;
+}
+

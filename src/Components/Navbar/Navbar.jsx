@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useState, useEffect } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -14,15 +14,21 @@ import Search from './Search/Search.jsx'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Container from '@mui/material/Container'
+import Tooltip from '@mui/material/Tooltip';
+import Avatar from '@mui/material/Avatar';
 
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, products }) => {
 
   const handleOpenSigIn = () => setOpenSignIn(true)
   const handleOpenLogin = () => setOpenLogin(true)
   const handleOpenCarShop = () => setOpenCarShop(true)
-
-  const [anchorElNav, setAnchorElNav] = React.useState(null)
+  const variable = false
+  const [UserId, setUserId] = useState(null);
+  
+  const [anchorElNav, setAnchorElNav] = useState(null)
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -31,6 +37,27 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   }
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  // useEffect(() => {
+  //   if(localStorage.getItem('UserId')){
+  //     setUser(JSON.parse(localStorage.getItem('user')))
+  //   }
+  //   if(localStorage.getItem('room')){
+  //     setroom(localStorage.getItem('room'))
+  //   }
+  // }, [])
+
+  // const handleUser = () => {
+  //   return true if localStorage.getItem("UserId")
+  // }
 
   return (
 
@@ -111,19 +138,25 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
               </Typography>
 
               <Search products={products} />
+              
+              {localStorage.UserId ? (
+                
+                <ButtonUnstyled onClick={handleOpenCarShop} className={styles.navbarLink} style={{
+                  fontSize: '1.15rem',
+                  fontfamily: 'arial',
+                  textTransform: 'none',
+                  background: 'none',
+                  border: '0',
+                  padding: '0'
+                }}>
+                  <Badge color="secondary" badgeContent={shoppingCart.length}>
+                    <ShoppingCartCheckoutRoundedIcon />
+                  </Badge>
+                </ButtonUnstyled>
 
-              <ButtonUnstyled onClick={handleOpenCarShop} className={styles.navbarLink} style={{
-                fontSize: '1.15rem',
-                fontfamily: 'arial',
-                textTransform: 'none',
-                background: 'none',
-                border: '0',
-                padding: '0'
-              }}>
-                <Badge color="secondary" badgeContent={shoppingCart.length}>
-                  <ShoppingCartCheckoutRoundedIcon />
-                </Badge>
-              </ButtonUnstyled>
+              ) : (
+                <div></div>
+              )}
 
               <Typography
                 variant="h6"
@@ -131,29 +164,84 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
                 component="div"
                 sx={{ display: { xs: 'none', md: 'block' } }}
               >
-                <ButtonUnstyled onClick={handleOpenLogin} className={styles.navbarLink} style={{
-                  fontSize: '1.15rem',
-                  fontfamily: 'arial',
-                  textTransform: 'none',
-                  background: 'none',
-                  border: '0',
-                  margin: '0, 1rem, 0, 0',
-                  padding: '0'
-                }}>
-                  Log In
-                </ButtonUnstyled>
 
-                <ButtonUnstyled onClick={handleOpenSigIn} className={styles.navbarLink} style={{
-                  fontSize: '1.15rem',
-                  fontfamily: 'arial',
-                  textTransform: 'none',
-                  background: 'none',
-                  border: '0',
-                  margin: '0',
-                  padding: '0'
-                }}>
-                  Sign In
-                </ButtonUnstyled>
+
+                {
+                  localStorage.UserId ? (
+                    <>
+                      <ButtonUnstyled className={styles.navbarLink} style={{
+                        fontSize: '1.15rem',
+                        fontfamily: 'arial',
+                        textTransform: 'none',
+                        background: 'none',
+                        border: '0',
+                        margin: '0, 1rem, 0, 0',
+                        padding: '0'
+                      }}>
+                        {localStorage.getItem("Name")}
+                        {" "}
+                        {localStorage.getItem("LastName")} 
+                      </ButtonUnstyled>
+
+                      <Tooltip title="Open settings">
+                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                          <Avatar alt={localStorage.Name} src="/static/images/avatar/2.jpg" />
+                        </IconButton>
+                      </Tooltip>
+
+                      <Menu
+                        sx={{ mt: '45px' }}
+                        id="menu-appbar"
+                        anchorEl={anchorElUser}
+                        anchorOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        open={Boolean(anchorElUser)}
+                        onClose={handleCloseUserMenu}
+                      >
+                      {settings.map((setting) => (
+                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                          <Typography textAlign="center">{setting}</Typography>
+                        </MenuItem>
+                      ))}
+                      </Menu>
+                    </>
+                  ) : (
+                    <>
+                    
+                    <ButtonUnstyled onClick={handleOpenLogin} className={styles.navbarLink} style={{
+                      fontSize: '1.15rem',
+                      fontfamily: 'arial',
+                      textTransform: 'none',
+                      background: 'none',
+                      border: '0',
+                      margin: '0, 1rem, 0, 0',
+                      padding: '0'
+                    }}>
+                      Log In
+                    </ButtonUnstyled>
+
+                    <ButtonUnstyled onClick={handleOpenSigIn} className={styles.navbarLink} style={{
+                      fontSize: '1.15rem',
+                      fontfamily: 'arial',
+                      textTransform: 'none',
+                      background: 'none',
+                      border: '0',
+                      margin: '0',
+                      padding: '0'
+                    }}>
+                      Sign In
+                    </ButtonUnstyled>
+                    </>
+                  )
+                }
+
                 
               </Typography>
             </Toolbar>
@@ -220,7 +308,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
                       Log In
                     </div>
                 </MenuItem>
-              </a>
+              </a>  
 
               <a className={styles.MobileNavLink} onClick={handleOpenSigIn}>
                 <MenuItem onClick={handleCloseNavMenu}>

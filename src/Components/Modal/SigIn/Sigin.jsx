@@ -31,6 +31,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -78,8 +79,6 @@ export default function SignUp() {
         console.log(err)
       })
   }
-
-    
 
   return (
     <ThemeProvider theme={theme}>

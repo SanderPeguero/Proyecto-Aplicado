@@ -29,7 +29,8 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function LogIn({ setOpen }) {
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -38,7 +39,7 @@ export default function SignIn() {
       Password: data.get('password'),
     };
 
-    axios.post("https://quantumswap.herokuapp.com/products", objData)
+    axios.post("https://quantumswap.herokuapp.com/users/login", objData)
       .then((response) => {
         if (response.data.Exist && response.data.User != null) {
           swal({
@@ -54,6 +55,8 @@ export default function SignIn() {
           localStorage.setItem('Name', user.Name)
           localStorage.setItem('LastName', user.LastName)
           localStorage.setItem('Email', user.Email)
+          setOpen(false)
+
         } else if (response.data.Exist) {
           swal({
             title: "User Not Foud!",
