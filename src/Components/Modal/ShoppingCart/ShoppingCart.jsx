@@ -89,6 +89,7 @@ function ShoppingCart({ shoppingCart, setShoppingCart , FullPayment,setFullPayme
   };
 
   
+const [TotalProduct, setTotalProduct] = useState([0])
 
 
   return (
@@ -96,7 +97,7 @@ function ShoppingCart({ shoppingCart, setShoppingCart , FullPayment,setFullPayme
       <h2>
         Tiene {shoppingCart.length} articulos en el carrito
       </h2>
-      {shoppingCart.map((product) =>{ return <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} FullPayment={FullPayment} setFullPayment={setFullPayment} /> } ) }
+      {shoppingCart.map((product) =>{  return <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} FullPayment={FullPayment} setFullPayment = {setFullPayment}/>  } ) }
       <div className={styles.payment}  key={Math.random() * (1 - 1000)}>
           <br/>
           <ColorButton variant="outlined"  style={{marginRight: '1rem' }} onClick={handleSubmit}>
