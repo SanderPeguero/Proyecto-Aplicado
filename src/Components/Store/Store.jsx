@@ -29,11 +29,11 @@ const Store = ({ shoppingCart, products }) => {
 
 
   return (
-    <ul className={styles.ul}>
+    <ul className={styles.ul} key={Math.random() * (1 - 1000)}>
       {Product == null ?
         products.map((product) => {
           return (
-            <li key={product.ProductId} className={styles.li}>
+            <li key={Math.random() * (1 - 1000)} className={styles.li}>
               <Card shoppingCart={shoppingCart} product={product} />
             </li>
           )
@@ -41,7 +41,7 @@ const Store = ({ shoppingCart, products }) => {
         :
         Product.map((product) => {
           return (
-            <li key={product.ProductId} className={styles.li}>
+            <li key={Math.random() * (1 - 1000)} className={styles.li}>
               <Card shoppingCart={shoppingCart} product={product} />
             </li>
           )
