@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { LoadAccount } from '../utils/LoadAccount.js'
+import { LoadAccount } from '../utils/LoadAccount.jsx'
 import Styles from './Data.module.css'
 import Chip from '../../../Images/Chip.png'
 import Button from '@mui/material/Button';

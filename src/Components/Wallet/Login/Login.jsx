@@ -30,8 +30,9 @@ const Login = ({ setSecret, setPublicKey, setKeyCopied }) => {
       //Todas las secret keys tienen una longitud de 56 caracteres
       if(secretToImport.length === 56){
           
-          // const sourceKeys = window.StellarSdk.Keypair.fromSecret(secretToImport).publicKey()
-          const sourceKeys = window.StellarSdk
+          // const sourceKeys = StellarSdk.Keypair.fromSecret(secretToImport).publicKey()
+          const sourceKeys = StellarSdk.Keypair.fromSecret(secretToImport)
+          // const sourceKeys = StellarSdk
           
           //Al importar una cuenta, hay que guardar todos los flags en localStorage para mantener la sesion
           // window.localStorage.setItem('secret', secretToImport)
@@ -39,7 +40,7 @@ const Login = ({ setSecret, setPublicKey, setKeyCopied }) => {
           // window.localStorage.setItem('keyCopied', true)
 
           //Con esto actualizamos correctamente la vista
-          setPublicKey(sourceKeys)
+          setPublicKey(sourceKeys.publicKey())
           // setPublicKey('GDRSFGJW45KDRN46RRQ7FCR6PRTDDJ2XMAWSD6V6WWL3EZNBYZWKIQY3')
           setSecret(secretToImport)
           setKeyCopied(true)
