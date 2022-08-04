@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { indigo } from '@mui/material/colors';
 import axios from 'axios'
 import UrlApi from '../../../globals'
+import { useEffect } from 'react';
 
 
 function ShoppingCart({ shoppingCart, setShoppingCart , FullPayment,setFullPayment}) {
@@ -89,7 +90,13 @@ function ShoppingCart({ shoppingCart, setShoppingCart , FullPayment,setFullPayme
   };
 
   
-const [TotalProduct, setTotalProduct] = useState([0])
+const [TotalProduct, setTotalProduct] = useState([FullPayment])
+const [suma, setsuma] = useState()
+const [vSumTotal, setVSumTotal] = useState(0);
+const [TotalPrecio, setTotalpRECIO] = useState([])
+
+
+
 
 
   return (
@@ -103,7 +110,11 @@ const [TotalProduct, setTotalProduct] = useState([0])
           <ColorButton variant="outlined"  style={{marginRight: '1rem' }} onClick={handleSubmit}>
             Comprar ({shoppingCart.length})
           </ColorButton>
-          Full payment: $ {FullPayment}
+
+           {TotalProduct.map((PrecioTotal)=> <>Full Payment: ${PrecioTotal.Price}</>)}
+          {/* Full payment: $ {TotalProduct.map((total) => <div>{total}</div>)} */}
+          {/* Full payment: ${sumar = TotalProduct.reduce((prev, next) => prev + next.Price, 0)} */}
+            {/* {lista.reduce((prev, next) => prev + next.price, 0)} */}
       </div>
     </div>
   );

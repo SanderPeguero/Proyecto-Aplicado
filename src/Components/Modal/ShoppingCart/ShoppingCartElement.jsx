@@ -49,13 +49,7 @@ let PrecioTotalFinal = 0
 
 
 useEffect(()=> {
-  setFullPayment(PrecioTotalFinal = PrecioTotalFinal + Preciofinal)
-  // const sumaPrecios = product.reduce((prev, next) => prev + next.price, 0);
-  // const sumaPrecio = productDelete.reduce((prev, next) => prev + next.Precio, 0)
-  // console.log(product)
-  // console.log(prod + "Probando")
-  // console.log(sumaPrecio)
-  
+  setFullPayment(product)
 },[product])
 
 

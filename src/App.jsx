@@ -41,7 +41,7 @@ const App = () => {
 
 
   const [products, setProduct] = useState([])
-  const [FullPayment, setFullPayment] = useState(0)
+  const [FullPayment, setFullPayment] = useState([])
   
 
   const peticionGet = () => {
