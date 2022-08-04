@@ -8,22 +8,22 @@ import Data from './Data/Data.jsx'
 const Wallet = () => {
 
    //Valores de las llaves
-   const [secret, setSecret] = useState(null)
+   const [secret, setSecret] = useState(localStorage.secret)
 //    const [secret, setSecret] = useLocalStorage('secret', '')
-   const [publicKey, setPublicKey] = useState(null)
+   const [publicKey, setPublicKey] = useState(localStorage.publicKey)
 //    const [publicKey, setPublicKey] = useLocalStorage('publicKey', '')
 
    //Bandera para checar si ya copiaron la llave privada
-   const [isKeyCopied, setKeyCopied] = useState(null)
+   const [isKeyCopied, setKeyCopied] = useState(localStorage.keyCopied)
 //    const [isKeyCopied, setKeyCopied] = useLocalStorage('keyCopied', '')
 
    //Funcion para salir de la cuenta del
    const resetAccount = () => {
 
        //Al salir de la cuenta, removemos todos los datos de sesion
-    //    window.localStorage.removeItem("keyCopied")
-    //    window.localStorage.removeItem("publicKey")
-    //    window.localStorage.removeItem("secret")
+       localStorage.removeItem("keyCopied")
+       localStorage.removeItem("publicKey")
+       localStorage.removeItem("secret")
 
        
 
