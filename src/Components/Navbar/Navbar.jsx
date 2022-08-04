@@ -17,7 +17,7 @@ import Container from '@mui/material/Container'
 import Tooltip from '@mui/material/Tooltip';
 import Avatar from '@mui/material/Avatar';
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout', 'Pedidos'];
 
 const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, products }) => {
 

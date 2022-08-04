@@ -11,7 +11,7 @@ import ModalChat from './Components/Modal/ModalChat.jsx'
 import Fab from '@mui/material/Fab'
 import ChatIcon from '@mui/icons-material/Chat'
 import axios from 'axios'
-// import Wallet from './Components/Wallet/Wallet.jsx'
+import Wallet from './Components/Wallet/Wallet.jsx'
 import UrlApi from './globals'
 
 const style = {
@@ -41,7 +41,7 @@ const App = () => {
 
 
   const [products, setProduct] = useState([])
-  const [FullPayment, setFullPayment] = useState(1)
+  const [FullPayment, setFullPayment] = useState([])
   
 
   const peticionGet = () => {
@@ -66,7 +66,7 @@ const App = () => {
   
   useEffect(() =>{
     
-    // console.log( products)
+    console.log( products)
     peticionGet();
     localStorage.setItem('UserId', '')
     localStorage.setItem('Name', '')
@@ -114,7 +114,7 @@ const App = () => {
             <Route exact path='/' element={<Home className='HomeElement' />}></Route>
             <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} products={products} />}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
-            {/* <Route exact path='/wallet' element={<Wallet/>}></Route> */}
+            <Route exact path='/wallet' element={<Wallet/>}></Route>
             <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>
 
           </Routes>

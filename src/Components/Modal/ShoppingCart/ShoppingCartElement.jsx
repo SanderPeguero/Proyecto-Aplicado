@@ -21,7 +21,7 @@ const Img = styled('img')({
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export default function ComplexGrid({ product, ProductPayment, setProductPayment}) {
+export default function ComplexGrid({ product, FullPayment, setFullPayment}) {
 
   const handleChange = (event) => {
     setCant(event.target.value);
@@ -32,12 +32,25 @@ export default function ComplexGrid({ product, ProductPayment, setProductPayment
   const TotalP = 0;
 
  const [productDelete, setproductDelete] = useState([product])
- const [CalcProduct, setCalProduct] = useState([product]);
+ const [Product2, setProduct2] = useState([product]);
+ const prod = [product]
 
 
-// useEffect = (() =>{
-// setProductPayment(500)
-// })
+
+
+
+
+
+
+// useEffect(() => setTotalProduct(current => current + 10))
+let Preciofinal = 0
+let PrecioTotalFinal = 0
+
+
+
+useEffect(()=> {
+  setFullPayment(product)
+},[product])
 
 
  function deleteCarProduct (indice) {
@@ -128,13 +141,13 @@ export default function ComplexGrid({ product, ProductPayment, setProductPayment
           <Grid item>
             <Typography variant="body2" component="div"  >
               <br />
-              {product.Discount == 0 && <div>${product.Price * itemCount}</div>}
+              {product.Discount == 0 && <div>${Preciofinal =  product.Price * itemCount}</div>}
               <br />
-              {product.Discount > 0 && <div style={{ textDecoration: 'line-through' }}>${product.Price * itemCount}</div>}
+              {product.Discount > 0 && <div style={{ textDecoration: 'line-through' }}>${Preciofinal =  product.Price * itemCount}</div>}
               <br />
               {product.Discount > 0 &&
                 <div style={{ color: 'red' }}>
-                  ${ (product.Price - ((product.Discount / 100) * product.Price)) * itemCount}
+                  ${ Preciofinal = (product.Price - ((product.Discount / 100) * product.Price)) * itemCount}
                 </div>
               }
             </Typography>
