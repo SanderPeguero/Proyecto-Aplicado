@@ -66,7 +66,7 @@ const App = () => {
   
   useEffect(() =>{
     
-    console.log( products)
+    // console.log( products)
     peticionGet();
     localStorage.setItem('UserId', '')
     localStorage.setItem('Name', '')
@@ -78,7 +78,7 @@ const App = () => {
  
   return (
     <>
-      {console.log("SDK de Stellar: " + StellarSdk)}
+      {/* {console.log(StellarSdk)} */}
       <Router >
         <header>
           <Navbar setOpenLogin={setOpenLogIn}
