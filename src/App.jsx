@@ -78,6 +78,7 @@ const App = () => {
  
   return (
     <>
+      {console.log("SDK de Stellar: " + StellarSdk)}
       <Router >
         <header>
           <Navbar setOpenLogin={setOpenLogIn}
