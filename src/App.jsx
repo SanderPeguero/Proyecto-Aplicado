@@ -66,12 +66,12 @@ const App = () => {
   
   useEffect(() =>{
     
-    // console.log( products)
+    console.log(localStorage.UserId)
     peticionGet();
-    localStorage.setItem('UserId', '')
-    localStorage.setItem('Name', '')
-    localStorage.setItem('LastName', '')
-    localStorage.setItem('Email', '')
+    // localStorage.setItem('UserId', '')
+    // localStorage.setItem('Name', '')
+    // localStorage.setItem('LastName', '')
+    // localStorage.setItem('Email', '')
     // console.log(products)
 
   },[openChat])

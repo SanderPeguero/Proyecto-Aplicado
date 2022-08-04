@@ -50,11 +50,13 @@ export default function LogIn({ setOpen }) {
           })
 
           let user = response.data.User
-          console.log(user)
+          // localStorage.setItem('User', user)
           localStorage.setItem('UserId', user.UserId)
-          localStorage.setItem('Name', user.Name)
-          localStorage.setItem('LastName', user.LastName)
-          localStorage.setItem('Email', user.Email)
+          localStorage.setItem('UserName', user.Name)
+          localStorage.setItem('UserLastName', user.LastName)
+          localStorage.setItem('UserEmail', user.Email)
+          localStorage.setItem('UserSecretKey', user.SecretKey)
+          console.log(localStorage.getItem("UserId"))
           setOpen(false)
 
         } else if (response.data.Exist) {

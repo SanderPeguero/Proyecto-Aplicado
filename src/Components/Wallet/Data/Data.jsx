@@ -13,9 +13,10 @@ const Data = ({ publicKey, secret, resetAccount }) => {
    const updateAccount = () => {
 
        const getData = async () => {
+
            const account = await LoadAccount(publicKey);
-          //  const account = window.stellarsdk('https://horizon-testnet.stellar.org/').server.loadAccount(publicKey)
            setAccount(account)
+           
        }
 
        getData()

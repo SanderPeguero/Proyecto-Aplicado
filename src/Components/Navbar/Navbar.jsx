@@ -25,10 +25,20 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
   const handleOpenLogin = () => setOpenLogin(true)
   const handleOpenCarShop = () => setOpenCarShop(true)
   const variable = false
-  const [UserId, setUserId] = useState(null);
+  // const [UserId, setUserId] = useState(null);
   
   const [anchorElNav, setAnchorElNav] = useState(null)
   const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const [UserId, setUserId] = useState(localStorage.UserId);
+  const [UserName, setUserName] = useState(localStorage.UserName);
+  const [UserLastName, setUserLastName] = useState(localStorage.UserLastName);
+
+  // useEffect(() => {
+  //   setUserId(localStorage.UserId)
+  //   setUserName(localStorage.UserName)
+  //   setUserLastName(localStorage.UserLastName)
+  // }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -167,7 +177,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
 
 
                 {
-                  localStorage.UserId ? (
+                  UserId ? (
                     <>
                       <ButtonUnstyled className={styles.navbarLink} style={{
                         fontSize: '1.15rem',
@@ -178,9 +188,11 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
                         margin: '0, 1rem, 0, 0',
                         padding: '0'
                       }}>
-                        {localStorage.getItem("Name")}
+                        {/* {localStorage.getItem("Name")} */}
+                        {UserName}
                         {" "}
-                        {localStorage.getItem("LastName")} 
+                        {UserLastName}
+                        {/* {localStorage.getItem("LastName")}  */}
                       </ButtonUnstyled>
 
                       <Tooltip title="Open settings">
