@@ -19,13 +19,11 @@ import Avatar from '@mui/material/Avatar';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout', 'Pedidos'];
 
-const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, products }) => {
+const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, products, ItemsCount }) => {
 
   const handleOpenSigIn = () => setOpenSignIn(true)
   const handleOpenLogin = () => setOpenLogin(true)
   const handleOpenCarShop = () => setOpenCarShop(true)
-  const variable = false
-  // const [UserId, setUserId] = useState(null);
   
   const [anchorElNav, setAnchorElNav] = useState(null)
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -34,11 +32,6 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
   const [UserName, setUserName] = useState(localStorage.UserName);
   const [UserLastName, setUserLastName] = useState(localStorage.UserLastName);
 
-  // useEffect(() => {
-  //   setUserId(localStorage.UserId)
-  //   setUserName(localStorage.UserName)
-  //   setUserLastName(localStorage.UserLastName)
-  // }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -55,6 +48,18 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  //LogOut
+  const handleLogOut = (event) => {
+
+    localStorage.setItem('UserId', '')
+    localStorage.setItem('UserName', '')
+    localStorage.setItem('UserLastName', '')
+    localStorage.setItem('UserEmail', '')
+    localStorage.setItem('UserSecretKey', '')
+    handleCloseUserMenu()
+
+  }
 
   // useEffect(() => {
   //   if(localStorage.getItem('UserId')){
@@ -159,7 +164,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
                   border: '0',
                   padding: '0'
                 }}>
-                  <Badge color="secondary" badgeContent={shoppingCart.length}>
+                  <Badge color="secondary" badgeContent={ItemsCount}>
                     <ShoppingCartCheckoutRoundedIcon />
                   </Badge>
                 </ButtonUnstyled>
@@ -177,7 +182,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
 
 
                 {
-                  UserId ? (
+                  localStorage.UserId ? (
                     <>
                       <ButtonUnstyled className={styles.navbarLink} style={{
                         fontSize: '1.15rem',
@@ -217,11 +222,20 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                       >
-                      {settings.map((setting) => (
+                        <MenuItem onClick={handleCloseUserMenu}>
+                          <Typography textAlign="center">Profile</Typography>
+                        </MenuItem>
+                        <MenuItem onClick={handleCloseUserMenu}>
+                          <Typography textAlign="center">Orders</Typography>
+                        </MenuItem>
+                        <MenuItem onClick={handleLogOut}>
+                          <Typography textAlign="center">Logout</Typography>
+                        </MenuItem>
+                      {/* {settings.map((setting) => (
                         <MenuItem key={setting} onClick={handleCloseUserMenu}>
                           <Typography textAlign="center">{setting}</Typography>
                         </MenuItem>
-                      ))}
+                      ))} */}
                       </Menu>
                     </>
                   ) : (
