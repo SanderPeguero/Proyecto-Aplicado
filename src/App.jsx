@@ -46,7 +46,7 @@ const App = () => {
 
   const peticionGet = () => {
     
-    axios.get("https://quantumswap.herokuapp.com/products")
+    axios.get(UrlApi + "/products")
     
     .then(response => {
 
