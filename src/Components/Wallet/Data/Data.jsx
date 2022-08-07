@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { LoadAccount } from '../utils/LoadAccount.js'
+import { LoadAccount } from '../utils/LoadAccount.jsx'
 import Styles from './Data.module.css'
 import Chip from '../../../Images/Chip.png'
 import Button from '@mui/material/Button';
@@ -13,9 +13,10 @@ const Data = ({ publicKey, secret, resetAccount }) => {
    const updateAccount = () => {
 
        const getData = async () => {
+
            const account = await LoadAccount(publicKey);
-          //  const account = window.stellarsdk('https://horizon-testnet.stellar.org/').server.loadAccount(publicKey)
            setAccount(account)
+           
        }
 
        getData()

@@ -66,18 +66,25 @@ const App = () => {
   
   useEffect(() =>{
     
-    console.log( products)
+    console.log(localStorage.UserId)
     peticionGet();
-    localStorage.setItem('UserId', '')
-    localStorage.setItem('Name', '')
-    localStorage.setItem('LastName', '')
-    localStorage.setItem('Email', '')
     // console.log(products)
 
-  },[openChat])
+  },[openChat]) 
+  
+  const [ItemsCount, setItemsCount] = useState(shoppingCart.length);
+
+  useEffect(() => {
+
+    setItemsCount(shoppingCart.length)
+
+  }, [shoppingCart.length]);
+
+
  
   return (
     <>
+      {/* {console.log(StellarSdk)} */}
       <Router >
         <header>
           <Navbar setOpenLogin={setOpenLogIn}
@@ -86,6 +93,7 @@ const App = () => {
                   setOpenChat={setOpenChat}
                   shoppingCart={shoppingCart}
                   products={products}
+                  ItemsCount={ItemsCount}
           />
           <div onClick={ChatHandleClose} style={{
             width: '90px',

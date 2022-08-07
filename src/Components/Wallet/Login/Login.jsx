@@ -10,19 +10,19 @@ const Login = ({ setSecret, setPublicKey, setKeyCopied }) => {
   const [secretToImport, setSecretToImport] = useState('')
 
   //Funcion para crear una cuenta
-  // const createAccount = () => {
+  const createAccount = () => {
         
-  //   const keys = createTestAccount()
+    const keys = createTestAccount()
 
-  //   //Guardamos las llaves en la sesion
-  //   window.localStorage.setItem('secret', keys.secret)
-  //   window.localStorage.setItem('publicKey', keys.publicKey)
+   //Guardamos las llaves en la sesion
+    localStorage.setItem('secret', keys.secret)
+    localStorage.setItem('publicKey', keys.publicKey)
     
-  //   //Actualizamos la vista y pasamos a copy
-  //   setPublicKey(keys.publicKey)
-  //   setSecret(keys.secret)
+    //Actualizamos la vista y pasamos a copy
+    setPublicKey(keys.publicKey)
+    setSecret(keys.secret)
 
-  // }
+  }
 
   // Funcion para importar una cuenta desde el secret
   const importAccount = () => {
@@ -30,17 +30,17 @@ const Login = ({ setSecret, setPublicKey, setKeyCopied }) => {
       //Todas las secret keys tienen una longitud de 56 caracteres
       if(secretToImport.length === 56){
           
-          // const sourceKeys = window.StellarSdk.Keypair.fromSecret(secretToImport).publicKey()
-          const sourceKeys = window.StellarSdk
+          // const sourceKeys = StellarSdk.Keypair.fromSecret(secretToImport).publicKey()
+          const sourceKeys = StellarSdk.Keypair.fromSecret(secretToImport)
+          // const sourceKeys = StellarSdk
           
           //Al importar una cuenta, hay que guardar todos los flags en localStorage para mantener la sesion
-          // window.localStorage.setItem('secret', secretToImport)
-          // window.localStorage.setItem('publicKey', sourceKeys.publicKey())
-          // window.localStorage.setItem('keyCopied', true)
+          localStorage.setItem('secret', secretToImport)
+          localStorage.setItem('publicKey', sourceKeys.publicKey())
+          localStorage.setItem('keyCopied', true)
 
           //Con esto actualizamos correctamente la vista
-          setPublicKey(sourceKeys)
-          // setPublicKey('GDRSFGJW45KDRN46RRQ7FCR6PRTDDJ2XMAWSD6V6WWL3EZNBYZWKIQY3')
+          setPublicKey(sourceKeys.publicKey())
           setSecret(secretToImport)
           setKeyCopied(true)
 
