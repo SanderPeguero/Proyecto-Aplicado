@@ -21,7 +21,7 @@ const Img = styled('img')({
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export default function ComplexGrid({ product, FullPayment, setFullPayment}) {
+export default function ComplexGrid({ product, FullPayment, setFullPayment, shoppingCart, setShoppingCart}) {
 
   const handleChange = (event) => {
     setCant(event.target.value);
@@ -54,11 +54,11 @@ useEffect(()=> {
 
 
  function deleteCarProduct (indice) {
-  const newProduct = productDelete.filter(function (element){
+  const newProduct = shoppingCart.filter(function (element){
     return element.index !== indice
   });
     console.log(newProduct);
-    setproductDelete(newProduct);
+    setShoppingCart(newProduct);
  }
 
 
@@ -78,7 +78,7 @@ useEffect(()=> {
       }}
       key={Math.random() * (1 - 1000)}
     >
-      {productDelete.map((productRemove)=>
+      {shoppingCart.map((productRemove)=>
        <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
@@ -130,7 +130,7 @@ useEffect(()=> {
             </Grid>
             
             <Grid item>
-               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={product.IDProducto} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
+               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={shoppingCart.ProductId} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
                Remove
              </Button>
             </Grid>
