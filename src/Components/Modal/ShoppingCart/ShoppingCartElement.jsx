@@ -54,11 +54,11 @@ useEffect(()=> {
 
 
  function deleteCarProduct (indice) {
-  const newProduct = shoppingCart.filter(function (element){
+  const newProduct = productDelete.filter(function (element){
     return element.index !== indice
   });
     console.log(newProduct);
-    setShoppingCart(newProduct);
+    setproductDelete(newProduct);
  }
 
 
@@ -78,7 +78,7 @@ useEffect(()=> {
       }}
       key={Math.random() * (1 - 1000)}
     >
-      {shoppingCart.map((productRemove)=>
+      {productDelete.map((productRemove)=>
        <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
@@ -130,7 +130,7 @@ useEffect(()=> {
             </Grid>
             
             <Grid item>
-               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={shoppingCart.ProductId} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
+               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={product.IDProducto} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
                Remove
              </Button>
             </Grid>
