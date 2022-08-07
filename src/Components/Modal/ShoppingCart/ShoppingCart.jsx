@@ -112,9 +112,6 @@ const [TotalPrecio, setTotalpRECIO] = useState([])
           </ColorButton>
            {shoppingCart != 0 && TotalProduct.map((PrecioTotal)=> <>Full Payment: ${PrecioTotal.Price}</>)}
            {shoppingCart.length == 0 && <>Full payment: $0</> }
-          {/* Full payment: $ {TotalProduct.map((total) => <div>{total}</div>)} */}
-          {/* Full payment: ${sumar = TotalProduct.reduce((prev, next) => prev + next.Price, 0)} */}
-            {/* {lista.reduce((prev, next) => prev + next.price, 0)} */}
       </div>
     </div>
   );
