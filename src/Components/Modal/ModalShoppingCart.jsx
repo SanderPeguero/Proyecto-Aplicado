@@ -36,7 +36,7 @@ const BasicModal = ({ open, setOpen, ItemCount, shoppingCart, setShoppingCart, F
           <Fab size='small' color="primary" aria-label="cerrar" onClick={handleClose} style={{ background: 'black', alignSelf: 'inherit', borderRight: '3rem', float: 'right'}}>
             <CloseIcon style={{ color: 'white' }}></CloseIcon>
           </Fab>
-          <ShoppingCart  key={Math.random() * (1 - 1000)} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} FullPayment={FullPayment} setFullPayment={setFullPayment}/>
+          <ShoppingCart key={Math.random() * (1 - 1000)} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} FullPayment={FullPayment} setFullPayment={setFullPayment}/>
          
         </Box>
       </Modal>

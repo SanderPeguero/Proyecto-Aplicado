@@ -13,7 +13,6 @@ import { useEffect } from 'react';
 function ShoppingCart({ shoppingCart, setShoppingCart , FullPayment,setFullPayment}) {
 
   const [ProductPayment, setProductPayment] = useState(0);
-  // const [FullPayment, setFullPayment] = useState(0);
 
   const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(indigo[800]),
@@ -91,9 +90,8 @@ function ShoppingCart({ shoppingCart, setShoppingCart , FullPayment,setFullPayme
 
   
 const [TotalProduct, setTotalProduct] = useState([FullPayment])
-const [suma, setsuma] = useState()
-const [vSumTotal, setVSumTotal] = useState(0);
-const [TotalPrecio, setTotalpRECIO] = useState([])
+const [suma, setsuma] = useState(1)
+
 
 
 
@@ -104,14 +102,20 @@ const [TotalPrecio, setTotalpRECIO] = useState([])
       <h2>
         Tiene {shoppingCart.length} articulos en el carrito
       </h2>
-      {shoppingCart.map((product) =>{  return <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} FullPayment={FullPayment} setFullPayment = {setFullPayment} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart}/>  } ) }
-      <div className={styles.payment}  key={Math.random() * (1 - 1000)}>
+      {shoppingCart.map((product) => {  return <ShoppingCartElement key={Math.random() * (1 - 1000)} product={product} FullPayment={FullPayment} setFullPayment={setFullPayment} setsuma={setsuma}/>  } ) }
+      <div key={shoppingCart} className={styles.payment}>
           <br/>
           <ColorButton variant="outlined"  style={{marginRight: '1rem' }} onClick={handleSubmit}>
             Comprar ({shoppingCart.length})
           </ColorButton>
-           {shoppingCart != 0 && TotalProduct.map((PrecioTotal)=> <>Full Payment: ${PrecioTotal.Price}</>)}
-           {shoppingCart.length == 0 && <>Full payment: $0</> }
+
+          {/* {shoppingCart.map((product) => )} */}
+          {/* {product.Discount == 0 && Preciofinal =  product.Price * itemCount} */}
+          <>Full Payment: ${suma}</>
+          {/* Full payment: $ {TotalProduct.map((total) => <div>{total}</div>)} */}
+          {/* Full payment: ${sumar = TotalProduct.reduce((prev, next) => prev + next.Price, 0)} */}
+            {/* {lista.reduce((prev, next) => prev + next.price, 0)} */}
+
       </div>
     </div>
   );

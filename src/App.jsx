@@ -66,9 +66,7 @@ const App = () => {
   
   useEffect(() =>{
     
-    console.log(localStorage.UserId)
     peticionGet();
-    // console.log(products)
 
   },[openChat]) 
   
@@ -109,7 +107,7 @@ const App = () => {
           </div>
           <ModalSigIn className='ModalSignIn' open={openSignIn} setOpen={setOpenSignIn} />
           <ModalLogIn className='ModalLogIn' open={openLogIn} setOpen={setOpenLogIn} />
-          <ModalShoppingCart  key={Math.random() * (1 - 1000)} className='ModalShoppingCart'   open={openCarShop} setOpen={setOpenCarShop} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} FullPayment={FullPayment} setFullPayment={setFullPayment}/>
+          <ModalShoppingCart className='ModalShoppingCart'   open={openCarShop} setOpen={setOpenCarShop} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} FullPayment={FullPayment} setFullPayment={setFullPayment}/>
           <ModalChat className='ModalChat' open={openChat} setOpen={setOpenChat} style={{margin: '0'}} />
           
           

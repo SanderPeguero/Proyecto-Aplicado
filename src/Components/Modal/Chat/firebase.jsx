@@ -2,15 +2,18 @@ import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD52UIZVMKMLRlhHOVgewa2y-MN66kGu00",
-    authDomain: "schat01.firebaseapp.com",
-    projectId: "schat01",
-    storageBucket: "schat01.appspot.com",
-    messagingSenderId: "1016046469216",
-    appId: "1:1016046469216:web:5fd8322a9b7981c0084305",
-    measurementId: "G-PJ4N06QCH3"
-};
+  apiKey: "AIzaSyC0bf6ukoCvURxnSCffcmBAYtPV_tcyao4",
+  authDomain: "quantumswap22.firebaseapp.com",
+  databaseURL: "https://quantumswap22-default-rtdb.firebaseio.com",
+  projectId: "quantumswap22",
+  storageBucket: "quantumswap22.appspot.com",
+  messagingSenderId: "698793619036",
+  appId: "1:698793619036:web:2003dd0942b83f7d050099",
+  measurementId: "G-6NPP753XL2"
+}
+
 const app = initializeApp(firebaseConfig);
 export const db=getFirestore()
 export default app;
