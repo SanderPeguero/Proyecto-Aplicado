@@ -21,7 +21,7 @@ const Img = styled('img')({
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export default function ComplexGrid({ product, FullPayment, setFullPayment, setsuma}) {
+export default function ComplexGrid({ product, FullPayment, setFullPayment, shoppingCart, setShoppingCart, setsuma}) {
 
   const handleChange = (event) => {
     setCant(event.target.value);
@@ -135,7 +135,7 @@ useEffect(()=> {
             </Grid>
             
             <Grid item>
-               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={shoppingCart.ProductId} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
+               <Button sx={{ cursor: 'pointer' }} variant="body2"  onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
                Remove
              </Button>
             </Grid>
