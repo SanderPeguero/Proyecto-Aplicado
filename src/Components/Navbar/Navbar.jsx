@@ -202,7 +202,7 @@ const Navbar = ({ setOpenSignIn, setOpenLogin, setOpenCarShop, shoppingCart, pro
 
                       <Tooltip title="Open settings">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                          <Avatar alt={localStorage.Name} src="/static/images/avatar/2.jpg" />
+                          <Avatar alt={localStorage.UserName} src={localStorage.UserImage} />
                         </IconButton>
                       </Tooltip>
 

@@ -21,7 +21,7 @@ const Img = styled('img')({
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export default function ComplexGrid({ product, FullPayment, setFullPayment}) {
+export default function ComplexGrid({ product, FullPayment, setFullPayment, setsuma}) {
 
   const handleChange = (event) => {
     setCant(event.target.value);
@@ -62,7 +62,12 @@ useEffect(()=> {
  }
 
 
+ 
+  useEffect(() => {
 
+    setsuma(product.price * itemCount)
+    
+  }, [Preciofinal]);
 
 
   return (
@@ -76,10 +81,10 @@ useEffect(()=> {
         backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }}
-      key={Math.random() * (1 - 1000)}
+      
     >
       {productDelete.map((productRemove)=>
-       <Grid container spacing={2}>
+       <Grid key={Math.random() * (1 - 1000)} container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
             <Img className={styles.image} alt={product.imageAlt} src={product.Image} />
