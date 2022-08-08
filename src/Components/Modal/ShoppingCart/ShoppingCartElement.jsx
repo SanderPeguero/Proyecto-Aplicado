@@ -54,11 +54,11 @@ useEffect(()=> {
 
 
  function deleteCarProduct (indice) {
-  const newProduct = productDelete.filter(function (element){
+  const newProduct = shoppingCart.filter(function (element){
     return element.index !== indice
   });
     console.log(newProduct);
-    setproductDelete(newProduct);
+    setShoppingCart(newProduct);
  }
 
 
@@ -135,7 +135,7 @@ useEffect(()=> {
             </Grid>
             
             <Grid item>
-               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={product.IDProducto} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
+               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={shoppingCart.ProductId} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
                Remove
              </Button>
             </Grid>

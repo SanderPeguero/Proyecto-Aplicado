@@ -108,12 +108,14 @@ const [suma, setsuma] = useState(1)
           <ColorButton variant="outlined"  style={{marginRight: '1rem' }} onClick={handleSubmit}>
             Comprar ({shoppingCart.length})
           </ColorButton>
+
           {/* {shoppingCart.map((product) => )} */}
           {/* {product.Discount == 0 && Preciofinal =  product.Price * itemCount} */}
           <>Full Payment: ${suma}</>
           {/* Full payment: $ {TotalProduct.map((total) => <div>{total}</div>)} */}
           {/* Full payment: ${sumar = TotalProduct.reduce((prev, next) => prev + next.Price, 0)} */}
             {/* {lista.reduce((prev, next) => prev + next.price, 0)} */}
+
       </div>
     </div>
   );
