@@ -11,7 +11,7 @@ import ModalChat from './Components/Modal/ModalChat.jsx'
 import Fab from '@mui/material/Fab'
 import ChatIcon from '@mui/icons-material/Chat'
 import axios from 'axios'
-// import Wallet from './Components/Wallet/Wallet.jsx'
+import Wallet from './Components/Wallet/Wallet.jsx'
 import UrlApi from './globals'
 
 const style = {
@@ -66,9 +66,7 @@ const App = () => {
   
   useEffect(() =>{
     
-    console.log(localStorage.UserId)
     peticionGet();
-    // console.log(products)
 
   },[openChat]) 
   
@@ -109,7 +107,7 @@ const App = () => {
           </div>
           <ModalSigIn className='ModalSignIn' open={openSignIn} setOpen={setOpenSignIn} />
           <ModalLogIn className='ModalLogIn' open={openLogIn} setOpen={setOpenLogIn} />
-          <ModalShoppingCart  key={Math.random() * (1 - 1000)} className='ModalShoppingCart'   open={openCarShop} setOpen={setOpenCarShop} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} FullPayment={FullPayment} setFullPayment={setFullPayment}/>
+          <ModalShoppingCart className='ModalShoppingCart'   open={openCarShop} setOpen={setOpenCarShop} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} FullPayment={FullPayment} setFullPayment={setFullPayment}/>
           <ModalChat className='ModalChat' open={openChat} setOpen={setOpenChat} style={{margin: '0'}} />
           
           
@@ -122,7 +120,7 @@ const App = () => {
             <Route exact path='/' element={<Home className='HomeElement' />}></Route>
             <Route exact path='/store' element={<Store className='StoreElement' shoppingCart={shoppingCart} products={products} />}></Route>
             <Route exact path='/Login' element={<Home className='HomeElement' />}></Route>
-            {/* <Route exact path='/wallet' element={<Wallet/>}></Route> */}
+            <Route exact path='/wallet' element={<Wallet/>}></Route>
             <Route exact path='/InfoProducto' element={<InfoProducto products={ products } />}></Route>
 
           </Routes>

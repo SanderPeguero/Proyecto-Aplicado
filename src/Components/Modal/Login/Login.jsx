@@ -55,8 +55,8 @@ export default function LogIn({ setOpen }) {
           localStorage.setItem('UserName', user.Name)
           localStorage.setItem('UserLastName', user.LastName)
           localStorage.setItem('UserEmail', user.Email)
+          localStorage.setItem('UserImage', user.Image)
           localStorage.setItem('UserSecretKey', user.SecretKey)
-          console.log(localStorage.getItem("UserId"))
           setOpen(false)
 
         } else if (response.data.Exist) {

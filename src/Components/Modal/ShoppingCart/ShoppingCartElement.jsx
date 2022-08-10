@@ -21,7 +21,7 @@ const Img = styled('img')({
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export default function ComplexGrid({ product, FullPayment, setFullPayment, shoppingCart, setShoppingCart}) {
+export default function ComplexGrid({ product, FullPayment, setFullPayment, shoppingCart, setShoppingCart, setsuma}) {
 
   const handleChange = (event) => {
     setCant(event.target.value);
@@ -62,7 +62,12 @@ useEffect(()=> {
  }
 
 
+ 
+  useEffect(() => {
 
+    setsuma(product.price * itemCount)
+    
+  }, [Preciofinal]);
 
 
   return (
@@ -76,9 +81,9 @@ useEffect(()=> {
         backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }}
-      key={Math.random() * (1 - 1000)}
+      
     >
-      {productDelete.map((productRemove)=>
+      {shoppingCart.map((productRemove)=>
        <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
@@ -130,7 +135,7 @@ useEffect(()=> {
             </Grid>
             
             <Grid item>
-               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={product.IDProducto} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
+               <Button sx={{ cursor: 'pointer' }} variant="body2"  key={shoppingCart.ProductId} onClick={deleteCarProduct.bind(productRemove, productRemove.index)}>
                Remove
              </Button>
             </Grid>
